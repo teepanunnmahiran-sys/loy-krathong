@@ -1,0 +1,4735 @@
+<!DOCTYPE html>
+<html lang="th" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ลอยกระทงออนไลน์ ๒๕๖๙ | วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์</title>
+  <meta name="description" content="ร่วมสืบสานประเพณีลอยกระทงออนไลน์ ขอขมาพระแม่คงคา แบบรักษ์โลก ไร้มลพิษ วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            thaluang: {
+              purple: '#2e0854',
+              night: '#0b0f2a',
+              river: '#092047',
+              gold: '#fbbf24',
+              orange: '#f97316'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <style>
+/* ==========================================================================
+   เทศกาลลอยกระทงออนไลน์ - วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์
+   ธีมสี: ม่วง น้ำเงิน ทอง และส้ม (อบอุ่น สง่างาม สมเกียรติความเป็นไทย)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Charm:wght@400;700&display=swap');
+
+:root {
+  --color-primary-purple: #2e0854;
+  --color-deep-night: #0b0f2a;
+  --color-river-blue: #092047;
+  --color-royal-gold: #fbbf24;
+  --color-gold-glow: #f59e0b;
+  --color-flame-orange: #f97316;
+  --color-candle-core: #fffbeb;
+  --font-heading: 'Prompt', 'Kanit', sans-serif;
+  --font-traditional: 'Charm', cursive;
+  --font-body: 'Sarabun', 'Prompt', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-deep-night);
+  color: #f8fafc;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-thai-traditional {
+  font-family: var(--font-traditional);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.8);
+}
+
+/* Glassmorphism & Gold Borders */
+.glass-panel {
+  background: rgba(23, 11, 46, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+}
+
+.glass-panel-gold {
+  background: linear-gradient(135deg, rgba(38, 16, 74, 0.85) 0%, rgba(15, 23, 42, 0.85) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  box-shadow: 0 10px 40px rgba(245, 158, 11, 0.15), inset 0 1px 0 rgba(254, 240, 138, 0.3);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #fef08a 0%, #fbbf24 40%, #f59e0b 70%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.35));
+}
+
+.gold-border {
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.12);
+}
+
+.gold-glow-btn {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #1a0836;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(254, 240, 138, 0.6);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gold-glow-btn:hover {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(245, 158, 11, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.purple-glow-btn {
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35);
+  transition: all 0.25s ease;
+}
+
+.purple-glow-btn:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+}
+
+/* Animations */
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    filter: drop-shadow(0 0 8px #f97316) drop-shadow(0 0 18px #fbbf24);
+    opacity: 0.95;
+  }
+  25% {
+    transform: scale(1.08, 0.95) rotate(1deg);
+    filter: drop-shadow(0 0 12px #f97316) drop-shadow(0 0 24px #f59e0b);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.96, 1.05) rotate(-2deg);
+    filter: drop-shadow(0 0 7px #ea580c) drop-shadow(0 0 15px #f59e0b);
+    opacity: 0.9;
+  }
+  75% {
+    transform: scale(1.04, 1.02) rotate(2deg);
+    filter: drop-shadow(0 0 10px #f97316) drop-shadow(0 0 22px #fbbf24);
+    opacity: 0.98;
+  }
+}
+
+.candle-flame {
+  animation: flameFlicker 1.8s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
+@keyframes waterFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.2deg);
+  }
+}
+
+.water-floating {
+  animation: waterFloat 4s infinite ease-in-out;
+}
+
+@keyframes moonPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 35px rgba(254, 240, 138, 0.5)) drop-shadow(0 0 75px rgba(251, 191, 36, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 50px rgba(254, 240, 138, 0.75)) drop-shadow(0 0 100px rgba(251, 191, 36, 0.45));
+  }
+}
+
+.moon-glow {
+  animation: moonPulse 6s infinite ease-in-out;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+.pulse-soft {
+  animation: gentlePulse 3s infinite ease-in-out;
+}
+
+/* Modal Transitions */
+.modal-backdrop {
+  background: rgba(8, 5, 20, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-enter {
+  animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Thai Ornament Borders */
+.thai-border-corner {
+  position: relative;
+}
+.thai-border-corner::before,
+.thai-border-corner::after {
+  content: "✤";
+  position: absolute;
+  color: #fbbf24;
+  font-size: 14px;
+  line-height: 1;
+}
+.thai-border-corner::before {
+  top: 6px;
+  left: 6px;
+}
+.thai-border-corner::after {
+  bottom: 6px;
+  right: 6px;
+}
+
+/* Floating Krathong Tag in River Canvas */
+.krathong-tooltip {
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Krathong Customizer Preview Container */
+#krathong-preview-box {
+  background: radial-gradient(circle at 50% 60%, rgba(26, 16, 60, 0.9) 0%, rgba(8, 12, 32, 0.95) 100%);
+  border-radius: 1.25rem;
+  box-shadow: inset 0 0 30px rgba(245, 158, 11, 0.15), 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+#krathong-preview-box::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(14, 116, 144, 0.35), transparent);
+  pointer-events: none;
+}
+
+/* Shimmer ripple under water */
+.water-ripple-line {
+  stroke-dasharray: 6 12;
+  animation: rippleMove 8s linear infinite;
+}
+
+@keyframes rippleMove {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 100; }
+}
+
+/* Audio Visualizer Waves */
+.sound-bar {
+  display: inline-block;
+  width: 3px;
+  background-color: #fbbf24;
+  border-radius: 3px;
+  margin: 0 1px;
+  animation: soundBounce 1.2s ease-in-out infinite alternate;
+}
+.sound-bar:nth-child(1) { height: 10px; animation-delay: 0.1s; }
+.sound-bar:nth-child(2) { height: 16px; animation-delay: 0.3s; }
+.sound-bar:nth-child(3) { height: 8px;  animation-delay: 0.5s; }
+.sound-bar:nth-child(4) { height: 14px; animation-delay: 0.2s; }
+
+@keyframes soundBounce {
+  from { transform: scaleY(0.4); }
+  to { transform: scaleY(1.2); }
+}
+
+/* Siamese Fortune Shaking */
+@keyframes shakeBox {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-2deg); }
+  20% { transform: translate(-3px, 0px) rotate(2deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(2deg); }
+  50% { transform: translate(-1px, 2px) rotate(-2deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-2deg); }
+  80% { transform: translate(-1px, -1px) rotate(2deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shaking-siamsi {
+  animation: shakeBox 0.6s infinite;
+}
+
+</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen relative overflow-x-hidden selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- Background Canvas for River, Night Sky & Water Waves (Always present in background) -->
+  <canvas id="river-canvas" class="fixed inset-0 w-full h-full -z-10"></canvas>
+
+  <!-- Interactive Floating Tooltip for River Krathongs -->
+  <div id="river-tooltip" class="krathong-tooltip fixed z-40 opacity-0 pointer-events-none glass-panel px-4 py-2.5 rounded-2xl border border-amber-400/50 shadow-2xl max-w-xs transition-opacity duration-200">
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="app-toast" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 opacity-0 pointer-events-none transition-all duration-300 glass-panel-gold px-6 py-3 rounded-full text-sm font-semibold text-amber-200 shadow-2xl flex items-center gap-2">
+    <span>✨ ยินดีต้อนรับสู่งานลอยกระทงออนไลน์</span>
+  </div>
+
+  <!-- =========================================================================
+       HEADER / NAVBAR
+       ========================================================================= -->
+  <header class="sticky top-0 z-40 w-full glass-panel border-b border-amber-400/25 px-4 lg:px-8 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      
+      <!-- Logo & Brand -->
+      <div class="flex items-center gap-3 cursor-pointer" data-view-target="home">
+        <!-- Thai Technical Gear Emblem -->
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 ring-2 ring-amber-300/60">
+          <span class="text-slate-950 font-black text-xl">⚙</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base sm:text-lg font-bold text-amber-300 tracking-wide font-heading leading-tight">
+              ลอยกระทงออนไลน์ ๒๕๖๙
+            </h1>
+            <span class="hidden md:inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-900/80 text-purple-200 border border-purple-400/30">
+              รักษ์โลก ๑๐๐%
+            </span>
+          </div>
+          <p class="text-xs text-purple-200/80 leading-tight">วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์</p>
+        </div>
+      </div>
+
+      <!-- Live Clock Display (Thai Buddhist Era) -->
+      <div class="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-950/50 border border-purple-500/20 text-xs text-amber-200/90">
+        <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span id="thai-live-clock">กำลังโหลดเวลา...</span>
+      </div>
+
+      <!-- Navigation Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Desktop Nav Links -->
+        <nav class="hidden lg:flex items-center gap-1.5">
+          <button type="button" data-view-target="home" class="px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 hover:text-amber-300 hover:bg-purple-900/40 transition-all flex items-center gap-1.5">
+            <i data-lucide="home" class="w-4 h-4"></i>
+            <span>หน้าแรก</span>
+          </button>
+          <button type="button" data-view-target="creator" class="px-3 py-1.5 rounded-xl text-xs font-semibold text-amber-300 bg-amber-400/10 border border-amber-400/40 hover:bg-amber-400/20 transition-all flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+            <span>ทำกระทง</span>
+          </button>
+          <button type="button" data-view-target="river" class="px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 hover:text-amber-300 hover:bg-purple-900/40 transition-all flex items-center gap-1.5">
+            <i data-lucide="waves" class="w-4 h-4"></i>
+            <span>ชมสายน้ำ</span>
+          </button>
+          <button type="button" data-view-target="temple" class="px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 hover:text-amber-300 hover:bg-purple-900/40 transition-all flex items-center gap-1.5">
+            <i data-lucide="store" class="w-4 h-4"></i>
+            <span>งานวัดจำลอง</span>
+          </button>
+          <button type="button" data-view-target="stats" class="px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 hover:text-amber-300 hover:bg-purple-900/40 transition-all flex items-center gap-1.5">
+            <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
+            <span>สถิติ</span>
+          </button>
+          <button type="button" data-view-target="pr" class="px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 hover:text-amber-300 hover:bg-purple-900/40 transition-all flex items-center gap-1.5">
+            <i data-lucide="megaphone" class="w-4 h-4"></i>
+            <span>ประชาสัมพันธ์</span>
+          </button>
+        </nav>
+
+        <!-- Sound / Music Toggle Button -->
+        <button id="btn-toggle-music" type="button" title="เปิด/ปิดเสียงดนตรีไทยและบรรยากาศ" 
+                class="px-3 py-1.5 rounded-xl glass-panel border border-amber-400/30 text-amber-300 hover:bg-purple-900/50 transition-all flex items-center gap-2 text-xs">
+          <i id="music-icon" data-lucide="volume-2" class="w-4 h-4 text-amber-400"></i>
+          <span class="hidden sm:inline">ดนตรีไทย</span>
+          <span id="sound-bars" class="items-center" style="display: none;">
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+          </span>
+        </button>
+
+        <!-- Admin Portal Icon Button -->
+        <button type="button" data-view-target="admin" title="ระบบจัดการผู้ดูแลระบบ" 
+                class="p-2 rounded-xl glass-panel border border-purple-500/30 text-slate-300 hover:text-amber-300 hover:border-amber-400/50 transition-all">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       VIEW 1: หน้าแรก (HOME VIEW)
+       ========================================================================= -->
+  <main id="home-view" class="max-w-7xl mx-auto px-4 lg:px-8 py-8 sm:py-14">
+    
+    <!-- Hero Center Banner -->
+    <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+      
+      <!-- Top Decorative Thai Emblem Pill -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel-gold border border-amber-400/40 mb-6 shadow-xl animate-bounce">
+        <span class="text-amber-300 text-sm">🌕</span>
+        <span class="text-xs sm:text-sm font-semibold text-amber-200 tracking-wider">
+          วันเพ็ญเดือนสิบสอง • คืนจันทร์เต็มดวงริมแม่น้ำป่าสัก
+        </span>
+      </div>
+
+      <!-- Main Headline -->
+      <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black mb-4 tracking-tight leading-tight">
+        <span class="gold-gradient-text">ลอยกระทงออนไลน์</span>
+        <br>
+        <span class="text-slate-100 text-2xl sm:text-4xl font-bold">วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์</span>
+      </h2>
+
+      <!-- Description / Invitation -->
+      <p class="text-base sm:text-lg text-purple-200/90 leading-relaxed font-normal mb-8 max-w-2xl mx-auto">
+        ขอเชิญชวนผู้บริหาร คณะครู บุคลากรทางการศึกษา ศิษย์เก่า และนักเรียน นักศึกษาทุกแผนกวิชา
+        ร่วมสืบสานประเพณีไทย ขอขมาพระแม่คงคา เสริมสิริมงคลให้ชีวิต และรักษาสิ่งแวดล้อมอย่างยั่งยืน
+      </p>
+
+      <!-- Primary Call to Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-10">
+        
+        <!-- Button: Start Krathong -->
+        <button type="button" data-view-target="creator" 
+                class="gold-glow-btn px-6 sm:px-8 py-3.5 rounded-2xl text-base sm:text-lg font-bold flex items-center gap-3">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+          <span>🌸 เริ่มประดิษฐ์และลอยกระทง</span>
+        </button>
+
+        <!-- Button: View River -->
+        <button type="button" data-view-target="river" 
+                class="glass-panel px-5 sm:px-7 py-3.5 rounded-2xl text-base font-semibold text-slate-100 border border-amber-400/30 hover:border-amber-400 hover:bg-purple-950/60 transition-all flex items-center gap-2.5">
+          <i data-lucide="waves" class="w-5 h-5 text-sky-400"></i>
+          <span>ชมสายน้ำและกระทงเพื่อนๆ</span>
+        </button>
+
+        <!-- Button: Temple Fair -->
+        <button type="button" data-view-target="temple" 
+                class="glass-panel px-5 sm:px-7 py-3.5 rounded-2xl text-base font-semibold text-amber-300 border border-amber-400/30 hover:border-amber-400 hover:bg-purple-950/60 transition-all flex items-center gap-2.5">
+          <i data-lucide="store" class="w-5 h-5 text-amber-400"></i>
+          <span>🏮 เที่ยวงานวัด & เซียมซี</span>
+        </button>
+
+      </div>
+
+      <!-- Quick Guidance & Prayer Badge -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-3 text-xs text-purple-300/80">
+        <button type="button" onclick="document.getElementById('how-to-modal').classList.remove('hidden')" class="hover:text-amber-300 underline flex items-center gap-1">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
+          <span>วิธีการร่วมกิจกรรม</span>
+        </button>
+        <span>•</span>
+        <button type="button" onclick="document.getElementById('prayer-history-modal').classList.remove('hidden')" class="hover:text-amber-300 underline flex items-center gap-1">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          <span>บทขอขมาพระแม่คงคา & ประวัติวันลอยกระทง</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Quick Real-Time Statistics Strip -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto mb-12">
+      
+      <div class="glass-panel-gold p-4 sm:p-5 rounded-2xl text-center border border-amber-400/30">
+        <div class="text-xs font-medium text-amber-300/90 mb-1 flex items-center justify-center gap-1.5">
+          <i data-lucide="flame" class="w-4 h-4 text-amber-400"></i>
+          <span>กระทงที่ถูกลอยทั้งหมด</span>
+        </div>
+        <div id="stat-total-krathongs" class="text-2xl sm:text-3xl font-extrabold gold-gradient-text">645</div>
+        <div class="text-[11px] text-purple-200/70 mt-0.5">รวมพลังสายน้ำดิจิทัล</div>
+      </div>
+
+      <div class="glass-panel-gold p-4 sm:p-5 rounded-2xl text-center border border-amber-400/30">
+        <div class="text-xs font-medium text-amber-300/90 mb-1 flex items-center justify-center gap-1.5">
+          <i data-lucide="users" class="w-4 h-4 text-sky-400"></i>
+          <span>ผู้เข้าร่วมกิจกรรม</span>
+        </div>
+        <div id="stat-total-participants" class="text-2xl sm:text-3xl font-extrabold text-sky-300">693</div>
+        <div class="text-[11px] text-purple-200/70 mt-0.5">คณะครู บุคลากร และนักศึกษา</div>
+      </div>
+
+      <div class="glass-panel-gold p-4 sm:p-5 rounded-2xl text-center border border-amber-400/30">
+        <div class="text-xs font-medium text-amber-300/90 mb-1 flex items-center justify-center gap-1.5">
+          <i data-lucide="waves" class="w-4 h-4 text-emerald-400"></i>
+          <span>กระทงลอยในน้ำขณะนี้</span>
+        </div>
+        <div id="stat-floating-now" class="text-2xl sm:text-3xl font-extrabold text-emerald-300">38</div>
+        <div class="text-[11px] text-purple-200/70 mt-0.5">ส่องประกายแสงเทียนเรียลไทม์</div>
+      </div>
+
+    </div>
+
+    <!-- Feature Highlights Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      
+      <div class="glass-panel p-6 rounded-2xl border border-amber-400/20 hover:border-amber-400/60 transition-all flex flex-col items-center text-center">
+        <div class="w-14 h-14 rounded-2xl bg-purple-900/60 border border-purple-400/30 flex items-center justify-center text-2xl mb-4">
+          🌸
+        </div>
+        <h3 class="text-lg font-bold text-amber-300 mb-2">ประดิษฐ์กระทงตามใจชอบ</h3>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          เลือกกระทงใบตอง ดอกบัว ขนมปัง กะลา หรือกระทงแฟนตาซีช่างเทคนิค พร้อมเลือกดอกไม้ ธูปเทียน และเหรียญมงคลได้ตามใจ
+        </p>
+      </div>
+
+      <div class="glass-panel p-6 rounded-2xl border border-amber-400/20 hover:border-amber-400/60 transition-all flex flex-col items-center text-center">
+        <div class="w-14 h-14 rounded-2xl bg-purple-900/60 border border-purple-400/30 flex items-center justify-center text-2xl mb-4">
+          📜
+        </div>
+        <h3 class="text-lg font-bold text-amber-300 mb-2">เขียนคำอธิษฐาน & รับการ์ด</h3>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          ระบุชื่อ แผนกวิชา และคำขอพร พร้อมรับการ์ดอวยพรออนไลน์ภาพคมชัดสูง สามารถดาวน์โหลดและแชร์ลง Social Media ได้ทันที
+        </p>
+      </div>
+
+      <div class="glass-panel p-6 rounded-2xl border border-amber-400/20 hover:border-amber-400/60 transition-all flex flex-col items-center text-center">
+        <div class="w-14 h-14 rounded-2xl bg-purple-900/60 border border-purple-400/30 flex items-center justify-center text-2xl mb-4">
+          🏮
+        </div>
+        <h3 class="text-lg font-bold text-amber-300 mb-2">งานวัดจำลอง & เซียมซี</h3>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          สัมผัสบรรยากาศงานวัดไทยริมน้ำป่าสัก เขย่าเซียมซีทำนายดวงชะตา ชิมของอร่อยรับแต้มบุญ และร่วมสอยดาวการกุศล
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- =========================================================================
+       VIEW 2: ระบบสร้างกระทง (KRATHONG CREATOR VIEW)
+       ========================================================================= -->
+  <section id="creator-view" class="hidden max-w-7xl mx-auto px-4 lg:px-8 py-6 sm:py-10">
+    
+    <!-- View Header -->
+    <div class="flex items-center justify-between gap-4 mb-8">
+      <div>
+        <button type="button" data-view-target="home" class="text-xs text-amber-300/80 hover:text-amber-300 flex items-center gap-1 mb-1">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>กลับหน้าแรก</span>
+        </button>
+        <h2 class="text-2xl sm:text-3xl font-black text-amber-300 font-heading">
+          ระบบประดิษฐ์กระทงและเขียนคำอธิษฐาน
+        </h2>
+        <p class="text-xs sm:text-sm text-purple-200/80">ออกแบบกระทงในสไตล์ของคุณ แล้วปล่อยลงสู่สายน้ำป่าสัก</p>
+      </div>
+
+      <button type="button" data-view-target="river" class="glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-slate-200 border border-amber-400/30 hover:border-amber-400 flex items-center gap-2">
+        <i data-lucide="waves" class="w-4 h-4 text-sky-400"></i>
+        <span>ดูสายน้ำ</span>
+      </button>
+    </div>
+
+    <!-- 2-Column Responsive Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column: Sticky Krathong Live Preview Box -->
+      <div class="lg:col-span-5 sticky top-24">
+        
+        <div class="glass-panel-gold p-6 rounded-3xl border border-amber-400/40 text-center relative overflow-hidden shadow-2xl">
+          
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              ตัวอย่างกระทงสด (Live Preview)
+            </span>
+            <span class="text-[11px] text-purple-200/70">หมุนวนลอยน้ำ</span>
+          </div>
+
+          <!-- Preview Frame with Animation -->
+          <div id="krathong-preview-box" class="w-full h-72 sm:h-80 flex items-center justify-center p-4">
+            <div id="krathong-preview-art" class="water-floating transition-transform duration-300">
+              <!-- Rendered Krathong SVG injected here -->
+            </div>
+          </div>
+
+          <div class="mt-4 flex items-center justify-center gap-2 text-xs text-amber-200/80">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>กระทงจะส่องสว่างสะท้อนผิวน้ำเมื่อลอยสู่แม่น้ำจริง</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Right Column: Customizer Controls & Prayer Form -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- STEP 1: Krathong Appearance Customizer -->
+        <div class="glass-panel p-6 rounded-3xl border border-amber-400/25">
+          
+          <h3 class="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 text-xs font-bold flex items-center justify-center">๑</span>
+            <span>เลือกและตกแต่งรูปแบบกระทง</span>
+          </h3>
+
+          <!-- 1.1 Base Type Selection -->
+          <div class="mb-5">
+            <label class="block text-xs font-semibold text-purple-200 mb-2">ชนิดของกระทง:</label>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              
+              <button type="button" data-krathong-type="banana" 
+                      class="krathong-type-btn p-3 rounded-2xl border border-amber-400 bg-amber-400/20 text-left transition-all hover:border-amber-400">
+                <div class="text-xl mb-1">🌿</div>
+                <div class="font-bold text-xs text-amber-300">กระทงใบตองวิจิตร</div>
+                <div class="text-[10px] text-slate-300">ประณีต ศิลปะไทยดั้งเดิม</div>
+              </button>
+
+              <button type="button" data-krathong-type="lotus" 
+                      class="krathong-type-btn p-3 rounded-2xl border border-slate-700 bg-slate-900/60 text-left transition-all hover:border-amber-400">
+                <div class="text-xl mb-1">🪷</div>
+                <div class="font-bold text-xs text-amber-300">กระทงดอกบัวสวรรค์</div>
+                <div class="text-[10px] text-slate-300">บัวหลวงผลิบานบริสุทธิ์</div>
+              </button>
+
+              <button type="button" data-krathong-type="bread" 
+                      class="krathong-type-btn p-3 rounded-2xl border border-slate-700 bg-slate-900/60 text-left transition-all hover:border-amber-400">
+                <div class="text-xl mb-1">🍞</div>
+                <div class="font-bold text-xs text-amber-300">กระทงขนมปังรักษ์โลก</div>
+                <div class="text-[10px] text-slate-300">รูปเต่า/ปลา เป็นอาหารสัตว์น้ำ</div>
+              </button>
+
+              <button type="button" data-krathong-type="coconut" 
+                      class="krathong-type-btn p-3 rounded-2xl border border-slate-700 bg-slate-900/60 text-left transition-all hover:border-amber-400">
+                <div class="text-xl mb-1">🥥</div>
+                <div class="font-bold text-xs text-amber-300">กะลาสายประทีป</div>
+                <div class="text-[10px] text-slate-300">กะลามะพร้าวเทียนชัยสุโขทัย</div>
+              </button>
+
+              <button type="button" data-krathong-type="fantasy" 
+                      class="krathong-type-btn p-3 rounded-2xl border border-slate-700 bg-slate-900/60 text-left transition-all hover:border-amber-400 col-span-2 sm:col-span-2">
+                <div class="text-xl mb-1">⚙️✨</div>
+                <div class="font-bold text-xs text-amber-300">แฟนตาซีช่างเทคนิคท่าหลวงฯ</div>
+                <div class="text-[10px] text-slate-300">เฟืองจักรสีทองและแสงไฟ LED สไตล์ชาวช่าง</div>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- 1.2 Color Tone Selector -->
+          <div class="mb-5">
+            <label class="block text-xs font-semibold text-purple-200 mb-2">เฉดสีและกลีบกระทง:</label>
+            <div id="color-palette-container" class="flex flex-wrap gap-2">
+              <!-- Color options rendered by JS -->
+            </div>
+          </div>
+
+          <!-- 1.3 Center Flower Selector -->
+          <div class="mb-5">
+            <label class="block text-xs font-semibold text-purple-200 mb-2">ดอกไม้ประดับใจกลางกระทง:</label>
+            <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+              
+              <button type="button" data-flower="lotus_pink" 
+                      class="flower-btn p-2 rounded-xl border border-amber-400 bg-amber-400/20 text-center transition-all">
+                <div class="text-lg">🪷</div>
+                <div class="text-[11px] font-semibold text-amber-200">บัวชมพู</div>
+              </button>
+
+              <button type="button" data-flower="lotus_white" 
+                      class="flower-btn p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-center transition-all">
+                <div class="text-lg">🤍</div>
+                <div class="text-[11px] font-semibold text-slate-200">บัวขาว</div>
+              </button>
+
+              <button type="button" data-flower="marigold" 
+                      class="flower-btn p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-center transition-all">
+                <div class="text-lg">🌼</div>
+                <div class="text-[11px] font-semibold text-slate-200">ดาวเรือง</div>
+              </button>
+
+              <button type="button" data-flower="orchid" 
+                      class="flower-btn p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-center transition-all">
+                <div class="text-lg">🌸</div>
+                <div class="text-[11px] font-semibold text-slate-200">กล้วยไม้</div>
+              </button>
+
+              <button type="button" data-flower="rose" 
+                      class="flower-btn p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-center transition-all">
+                <div class="text-lg">🌹</div>
+                <div class="text-[11px] font-semibold text-slate-200">กุหลาบ</div>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- 1.4 Candle & Joss Sticks -->
+          <div class="mb-5">
+            <label class="block text-xs font-semibold text-purple-200 mb-2">สีเทียนส่องสว่าง:</label>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" data-candle="gold" class="candle-btn px-3 py-1 rounded-full text-xs font-semibold border border-amber-400 bg-amber-400/20 text-amber-300">
+                🕯️ เทียนทองมงคล
+              </button>
+              <button type="button" data-candle="pink" class="candle-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-700 bg-slate-900/60 text-slate-300">
+                🕯️ เทียนชมพูผูกรัก
+              </button>
+              <button type="button" data-candle="red" class="candle-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-700 bg-slate-900/60 text-slate-300">
+                🕯️ เทียนแดงโชคลาภ
+              </button>
+              <button type="button" data-candle="white" class="candle-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-700 bg-slate-900/60 text-slate-300">
+                🕯️ เทียนขาวบริสุทธิ์
+              </button>
+            </div>
+          </div>
+
+          <!-- 1.5 Accessories Toggles (ธูป, เหรียญ 9 บาท, ริบบิ้น) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-purple-900/40">
+            <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-200">
+              <input type="checkbox" id="toggle-incense" checked class="w-4 h-4 accent-amber-400 rounded">
+              <span>จุดธูป ๓ ดอก (ขอขมา)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-200">
+              <input type="checkbox" id="toggle-coin" checked class="w-4 h-4 accent-amber-400 rounded">
+              <span>เหรียญมงคล ๙ บาท</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-200">
+              <input type="checkbox" id="toggle-ribbon" checked class="w-4 h-4 accent-amber-400 rounded">
+              <span>โบว์ริบบิ้นทองคำ</span>
+            </label>
+          </div>
+
+        </div>
+
+        <!-- STEP 2: User Profile & Prayer Details -->
+        <div class="glass-panel p-6 rounded-3xl border border-amber-400/25">
+          
+          <h3 class="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 text-xs font-bold flex items-center justify-center">๒</span>
+            <span>ข้อมูลผู้ร่วมกิจกรรมและเขียนคำอธิษฐาน</span>
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            
+            <!-- Name Input -->
+            <div>
+              <label for="user-name-input" class="block text-xs font-semibold text-purple-200 mb-1.5">
+                ชื่อหรือชื่อเล่น:
+              </label>
+              <input type="text" id="user-name-input" placeholder="เช่น นายวรวุฒิ หรือ น้องพลอย" 
+                     class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-purple-500/30 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400">
+            </div>
+
+            <!-- Role Selector -->
+            <div>
+              <label for="user-role-select" class="block text-xs font-semibold text-purple-200 mb-1.5">
+                สถานะ / บทบาท:
+              </label>
+              <select id="user-role-select" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-purple-500/30 text-sm text-slate-100 focus:outline-none focus:border-amber-400">
+                <option value="นักเรียน ปวช.">นักเรียน ปวช.</option>
+                <option value="นักศึกษา ปวส.">นักศึกษา ปวส.</option>
+                <option value="ครู / อาจารย์">ครู / อาจารย์</option>
+                <option value="บุคลากรทางการศึกษา">บุคลากรทางการศึกษา</option>
+                <option value="ศิษย์เก่า">ศิษย์เก่า วท.ท่าหลวงฯ</option>
+                <option value="ผู้ปกครอง / บุคคลทั่วไป">ผู้ปกครอง / บุคคลทั่วไป</option>
+              </select>
+            </div>
+
+            <!-- Department Selector (All 11 departments of Thaluang Tech) -->
+            <div class="sm:col-span-2">
+              <label for="user-dept-select" class="block text-xs font-semibold text-purple-200 mb-1.5">
+                แผนกวิชา / หน่วยงานสังกัด:
+              </label>
+              <select id="user-dept-select" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-purple-500/30 text-sm text-slate-100 focus:outline-none focus:border-amber-400">
+                <option value="แผนกวิชาช่างยนต์">แผนกวิชาช่างยนต์</option>
+                <option value="แผนกวิชาช่างกลโรงงาน">แผนกวิชาช่างกลโรงงาน</option>
+                <option value="แผนกวิชาช่างเชื่อมโลหะ">แผนกวิชาช่างเชื่อมโลหะ</option>
+                <option value="แผนกวิชาช่างไฟฟ้ากำลัง">แผนกวิชาช่างไฟฟ้ากำลัง</option>
+                <option value="แผนกวิชาช่างอิเล็กทรอนิกส์">แผนกวิชาช่างอิเล็กทรอนิกส์</option>
+                <option value="แผนกวิชาเทคโนโลยีสารสนเทศ (IT)">แผนกวิชาเทคโนโลยีสารสนเทศ (IT)</option>
+                <option value="แผนกวิชาช่างก่อสร้างและโยธา">แผนกวิชาช่างก่อสร้างและโยธา</option>
+                <option value="แผนกวิชาการบัญชี">แผนกวิชาการบัญชี</option>
+                <option value="แผนกวิชาการตลาด">แผนกวิชาการตลาด</option>
+                <option value="แผนกวิชาคอมพิวเตอร์ธุรกิจ">แผนกวิชาคอมพิวเตอร์ธุรกิจ</option>
+                <option value="แผนกวิชาช่างเทคนิคอุตสาหกรรม">แผนกวิชาช่างเทคนิคอุตสาหกรรม</option>
+                <option value="ฝ่ายบริหารและสนับสนุน">ฝ่ายบริหารและสนับสนุน</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Avatar Selector & Photo Upload -->
+          <div class="mb-5">
+            <label class="block text-xs font-semibold text-purple-200 mb-2">เลือกตัวละครอวาตาร์ หรือ แนบรูปถ่าย:</label>
+            
+            <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-3">
+              
+              <button type="button" data-avatar-choice="avatar_male_student" 
+                      class="avatar-card p-2 rounded-2xl border border-amber-400 ring-2 ring-amber-400 bg-purple-900/60 text-center transition-all flex flex-col items-center">
+                <span class="text-2xl">👨‍🎓</span>
+                <span class="text-[10px] text-purple-200 mt-1">ช่างหนุ่ม</span>
+              </button>
+
+              <button type="button" data-avatar-choice="avatar_female_student" 
+                      class="avatar-card p-2 rounded-2xl border border-slate-700 bg-slate-900/60 text-center transition-all flex flex-col items-center">
+                <span class="text-2xl">👩‍🎓</span>
+                <span class="text-[10px] text-purple-200 mt-1">ช่างสาว</span>
+              </button>
+
+              <button type="button" data-avatar-choice="avatar_teacher" 
+                      class="avatar-card p-2 rounded-2xl border border-slate-700 bg-slate-900/60 text-center transition-all flex flex-col items-center">
+                <span class="text-2xl">👨‍🏫</span>
+                <span class="text-[10px] text-purple-200 mt-1">คุณครู</span>
+              </button>
+
+              <button type="button" data-avatar-choice="avatar_thai_male" 
+                      class="avatar-card p-2 rounded-2xl border border-slate-700 bg-slate-900/60 text-center transition-all flex flex-col items-center">
+                <span class="text-2xl">🤴</span>
+                <span class="text-[10px] text-purple-200 mt-1">ชุดไทยชาย</span>
+              </button>
+
+              <button type="button" data-avatar-choice="avatar_thai_female" 
+                      class="avatar-card p-2 rounded-2xl border border-slate-700 bg-slate-900/60 text-center transition-all flex flex-col items-center">
+                <span class="text-2xl">👸</span>
+                <span class="text-[10px] text-purple-200 mt-1">ชุดไทยหญิง</span>
+              </button>
+
+              <button type="button" data-avatar-choice="avatar_fantasy_mascot" 
+                      class="avatar-card p-2 rounded-2xl border border-slate-700 bg-slate-900/60 text-center transition-all flex flex-col items-center">
+                <span class="text-2xl">🤖</span>
+                <span class="text-[10px] text-purple-200 mt-1">น้องเฟืองทอง</span>
+              </button>
+
+            </div>
+
+            <!-- Optional Custom Photo Upload -->
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-purple-950/40 border border-purple-500/20">
+              <input type="file" id="user-photo-input" accept="image/*" class="hidden">
+              <button type="button" onclick="document.getElementById('user-photo-input').click()" 
+                      class="px-3 py-1.5 rounded-xl bg-purple-900/80 hover:bg-purple-800 text-purple-200 border border-purple-400/40 text-xs font-medium flex items-center gap-1.5">
+                <i data-lucide="image-plus" class="w-4 h-4"></i>
+                <span>อัปโหลดรูปของฉัน (ไม่บังคับ)</span>
+              </button>
+              <img id="photo-preview-thumb" src="" alt="User photo preview" class="w-8 h-8 rounded-full object-cover border border-amber-400 hidden">
+              <button type="button" id="remove-photo-btn" class="text-xs text-red-400 hover:text-red-300 hidden">ลบรูป</button>
+            </div>
+
+          </div>
+
+          <!-- Wish / Prayer Textarea -->
+          <div class="mb-4">
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="wish-textarea" class="text-xs font-semibold text-purple-200">
+                คำอธิษฐานและคำขอพร:
+              </label>
+              <span class="text-[11px] text-amber-300/80">เขียนความในใจขอขมาพระแม่คงคา</span>
+            </div>
+            <textarea id="wish-textarea" rows="3" placeholder="เขียนคำขอพรของคุณลงบนกระทง เช่น ขอให้การเรียนราบรื่น ครอบครัวมีความสุข ปราศจากโรคภัย..." 
+                      class="w-full px-4 py-3 rounded-2xl bg-slate-900/80 border border-purple-500/30 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400"></textarea>
+          </div>
+
+          <!-- Quick Wish Chips (คำอวยพรมงคลกดแล้วพิมพ์ให้อัตโนมัติ) -->
+          <div class="mb-5">
+            <span class="block text-[11px] font-medium text-slate-400 mb-1.5">✨ คำอธิษฐานยอดนิยม (แตะเพื่อเลือก):</span>
+            <div class="flex flex-wrap gap-1.5">
+              <button type="button" data-quick-wish="ขอขมาพระแม่คงคา ขอให้เรียนเกรดเฉลี่ย 4.00 ทุกวิชา สอบติดสิ่งที่หวัง" class="px-2.5 py-1 rounded-full text-[11px] bg-purple-950/60 hover:bg-purple-900 text-purple-200 border border-purple-500/20">
+                🎓 ขอให้เกรดดี 4.00
+              </button>
+              <button type="button" data-quick-wish="ขอให้ครอบครัวมีสุขภาพแข็งแรง ปราศจากโรคภัย มีแต่ความสุขความเจริญ" class="px-2.5 py-1 rounded-full text-[11px] bg-purple-950/60 hover:bg-purple-900 text-purple-200 border border-purple-500/20">
+                🏡 ครอบครัวอบอุ่นแข็งแรง
+              </button>
+              <button type="button" data-quick-wish="ขอให้โปรเจกต์จบสำเร็จฉลุย ได้งานทำที่มั่นคง มีอนาคตสดใส" class="px-2.5 py-1 rounded-full text-[11px] bg-purple-950/60 hover:bg-purple-900 text-purple-200 border border-purple-500/20">
+                💼 การงานมั่นคงก้าวหน้า
+              </button>
+              <button type="button" data-quick-wish="ขอขมาต่อสายน้ำที่ได้ใช้อุปโภคบริโภค ขอส่งเคราะห์ภัยร้ายลอยไปกับสายน้ำ" class="px-2.5 py-1 rounded-full text-[11px] bg-purple-950/60 hover:bg-purple-900 text-purple-200 border border-purple-500/20">
+                🌊 ขอขมาและลอยเคราะห์
+              </button>
+            </div>
+          </div>
+
+          <!-- Anonymous Option Checkbox -->
+          <div class="mb-6">
+            <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-300">
+              <input type="checkbox" id="anon-checkbox" class="w-4 h-4 accent-amber-400 rounded">
+              <span>ไม่ระบุตัวตน (แสดงคำอธิษฐานโดยไม่เปิดเผยชื่อจริงในสายน้ำ)</span>
+            </label>
+          </div>
+
+          <!-- Action: Float Krathong Button -->
+          <button type="button" id="btn-float-krathong" 
+                  class="gold-glow-btn w-full py-4 rounded-2xl text-base sm:text-lg font-bold flex items-center justify-center gap-3 shadow-xl">
+            <i data-lucide="waves" class="w-5 h-5"></i>
+            <span>ปล่อยกระทงลงสู่แม่น้ำป่าสัก</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       VIEW 3: ชมสายน้ำและกระทงในแม่น้ำ (RIVER VIEW & INTERACTIVE CANVAS)
+       ========================================================================= -->
+  <section id="river-view" class="hidden min-h-[calc(100vh-80px)] relative">
+    
+    <!-- Floating River HUD & Controls -->
+    <div id="river-hud" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 sm:gap-3 glass-panel-gold px-4 py-2.5 rounded-2xl border border-amber-400/40 shadow-2xl">
+      
+      <!-- Button: Launch Krathong -->
+      <button type="button" data-view-target="creator" 
+              class="gold-glow-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+        <span>ลอยกระทงของฉัน</span>
+      </button>
+
+      <!-- Button: Trigger Firework -->
+      <button type="button" onclick="if(window.loyApp && window.loyApp.river) { window.loyApp.river.createFirework(window.innerWidth*0.5, window.innerHeight*0.2); if(window.loyAudio) window.loyAudio.playFirework(); }" 
+              class="px-3 py-2 rounded-xl bg-purple-900/70 hover:bg-purple-800 text-amber-300 border border-purple-400/40 text-xs font-semibold flex items-center gap-1.5">
+        <i data-lucide="sun" class="w-4 h-4 text-amber-400"></i>
+        <span class="hidden sm:inline">จุดพลุ</span>
+      </button>
+
+      <!-- Theme Switcher Dropdown / Buttons -->
+      <div class="flex items-center gap-1 border-l border-amber-400/30 pl-2">
+        <button type="button" data-theme-btn="riverside" title="ฉากริมน้ำป่าสักคืนจันทร์เพ็ญ" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-purple-950/80 text-amber-300 ring-2 ring-amber-400">
+          ริมน้ำ
+        </button>
+        <button type="button" data-theme-btn="temple" title="ฉากหน้าวัดไทยงานสมโภช" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-purple-950/80 text-purple-200 hover:text-amber-300">
+          งานวัด
+        </button>
+        <button type="button" data-theme-btn="college" title="ฉากท่าน้ำวิทยาลัยเทคนิคท่าหลวงฯ" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-purple-950/80 text-purple-200 hover:text-amber-300">
+          ท่าน้ำ วท.
+        </button>
+      </div>
+
+      <!-- Return Home -->
+      <button type="button" data-view-target="home" class="p-2 rounded-xl bg-slate-900/60 hover:bg-slate-800 text-slate-300">
+        <i data-lucide="home" class="w-4 h-4"></i>
+      </button>
+
+    </div>
+
+    <!-- Onscreen floating instructions -->
+    <div class="absolute top-6 left-6 z-20 glass-panel px-4 py-2 rounded-2xl border border-amber-400/20 text-xs text-purple-200 pointer-events-none">
+      💡 แตะหรือคลิกที่กระทงเพื่ออ่านคำอธิษฐาน • แตะท้องฟ้าเพื่อจุดพลุดอกไม้ไฟ
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       VIEW 4: งานวัดจำลองและกิจกรรม (TEMPLE FAIR VIEW)
+       ========================================================================= -->
+  <section id="temple-view" class="hidden max-w-7xl mx-auto px-4 lg:px-8 py-8 sm:py-12">
+    
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-semibold mb-3">
+        <span>🏮 งานสมโภชเทศกาลลอยกระทง</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-amber-300 font-heading mb-2">
+        เที่ยวชมงานวัดจำลองริมน้ำป่าสัก
+      </h2>
+      <p class="text-xs sm:text-sm text-purple-200/80">
+        เพลิดเพลินกับกิจกรรมงานวัดไทย เสี่ยงเซียมซีทำนายดวง ชิมอาหารไทยโบราณ และสอยดาวลุ้นรับของขวัญ
+      </p>
+    </div>
+
+    <!-- 3 Activity Zones -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+      
+      <!-- Zone 1: Siam Si (เซียมซีแม่นๆ เจ้าพ่อท่าหลวง) -->
+      <div class="lg:col-span-5 glass-panel-gold p-6 rounded-3xl border border-amber-400/35 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+              <span>🎋</span>
+              <span>เซียมซีหลวงพ่อมงคล</span>
+            </span>
+            <span class="text-[11px] text-purple-200/80">เขย่าทำนายดวงชะตา</span>
+          </div>
+
+          <!-- Animated Siam Si Cylinder -->
+          <div class="flex flex-col items-center justify-center py-6 text-center">
+            <div id="siamsi-cylinder" class="w-24 h-36 bg-gradient-to-b from-amber-700 via-amber-800 to-amber-950 rounded-2xl border-2 border-amber-400 shadow-2xl relative flex items-center justify-center mb-4">
+              <span class="text-2xl">🎋</span>
+              <span class="absolute bottom-2 text-[10px] text-amber-200 font-bold">ท่าหลวง</span>
+            </div>
+            <p class="text-xs text-slate-300 mb-4 max-w-xs">
+              ตั้งจิตอธิษฐานถึงพระแม่คงคาและสิ่งศักดิ์สิทธิ์ แล้วกดปุ่มเพื่อเขย่ารับใบเซียมซี
+            </p>
+            <button type="button" id="btn-shake-siamsi" 
+                    class="gold-glow-btn px-6 py-2.5 rounded-xl text-sm font-bold shadow-lg">
+              เขย่ากระบอกเซียมซี
+            </button>
+          </div>
+
+          <!-- Siam Si Result Sheet (Hidden until shaken) -->
+          <div id="siamsi-result-card" class="hidden mt-6 p-5 rounded-2xl bg-purple-950/70 border border-amber-400/40 text-left">
+            <h4 id="siamsi-title" class="font-bold text-amber-300 text-sm mb-2">ใบที่ ๑</h4>
+            <div id="siamsi-poem" class="text-xs italic text-amber-200/90 whitespace-pre-line mb-3 font-serif bg-slate-950/50 p-3 rounded-xl border border-amber-400/20">
+              บทกลอน...
+            </div>
+            <div class="space-y-1.5 text-xs text-slate-200">
+              <p><strong>ความหมายทั่วไป:</strong> <span id="siamsi-general"></span></p>
+              <p><strong>การเรียน/การงาน:</strong> <span id="siamsi-study"></span></p>
+              <p><strong>ความรัก:</strong> <span id="siamsi-love"></span></p>
+              <p class="text-amber-300 font-bold">เลขมงคลนำโชค: <span id="siamsi-number"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zone 2: Charity Lucky Star (สอยดาวการกุศล) -->
+      <div class="lg:col-span-7 glass-panel p-6 rounded-3xl border border-amber-400/25">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+            <span>⭐</span>
+            <span>ซุ้มสอยดาวการกุศล วท.ท่าหลวงฯ</span>
+          </span>
+          <span class="text-[11px] text-purple-200/80">แตะดวงดาวเพื่อปลดล็อกคำอวยพร</span>
+        </div>
+
+        <p class="text-xs text-slate-300 mb-4">
+          ดวงดาวแต่ละดวงบรรจุคำอวยพรและแต้มบุญพิเศษ แตะดวงดาวที่คุณชื่นชอบเพื่อเปิดรางวัล:
+        </p>
+
+        <div id="lucky-stars-field" class="grid grid-cols-3 sm:grid-cols-4 gap-3">
+          <!-- Star buttons injected by JS -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Zone 3: Traditional Food Stalls (ซุ้มอาหารไทยโบราณ) -->
+    <div class="glass-panel p-6 rounded-3xl border border-amber-400/25 mb-12">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h3 class="text-lg font-bold text-amber-300">ซุ้มของกินและขนมไทยโบราณ</h3>
+          <p class="text-xs text-purple-200/80">เลือกชิมของอร่อยริมน้ำป่าสักเพื่อรับแต้มบุญและความสดชื่น</p>
+        </div>
+        <span class="text-2xl">🍜🥞🍡</span>
+      </div>
+
+      <div id="temple-food-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Food stalls injected by JS -->
+      </div>
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       VIEW 5: ระบบสถิติแบบเรียลไทม์ (STATISTICS VIEW)
+       ========================================================================= -->
+  <section id="stats-view" class="hidden max-w-7xl mx-auto px-4 lg:px-8 py-8 sm:py-12">
+    
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="text-3xl sm:text-4xl font-black text-amber-300 font-heading mb-2">
+        สถิติการร่วมกิจกรรมแบบเรียลไทม์
+      </h2>
+      <p class="text-xs sm:text-sm text-purple-200/80">
+        การมีส่วนร่วมของนักเรียน นักศึกษา และบุคลากร วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Department Participation Leaderboard -->
+      <div class="lg:col-span-7 glass-panel-gold p-6 rounded-3xl border border-amber-400/35">
+        <h3 class="text-base font-bold text-amber-300 mb-4 flex items-center gap-2">
+          <i data-lucide="trophy" class="w-5 h-5 text-amber-400"></i>
+          <span>อันดับการร่วมกิจกรรมแยกตามแผนกวิชา</span>
+        </h3>
+        <div id="dept-leaderboard-list">
+          <!-- Department bars injected by JS -->
+        </div>
+      </div>
+
+      <!-- Krathong Types Breakdown -->
+      <div class="lg:col-span-5 glass-panel p-6 rounded-3xl border border-amber-400/25 flex flex-col justify-between">
+        <div>
+          <h3 class="text-base font-bold text-amber-300 mb-4 flex items-center gap-2">
+            <i data-lucide="pie-chart" class="w-5 h-5 text-sky-400"></i>
+            <span>สัดส่วนรูปแบบกระทงยอดนิยม</span>
+          </h3>
+          <div class="space-y-3 text-xs">
+            <div class="flex justify-between items-center p-3 rounded-xl bg-purple-950/40 border border-purple-500/20">
+              <span class="flex items-center gap-2">🌿 กระทงใบตองวิจิตร</span>
+              <strong class="text-amber-300">42%</strong>
+            </div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-purple-950/40 border border-purple-500/20">
+              <span class="flex items-center gap-2">🪷 กระทงดอกบัวสวรรค์</span>
+              <strong class="text-amber-300">28%</strong>
+            </div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-purple-950/40 border border-purple-500/20">
+              <span class="flex items-center gap-2">🍞 กระทงขนมปังรักษ์โลก</span>
+              <strong class="text-amber-300">16%</strong>
+            </div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-purple-950/40 border border-purple-500/20">
+              <span class="flex items-center gap-2">⚙️ แฟนตาซีช่างเทคนิค</span>
+              <strong class="text-amber-300">14%</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-purple-900/40 text-center">
+          <button type="button" data-view-target="creator" class="gold-glow-btn w-full py-3 rounded-xl text-xs font-bold">
+            ร่วมส่งกระทงเพิ่มคะแนนให้แผนกของคุณ
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       VIEW 6: ประชาสัมพันธ์และคู่มือกิจกรรม (PR VIEW)
+       ========================================================================= -->
+  <section id="pr-view" class="hidden max-w-5xl mx-auto px-4 lg:px-8 py-8 sm:py-12">
+    
+    <div class="glass-panel-gold p-6 sm:p-10 rounded-3xl border border-amber-400/40 shadow-2xl relative overflow-hidden">
+      
+      <!-- Watermark emblem -->
+      <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl pointer-events-none">
+        ⚙
+      </div>
+
+      <div class="text-center mb-8">
+        <span class="inline-block px-3 py-1 rounded-full bg-purple-900/80 text-amber-300 border border-purple-400/40 text-xs font-bold mb-3">
+          ประชาสัมพันธ์กิจกรรมทางการ
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black text-amber-300 font-heading mb-2">
+          เทศกาลลอยกระทงออนไลน์ ประจำปี ๒๕๖๙
+        </h2>
+        <p class="text-sm sm:text-base text-purple-200 font-medium">
+          วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์ สำนักงานคณะกรรมการการอาชีวศึกษา
+        </p>
+      </div>
+
+      <!-- Poster Body -->
+      <div class="space-y-6 text-sm text-slate-200 leading-relaxed bg-slate-950/50 p-6 rounded-2xl border border-amber-400/20 mb-8">
+        
+        <div>
+          <h3 class="font-bold text-amber-300 text-base mb-2">🎯 วัตถุประสงค์ของการจัดกิจกรรม:</h3>
+          <ul class="list-disc list-inside space-y-1 text-slate-300 text-xs sm:text-sm">
+            <li>เพื่อส่งเสริมและอนุรักษ์ประเพณีลอยกระทงอันทรงคุณค่าของชาติไทย</li>
+            <li>เพื่อปลูกจิตสำนึกในการอนุรักษ์สิ่งแวดล้อม ลดขยะในแม่น้ำป่าสักด้วยกระทงดิจิทัล ๑๐๐%</li>
+            <li>เพื่อสร้างความสามัคคีและการมีส่วนร่วมของคณะครู บุคลากร และนักเรียน นักศึกษาทุกแผนกวิชา</li>
+            <li>เพื่อประยุกต์ใช้นวัตกรรมเทคโนโลยีดิจิทัลในการส่งเสริมวัฒนธรรมองค์กร</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-amber-300 text-base mb-2">📅 ระยะเวลาการจัดกิจกรรม:</h3>
+          <p class="text-xs sm:text-sm text-slate-300">
+            ตั้งแต่วันนี้ ถึง คืนวันเพ็ญเดือนสิบสอง สามารถร่วมลอยกระทงและส่งคำอธิษฐานได้ตลอด ๒๔ ชั่วโมง
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-amber-300 text-base mb-2">🎁 สิทธิพิเศษสำหรับผู้เข้าร่วม:</h3>
+          <p class="text-xs sm:text-sm text-slate-300">
+            ผู้ร่วมกิจกรรมทุกคนจะได้รับ <strong>"บัตรอวยพรออนไลน์และเกียรติบัตรดิจิทัล"</strong> สามารถบันทึกเป็นที่ระลึกและแชร์เพื่อรับแต้มกิจกรรมของวิทยาลัย
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Share Buttons -->
+      <div class="text-center">
+        <h4 class="text-xs font-bold text-purple-200 uppercase tracking-wider mb-3">แชร์กิจกรรมนี้ไปยังเพื่อนๆ:</h4>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <button type="button" onclick="window.cardGenerator.shareToSocial('line', 'ร่วมลอยกระทงออนไลน์กับวิทยาลัยเทคนิคท่าหลวงฯ')" 
+                  class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center gap-2 shadow">
+            <span>แชร์ลง LINE</span>
+          </button>
+          <button type="button" onclick="window.cardGenerator.shareToSocial('facebook', 'ร่วมลอยกระทงออนไลน์กับวิทยาลัยเทคนิคท่าหลวงฯ')" 
+                  class="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs flex items-center gap-2 shadow">
+            <span>แชร์ลง Facebook</span>
+          </button>
+          <button type="button" onclick="window.cardGenerator.shareToSocial('copy')" 
+                  class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 font-semibold text-xs flex items-center gap-2 border border-slate-600">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+            <span>คัดลอกลิงก์</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       VIEW 7: ระบบหลังบ้านสำหรับแอดมิน (ADMIN PANEL VIEW)
+       ========================================================================= -->
+  <section id="admin-view" class="hidden max-w-7xl mx-auto px-4 lg:px-8 py-8 sm:py-12">
+    
+    <!-- Lock Screen (PIN verification) -->
+    <div id="admin-lock-screen" class="max-w-md mx-auto glass-panel-gold p-8 rounded-3xl border border-amber-400/40 text-center">
+      <div class="w-14 h-14 rounded-2xl bg-amber-400/20 border border-amber-400/40 text-amber-300 text-2xl flex items-center justify-center mx-auto mb-4">
+        🔒
+      </div>
+      <h3 class="text-xl font-bold text-amber-300 mb-1">ระบบจัดการสำหรับผู้ดูแลเว็บไซต์</h3>
+      <p class="text-xs text-purple-200 mb-6">กรุณาระบุรหัส PIN เพื่อเข้าสู่ระบบ (PIN เริ่มต้น: 1234)</p>
+      
+      <div class="mb-4">
+        <input type="password" id="admin-pin-input" placeholder="ใส่รหัส PIN 4 หลัก" maxlength="6" 
+               class="w-full text-center tracking-widest text-lg font-bold px-4 py-3 rounded-xl bg-slate-900 border border-amber-400/40 text-amber-300 focus:outline-none">
+      </div>
+
+      <button type="button" id="btn-admin-login" class="gold-glow-btn w-full py-2.5 rounded-xl font-bold text-sm">
+        เข้าสู่ระบบหลังบ้าน
+      </button>
+    </div>
+
+    <!-- Admin Dashboard (Visible after login) -->
+    <div id="admin-dashboard" class="hidden glass-panel p-6 sm:p-8 rounded-3xl border border-amber-400/30">
+      
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div>
+          <h3 class="text-xl font-bold text-amber-300 flex items-center gap-2">
+            <i data-lucide="shield" class="w-5 h-5 text-amber-400"></i>
+            <span>แดชบอร์ดจัดการข้อมูลผู้ใช้งานและคำอธิษฐาน</span>
+          </h3>
+          <p class="text-xs text-purple-200/80">ตรวจสอบ กรอง ซ่อน หรือลบข้อความที่ไม่เหมาะสม</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button type="button" id="admin-export-csv" class="px-3 py-1.5 rounded-xl bg-purple-900/80 hover:bg-purple-800 text-purple-200 border border-purple-400/30 text-xs font-semibold flex items-center gap-1.5">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>ส่งออกเป็น CSV</span>
+          </button>
+          <button type="button" id="admin-export-json" class="px-3 py-1.5 rounded-xl bg-purple-900/80 hover:bg-purple-800 text-purple-200 border border-purple-400/30 text-xs font-semibold flex items-center gap-1.5">
+            <i data-lucide="file-json" class="w-3.5 h-3.5"></i>
+            <span>ส่งออกเป็น JSON</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search Filter -->
+      <div class="mb-4">
+        <input type="text" id="admin-search-input" placeholder="ค้นหาตามชื่อ แผนกวิชา หรือข้อความคำอธิษฐาน..." 
+               class="w-full sm:w-80 px-4 py-2 rounded-xl bg-slate-900 border border-purple-500/30 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400">
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto rounded-2xl border border-purple-900/40">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-purple-950/80 text-amber-300 text-xs border-b border-purple-900/50">
+              <th class="p-3">#</th>
+              <th class="p-3">ชื่อผู้ลอย</th>
+              <th class="p-3">แผนกวิชา</th>
+              <th class="p-3">คำอธิษฐาน</th>
+              <th class="p-3">สถานะ</th>
+              <th class="p-3">การจัดการ</th>
+            </tr>
+          </thead>
+          <tbody id="admin-table-body">
+            <!-- Rows injected by JS -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       MODAL 1: บัตรอวยพรและคำอธิษฐาน (BLESSING MODAL)
+       ========================================================================= -->
+  <div id="blessing-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="glass-panel-gold max-w-md w-full p-6 sm:p-8 rounded-3xl border border-amber-400/50 text-center modal-enter relative shadow-2xl">
+      
+      <!-- Close button -->
+      <button type="button" onclick="document.getElementById('blessing-modal').classList.add('hidden')" 
+              class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="text-3xl mb-2">🌸✨</div>
+      <h3 class="text-xl font-black text-amber-300 font-heading mb-1">
+        ขอให้คำอธิษฐานของคุณเป็นจริง!
+      </h3>
+      <p class="text-xs text-purple-200 mb-4">
+        กระทงของคุณได้ลอยสู่แม่น้ำป่าสัก ขอให้ความทุกข์โศกลอยไปกับสายน้ำ
+      </p>
+
+      <!-- Rendered Card Image Preview -->
+      <div class="w-full rounded-2xl overflow-hidden border border-amber-400/40 shadow-xl mb-4 bg-slate-950">
+        <img id="blessing-card-preview" src="" alt="การ์ดอวยพรลอยกระทง" class="w-full h-auto hidden">
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col gap-2">
+        <button type="button" id="btn-download-card" class="gold-glow-btn w-full py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span>บันทึกการ์ดอวยพร (รูปภาพ)</span>
+        </button>
+
+        <div class="grid grid-cols-3 gap-2">
+          <button type="button" id="btn-share-line" class="py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs">
+            LINE
+          </button>
+          <button type="button" id="btn-share-fb" class="py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs">
+            Facebook
+          </button>
+          <button type="button" id="btn-share-copy" class="py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs">
+            คัดลอกลิงก์
+          </button>
+        </div>
+
+        <button type="button" onclick="document.getElementById('blessing-modal').classList.add('hidden'); window.loyApp.switchView('creator');" 
+                class="text-xs text-amber-300/80 hover:text-amber-300 underline mt-2">
+          🌸 ประดิษฐ์กระทงอีกใบ
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: อ่านคำอธิษฐานของเพื่อน (COMMUNITY KRATHONG MODAL)
+       ========================================================================= -->
+  <div id="community-detail-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="glass-panel-gold max-w-sm w-full p-6 rounded-3xl border border-amber-400/50 text-center modal-enter relative shadow-2xl">
+      
+      <button type="button" onclick="document.getElementById('community-detail-modal').classList.add('hidden')" 
+              class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div id="comm-krathong-art" class="w-36 h-36 mx-auto mb-2 flex items-center justify-center">
+        <!-- Krathong SVG -->
+      </div>
+
+      <h3 id="comm-user-name" class="text-lg font-bold text-amber-300 font-heading">
+        ชื่อผู้ร่วมกิจกรรม
+      </h3>
+      <p id="comm-user-dept" class="text-xs text-purple-200 mb-3">
+        แผนกวิชา
+      </p>
+
+      <div class="p-4 rounded-2xl bg-slate-950/60 border border-amber-400/30 mb-4">
+        <p id="comm-wish-text" class="text-sm italic text-amber-100 font-serif">
+          “ คำอธิษฐาน ”
+        </p>
+      </div>
+
+      <button type="button" id="comm-btn-like" 
+              class="gold-glow-btn w-full py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow">
+        <span>❤️ ร่วมส่งแต้มบุญ & อนุโมทนา (<span id="comm-like-count">1</span>)</span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 3: วิธีการร่วมกิจกรรม (HOW TO MODAL)
+       ========================================================================= -->
+  <div id="how-to-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="glass-panel-gold max-w-md w-full p-6 sm:p-8 rounded-3xl border border-amber-400/50 modal-enter relative shadow-2xl">
+      
+      <button type="button" onclick="document.getElementById('how-to-modal').classList.add('hidden')" 
+              class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <h3 class="text-xl font-bold text-amber-300 font-heading mb-4 flex items-center gap-2">
+        <i data-lucide="book-open" class="w-5 h-5 text-amber-400"></i>
+        <span>วิธีการร่วมกิจกรรมลอยกระทงออนไลน์</span>
+      </h3>
+
+      <div class="space-y-4 text-xs text-slate-200 leading-relaxed mb-6">
+        <div class="flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold flex items-center justify-center shrink-0">1</span>
+          <p><strong>เลือกและประดิษฐ์กระทง:</strong> เลือกรูปแบบกระทง ดอกไม้ ธูปเทียน และสีสันที่คุณชอบ พร้อมดูตัวอย่างแบบสดๆ</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold flex items-center justify-center shrink-0">2</span>
+          <p><strong>เขียนคำอธิษฐาน:</strong> ระบุชื่อ แผนกวิชา และความในใจที่ต้องการขอขมาพระแม่คงคา หรือขอพรในสิ่งที่ปรารถนา</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold flex items-center justify-center shrink-0">3</span>
+          <p><strong>ลอยกระทงและรับการ์ด:</strong> กดปุ่มปล่อยกระทงลงแม่น้ำป่าสัก รับการ์ดอวยพรสุดพิเศษ พร้อมแตะชมกระทงของเพื่อนๆ ได้ตลอดเวลา</p>
+        </div>
+      </div>
+
+      <button type="button" onclick="document.getElementById('how-to-modal').classList.add('hidden'); window.loyApp.switchView('creator');" 
+              class="gold-glow-btn w-full py-2.5 rounded-xl text-xs font-bold">
+        เข้าใจแล้ว • เริ่มทำกระทงเลย
+      </button>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 4: บทขอขมาพระแม่คงคา & ประวัติวันลอยกระทง
+       ========================================================================= -->
+  <div id="prayer-history-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="glass-panel-gold max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-amber-400/50 modal-enter relative shadow-2xl max-h-[85vh] overflow-y-auto">
+      
+      <button type="button" onclick="document.getElementById('prayer-history-modal').classList.add('hidden')" 
+              class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <h3 class="text-xl font-bold text-amber-300 font-heading mb-3 flex items-center gap-2">
+        <span>📜 บทสวดขอขมาพระแม่คงคา</span>
+      </h3>
+
+      <div class="p-4 rounded-2xl bg-slate-950/70 border border-amber-400/30 text-xs text-amber-100 font-serif leading-relaxed mb-4">
+        <p class="font-bold text-center text-amber-300 mb-2">(ตั้งนะโม ๓ จบ)</p>
+        <p class="text-center italic">
+          สัพพัง อะปะราธัง ขะมะถะ เม ภันเต อายะสะมา คังคา มะหาเทวี<br>
+          <span class="block mt-2 text-[11px] text-slate-300">
+            "ข้าพเจ้าทั้งหลาย ขอน้อมบูชาและกราบขอขมาพระแม่คงคา ที่ได้ใช้น้ำอุปโภคบริโภคและทิ้งสิ่งปฏิกูลลงในแม่น้ำ ขอพระแม่คงคาโปรดประทานอภัย และอำนวยพรให้ข้าพเจ้ามีแต่ความสุขความเจริญเทอญ"
+          </span>
+        </p>
+      </div>
+
+      <h4 class="font-bold text-amber-300 text-sm mb-1.5">ประเพณีลอยกระทง:</h4>
+      <p class="text-xs text-slate-300 leading-relaxed mb-6">
+        ประเพณีลอยกระทงตรงกับวันขึ้น ๑๕ ค่ำ เดือน ๑๒ มีมาแต่โบราณเพื่อบูชารอยพระพุทธบาท และแสดงความกตัญญูกตเวทิตาต่อแม่น้ำลำคลอง การจัดกิจกรรมลอยกระทงออนไลน์ช่วยให้เราร่วมสืบสานคุณค่าทางวัฒนธรรมได้อย่างงดงามโดยไม่ก่อให้เกิดมลภาวะต่อแหล่งน้ำ
+      </p>
+
+      <button type="button" onclick="document.getElementById('prayer-history-modal').classList.add('hidden')" 
+              class="gold-glow-btn w-full py-2.5 rounded-xl text-xs font-bold">
+        ปิดหน้าต่าง
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-16 border-t border-purple-900/40 glass-panel py-6 px-4 text-center text-xs text-purple-300/70">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© ๒๕๖๙ วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์ • สำนักงานคณะกรรมการการอาชีวศึกษา</p>
+      <div class="flex items-center gap-3 text-[11px]">
+        <span>รักษ์แม่น้ำป่าสัก</span>
+        <span>•</span>
+        <span>สืบสานศิลปวัฒนธรรมไทย</span>
+        <span>•</span>
+        <span>นวัตกรรมอาชีวศึกษา</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+/* === audio.js === */
+/**
+ * ระบบเสียงและดนตรี (Web Audio API Synthesizer & Sound Effects)
+ * เทศกาลลอยกระทงออนไลน์ วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์
+ */
+
+class LoyKrathongAudio {
+  constructor() {
+    this.ctx = null;
+    this.isMuted = false;
+    this.bgmPlaying = false;
+    this.bgmVolume = 0.45;
+    this.sfxVolume = 0.7;
+    this.waterNoiseNode = null;
+    this.waterGainNode = null;
+    this.melodyTimer = null;
+    this.currentNoteIndex = 0;
+
+    // Melody notes for traditional "Loy Krathong" (วันเพ็ญเดือนสิบสอง) in C pentatonic
+    // Frequencies: C4=261.63, D4=293.66, E4=329.63, G4=392.00, A4=440.00, C5=523.25, D5=587.33, E5=659.25
+    this.melodyNotes = [
+      // วัน-เพ็ญ-เดือน-สิบ-สอง (G4 G4 A4 C5 A4)
+      { f: 392.00, d: 0.35, p: 0.05 },
+      { f: 392.00, d: 0.35, p: 0.05 },
+      { f: 440.00, d: 0.4, p: 0.05 },
+      { f: 523.25, d: 0.7, p: 0.1 },
+      { f: 440.00, d: 0.4, p: 0.05 },
+      // น้ำ-นอง-เต็ม-ตลิ่ง (G4 A4 G4 E4 D4)
+      { f: 392.00, d: 0.4, p: 0.05 },
+      { f: 440.00, d: 0.4, p: 0.05 },
+      { f: 392.00, d: 0.4, p: 0.05 },
+      { f: 329.63, d: 0.4, p: 0.05 },
+      { f: 293.66, d: 0.8, p: 0.2 },
+
+      // เรา-ทั้ง-หลาย-ชาย-หญิง (D4 E4 G4 A4 C5)
+      { f: 293.66, d: 0.4, p: 0.05 },
+      { f: 329.63, d: 0.4, p: 0.05 },
+      { f: 392.00, d: 0.4, p: 0.05 },
+      { f: 440.00, d: 0.4, p: 0.05 },
+      { f: 523.25, d: 0.8, p: 0.1 },
+      // สนุก-กัน-จริง-วัน-ลอย-กระทง (C5 D5 C5 A4 G4 A4 C5)
+      { f: 523.25, d: 0.35, p: 0.05 },
+      { f: 587.33, d: 0.35, p: 0.05 },
+      { f: 523.25, d: 0.4, p: 0.05 },
+      { f: 440.00, d: 0.4, p: 0.05 },
+      { f: 392.00, d: 0.4, p: 0.05 },
+      { f: 440.00, d: 0.5, p: 0.05 },
+      { f: 523.25, d: 1.0, p: 0.3 },
+
+      // ลอย ลอย กระทง (C5 C5 A4 G4)
+      { f: 523.25, d: 0.5, p: 0.1 },
+      { f: 523.25, d: 0.5, p: 0.1 },
+      { f: 440.00, d: 0.4, p: 0.05 },
+      { f: 392.00, d: 0.8, p: 0.2 },
+      // ลอย ลอย กระทง (A4 A4 G4 E4)
+      { f: 440.00, d: 0.5, p: 0.1 },
+      { f: 440.00, d: 0.5, p: 0.1 },
+      { f: 392.00, d: 0.4, p: 0.05 },
+      { f: 329.63, d: 0.8, p: 0.2 },
+
+      // ลอยกระทงกันแล้ว (D4 E4 G4 A4 C5)
+      { f: 293.66, d: 0.35, p: 0.05 },
+      { f: 329.63, d: 0.35, p: 0.05 },
+      { f: 392.00, d: 0.35, p: 0.05 },
+      { f: 440.00, d: 0.4, p: 0.05 },
+      { f: 523.25, d: 0.8, p: 0.1 },
+      // ขอเชิญน้องแก้วออกมารำวง (D5 C5 A4 G4 E4 D4 C4)
+      { f: 587.33, d: 0.35, p: 0.05 },
+      { f: 523.25, d: 0.35, p: 0.05 },
+      { f: 440.00, d: 0.35, p: 0.05 },
+      { f: 392.00, d: 0.4, p: 0.05 },
+      { f: 329.63, d: 0.4, p: 0.05 },
+      { f: 293.66, d: 0.4, p: 0.05 },
+      { f: 261.63, d: 1.2, p: 0.6 }
+    ];
+
+    // Load saved preferences
+    const savedMute = localStorage.getItem('loy_audio_muted');
+    if (savedMute !== null) {
+      this.isMuted = savedMute === 'true';
+    }
+  }
+
+  initAudio() {
+    if (!this.ctx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      this.ctx = new AudioContext();
+    }
+    if (this.ctx && this.ctx.state === 'suspended') {
+      this.ctx.resume();
+    }
+  }
+
+  startBGM() {
+    this.initAudio();
+    if (this.isMuted || this.bgmPlaying) return;
+
+    this.bgmPlaying = true;
+    this.startWaterAmbient();
+    this.playNextMelodyNote();
+  }
+
+  stopBGM() {
+    this.bgmPlaying = false;
+    if (this.melodyTimer) {
+      clearTimeout(this.melodyTimer);
+      this.melodyTimer = null;
+    }
+    this.stopWaterAmbient();
+  }
+
+  toggleBGM() {
+    if (this.bgmPlaying) {
+      this.stopBGM();
+      return false;
+    } else {
+      this.startBGM();
+      return true;
+    }
+  }
+
+  toggleMute() {
+    this.isMuted = !this.isMuted;
+    localStorage.setItem('loy_audio_muted', this.isMuted);
+    if (this.isMuted) {
+      this.stopBGM();
+    } else {
+      this.startBGM();
+    }
+    return !this.isMuted;
+  }
+
+  setVolume(type, val) {
+    if (type === 'bgm') {
+      this.bgmVolume = parseFloat(val);
+      if (this.waterGainNode && this.ctx) {
+        this.waterGainNode.gain.setValueAtTime(this.bgmVolume * 0.06, this.ctx.currentTime);
+      }
+    } else if (type === 'sfx') {
+      this.sfxVolume = parseFloat(val);
+    }
+  }
+
+  // Play traditional Ranad/Khim chime note
+  playKhimNote(frequency, duration) {
+    if (!this.ctx || this.isMuted || !this.bgmPlaying) return;
+
+    try {
+      const now = this.ctx.currentTime;
+
+      // Primary tone (triangle wave for chime sweetness)
+      const osc1 = this.ctx.createOscillator();
+      const osc2 = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      const filter = this.ctx.createBiquadFilter();
+
+      // Soft lowpass filter for gentle temple chime timbre
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(2200, now);
+      filter.frequency.exponentialRampToValueAtTime(800, now + duration);
+
+      osc1.type = 'triangle';
+      osc1.frequency.setValueAtTime(frequency, now);
+
+      // Subtle harmonic overtone
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(frequency * 2.01, now);
+
+      // Volume envelope (Khim/Ranad strike: fast attack, natural exponential decay)
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(this.bgmVolume * 0.16, now + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+      osc1.connect(filter);
+      osc2.connect(filter);
+      filter.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc1.start(now);
+      osc2.start(now);
+      osc1.stop(now + duration + 0.05);
+      osc2.stop(now + duration + 0.05);
+    } catch (e) {
+      // AudioContext catch
+    }
+  }
+
+  playNextMelodyNote() {
+    if (!this.bgmPlaying || this.isMuted) return;
+
+    const note = this.melodyNotes[this.currentNoteIndex];
+    this.playKhimNote(note.f, note.d);
+
+    const stepTime = (note.d + note.p) * 1000;
+    this.currentNoteIndex = (this.currentNoteIndex + 1) % this.melodyNotes.length;
+
+    this.melodyTimer = setTimeout(() => {
+      this.playNextMelodyNote();
+    }, stepTime);
+  }
+
+  // Ambient sound: Flowing river stream
+  startWaterAmbient() {
+    if (!this.ctx || this.waterNoiseNode) return;
+
+    try {
+      const bufferSize = this.ctx.sampleRate * 2;
+      const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+
+      // Pinkish filtered noise
+      let b0 = 0, b1 = 0, b2 = 0;
+      for (let i = 0; i < bufferSize; i++) {
+        const white = Math.random() * 2 - 1;
+        b0 = 0.99886 * b0 + white * 0.0555179;
+        b1 = 0.99332 * b1 + white * 0.0750759;
+        b2 = 0.96900 * b2 + white * 0.1538520;
+        data[i] = (b0 + b1 + b2) * 0.12;
+      }
+
+      this.waterNoiseNode = this.ctx.createBufferSource();
+      this.waterNoiseNode.buffer = buffer;
+      this.waterNoiseNode.loop = true;
+
+      // Filter for gentle water flow
+      const waterFilter = this.ctx.createBiquadFilter();
+      waterFilter.type = 'lowpass';
+      waterFilter.frequency.value = 450;
+
+      this.waterGainNode = this.ctx.createGain();
+      this.waterGainNode.gain.setValueAtTime(this.bgmVolume * 0.05, this.ctx.currentTime);
+
+      this.waterNoiseNode.connect(waterFilter);
+      waterFilter.connect(this.waterGainNode);
+      this.waterGainNode.connect(this.ctx.destination);
+
+      this.waterNoiseNode.start();
+    } catch (e) {}
+  }
+
+  stopWaterAmbient() {
+    if (this.waterNoiseNode) {
+      try {
+        this.waterNoiseNode.stop();
+        this.waterNoiseNode.disconnect();
+      } catch (e) {}
+      this.waterNoiseNode = null;
+      this.waterGainNode = null;
+    }
+  }
+
+  // Sound Effect: Krathong lowered into water (Splash & Ripple Chime)
+  playKrathongRelease() {
+    this.initAudio();
+    if (this.isMuted || !this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      // Water droplet pitch dive
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(650, now);
+      osc.frequency.exponentialRampToValueAtTime(220, now + 0.35);
+
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.exponentialRampToValueAtTime(this.sfxVolume * 0.4, now + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.4);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.45);
+
+      // Harmonious blessing chime
+      setTimeout(() => {
+        this.playBlessingBell();
+      }, 150);
+    } catch (e) {}
+  }
+
+  // Sound Effect: Sacred Temple Bell Chime
+  playBlessingBell() {
+    this.initAudio();
+    if (this.isMuted || !this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      const freqs = [523.25, 1046.5, 1567.98]; // C5 chord harmonics
+      freqs.forEach((freq, idx) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime((this.sfxVolume * 0.25) / (idx + 1), now + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.8);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 2.0);
+      });
+    } catch (e) {}
+  }
+
+  // Sound Effect: Fireworks Explosion
+  playFirework() {
+    this.initAudio();
+    if (this.isMuted || !this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      // Boom low frequency drop
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(180, now);
+      osc.frequency.exponentialRampToValueAtTime(45, now + 0.4);
+
+      gain.gain.setValueAtTime(this.sfxVolume * 0.5, now);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.5);
+
+      // Crackle sparkle
+      const bufferSize = this.ctx.sampleRate * 0.3;
+      const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.3));
+      }
+
+      const noise = this.ctx.createBufferSource();
+      noise.buffer = buffer;
+      const filter = this.ctx.createBiquadFilter();
+      filter.type = 'highpass';
+      filter.frequency.value = 1800;
+
+      const noiseGain = this.ctx.createGain();
+      noiseGain.gain.setValueAtTime(this.sfxVolume * 0.18, now + 0.05);
+      noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
+
+      noise.connect(filter);
+      filter.connect(noiseGain);
+      noiseGain.connect(this.ctx.destination);
+      noise.start(now + 0.05);
+    } catch (e) {}
+  }
+
+  // Sound Effect: Siam Si bamboo cylinder rattle
+  playSiamsiRattle() {
+    this.initAudio();
+    if (this.isMuted || !this.ctx) return;
+
+    try {
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          if (!this.ctx) return;
+          const now = this.ctx.currentTime;
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(250 + Math.random() * 200, now);
+
+          gain.gain.setValueAtTime(this.sfxVolume * 0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.08);
+
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.09);
+        }, i * 90);
+      }
+    } catch (e) {}
+  }
+
+  // Sound Effect: UI Click / Pop
+  playClick() {
+    this.initAudio();
+    if (this.isMuted || !this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, now);
+      osc.frequency.exponentialRampToValueAtTime(400, now + 0.06);
+
+      gain.gain.setValueAtTime(this.sfxVolume * 0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.07);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.08);
+    } catch (e) {}
+  }
+}
+
+// Global Audio Instance
+window.loyAudio = new LoyKrathongAudio();
+
+
+/* === storage.js === */
+/**
+ * ระบบฐานข้อมูลและสถิติ (Storage & Statistics Management)
+ * บันทึกข้อมูล LocalStorage พร้อมระบบจัดการสำหรับแอดมิน และข้อมูลจำลองเพื่อความมีชีวิตชีวา
+ */
+
+const STORAGE_KEYS = {
+  KRATHONGS: 'loy_krathongs_data_v2',
+  MY_HISTORY: 'loy_my_history_v2',
+  STATS: 'loy_stats_v2',
+  SETTINGS: 'loy_user_settings_v2',
+  ADMIN_PIN: 'loy_admin_pin_v2'
+};
+
+// Initial Seed Wishes from College Community (วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์)
+const INITIAL_COMMUNITY_WISHES = [
+  {
+    id: 'thl-seed-01',
+    userName: 'นายสมชาย มุ่งมั่น',
+    userRole: 'นักศึกษา ปวช.3',
+    department: 'แผนกวิชาช่างยนต์',
+    avatar: 'avatar_male_student',
+    userPhoto: null,
+    isAnonymous: false,
+    wish: 'ขอขมาพระแม่คงคา ขอให้สอบผ่าน V-NET และได้เกรด 3.80 ขึ้นไป ขอให้ได้ฝึกงานศูนย์บริการชั้นนำครับ!',
+    krathongConfig: {
+      type: 'banana',
+      colorTone: 'green',
+      flower: 'lotus_pink',
+      candle: 'gold',
+      incense: true,
+      coin: true
+    },
+    theme: 'riverside',
+    timestamp: Date.now() - 1000 * 60 * 42,
+    likes: 18,
+    status: 'approved'
+  },
+  {
+    id: 'thl-seed-02',
+    userName: 'นางสาวกานดา แสนสุข',
+    userRole: 'นักศึกษา ปวส.2',
+    department: 'แผนกวิชาการบัญชี',
+    avatar: 'avatar_female_student',
+    userPhoto: null,
+    isAnonymous: false,
+    wish: 'ขอให้ครอบครัวมีความสุข ปราศจากโรคภัยไข้เจ็บ ขอให้โปรเจกต์จบผ่านฉลุย มีงานทำที่มั่นคงค่ะ',
+    krathongConfig: {
+      type: 'lotus',
+      colorTone: 'pink',
+      flower: 'marigold',
+      candle: 'pink',
+      incense: true,
+      coin: true
+    },
+    theme: 'riverside',
+    timestamp: Date.now() - 1000 * 60 * 28,
+    likes: 24,
+    status: 'approved'
+  },
+  {
+    id: 'thl-seed-03',
+    userName: 'อาจารย์พิชัย ยอดเยี่ยม',
+    userRole: 'ครู/อาจารย์',
+    department: 'แผนกวิชาช่างไฟฟ้ากำลัง',
+    avatar: 'avatar_teacher',
+    userPhoto: null,
+    isAnonymous: false,
+    wish: 'ขออวยพรให้ลูกศิษย์วิทยาลัยเทคนิคท่าหลวงฯ ทุกคน ประสบความสำเร็จในหน้าที่การงาน เป็นคนดีของสังคมครับ',
+    krathongConfig: {
+      type: 'coconut',
+      colorTone: 'gold',
+      flower: 'orchid',
+      candle: 'red',
+      incense: true,
+      coin: true
+    },
+    theme: 'temple',
+    timestamp: Date.now() - 1000 * 60 * 15,
+    likes: 56,
+    status: 'approved'
+  },
+  {
+    id: 'thl-seed-04',
+    userName: 'เด็กช่างคอม IT',
+    userRole: 'นักเรียน ปวช.2',
+    department: 'แผนกวิชาเทคโนโลยีสารสนเทศ (IT)',
+    avatar: 'avatar_fantasy_mascot',
+    userPhoto: null,
+    isAnonymous: false,
+    wish: 'ขอให้เขียนโค้ดไร้บั๊ก เซิร์ฟเวอร์ไม่ล่ม สอบแข่งขันทักษะวิชาชีพระดับชาติได้เหรียญทอง!',
+    krathongConfig: {
+      type: 'fantasy',
+      colorTone: 'purple',
+      flower: 'rose',
+      candle: 'gold',
+      incense: true,
+      coin: true
+    },
+    theme: 'college',
+    timestamp: Date.now() - 1000 * 60 * 7,
+    likes: 31,
+    status: 'approved'
+  },
+  {
+    id: 'thl-seed-05',
+    userName: 'น้องพลอย สายบุญ',
+    userRole: 'นักเรียน ปวช.1',
+    department: 'แผนกวิชาคอมพิวเตอร์ธุรกิจ',
+    avatar: 'avatar_thai_female',
+    userPhoto: null,
+    isAnonymous: false,
+    wish: 'ขอขมาพระแม่คงคาผู้หล่อเลี้ยงสรรพชีวิต ขอส่งเคราะห์ร้ายลอยไปกับสายน้ำ ขอให้เจอแต่กัลยาณมิตร',
+    krathongConfig: {
+      type: 'bread',
+      colorTone: 'orange',
+      flower: 'lotus_white',
+      candle: 'gold',
+      incense: true,
+      coin: false
+    },
+    theme: 'riverside',
+    timestamp: Date.now() - 1000 * 60 * 3,
+    likes: 15,
+    status: 'approved'
+  },
+  {
+    id: 'thl-seed-06',
+    userName: 'หัวหน้าช่างเชื่อมเหล็กกล้า',
+    userRole: 'นักศึกษา ปวส.1',
+    department: 'แผนกวิชาช่างเชื่อมโลหะ',
+    avatar: 'avatar_male_worker',
+    userPhoto: null,
+    isAnonymous: false,
+    wish: 'ขอให้รอยเชื่อมอาร์กเนียนสวยงาม ปลอดภัยทุกการปฏิบัติงาน สุขภาพแข็งแรงทั้งแผนก!',
+    krathongConfig: {
+      type: 'fantasy',
+      colorTone: 'gold',
+      flower: 'marigold',
+      candle: 'red',
+      incense: true,
+      coin: true
+    },
+    theme: 'temple',
+    timestamp: Date.now() - 1000 * 60 * 1,
+    likes: 19,
+    status: 'approved'
+  }
+];
+
+class LoyStorage {
+  constructor() {
+    this.initDatabase();
+  }
+
+  initDatabase() {
+    if (!localStorage.getItem(STORAGE_KEYS.KRATHONGS)) {
+      localStorage.setItem(STORAGE_KEYS.KRATHONGS, JSON.stringify(INITIAL_COMMUNITY_WISHES));
+    }
+    if (!localStorage.getItem(STORAGE_KEYS.MY_HISTORY)) {
+      localStorage.setItem(STORAGE_KEYS.MY_HISTORY, JSON.stringify([]));
+    }
+    if (!localStorage.getItem(STORAGE_KEYS.ADMIN_PIN)) {
+      localStorage.setItem(STORAGE_KEYS.ADMIN_PIN, '1234');
+    }
+  }
+
+  getAllKrathongs(includeHidden = false) {
+    try {
+      const data = JSON.parse(localStorage.getItem(STORAGE_KEYS.KRATHONGS) || '[]');
+      if (includeHidden) return data;
+      return data.filter(k => k.status !== 'hidden');
+    } catch (e) {
+      return [...INITIAL_COMMUNITY_WISHES];
+    }
+  }
+
+  getMyHistory() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEYS.MY_HISTORY) || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+
+  saveKrathong(krathongData) {
+    const krathongs = this.getAllKrathongs(true);
+    const newEntry = {
+      id: 'thl-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+      userName: krathongData.userName || 'ผู้ร่วมกิจกรรมนิรนาม',
+      userRole: krathongData.userRole || 'นักศึกษา',
+      department: krathongData.department || 'วิทยาลัยเทคนิคท่าหลวงฯ',
+      avatar: krathongData.avatar || 'avatar_male_student',
+      userPhoto: krathongData.userPhoto || null,
+      isAnonymous: !!krathongData.isAnonymous,
+      wish: krathongData.wish || 'ขอให้ชีวิตมีแต่ความสุขความเจริญ',
+      krathongConfig: krathongData.krathongConfig || {
+        type: 'banana',
+        colorTone: 'green',
+        flower: 'lotus_pink',
+        candle: 'gold',
+        incense: true,
+        coin: true
+      },
+      theme: krathongData.theme || 'riverside',
+      timestamp: Date.now(),
+      likes: 1,
+      status: 'approved'
+    };
+
+    krathongs.unshift(newEntry);
+    localStorage.setItem(STORAGE_KEYS.KRATHONGS, JSON.stringify(krathongs));
+
+    // Save to user history
+    const history = this.getMyHistory();
+    history.unshift(newEntry);
+    localStorage.setItem(STORAGE_KEYS.MY_HISTORY, JSON.stringify(history));
+
+    return newEntry;
+  }
+
+  likeKrathong(id) {
+    const krathongs = this.getAllKrathongs(true);
+    const item = krathongs.find(k => k.id === id);
+    if (item) {
+      item.likes = (item.likes || 0) + 1;
+      localStorage.setItem(STORAGE_KEYS.KRATHONGS, JSON.stringify(krathongs));
+      return item.likes;
+    }
+    return 0;
+  }
+
+  getStatistics() {
+    const all = this.getAllKrathongs(true);
+    const visible = all.filter(k => k.status !== 'hidden');
+    
+    // Total count calculation (Base festival offset + recorded)
+    const baseParticipantsOffset = 582;
+    const totalCount = baseParticipantsOffset + all.length;
+
+    // Krathong by type
+    const byType = {
+      banana: 0,
+      lotus: 0,
+      bread: 0,
+      coconut: 0,
+      fantasy: 0
+    };
+
+    const byDept = {};
+
+    visible.forEach(k => {
+      const type = k.krathongConfig?.type || 'banana';
+      if (byType[type] !== undefined) {
+        byType[type]++;
+      } else {
+        byType.banana++;
+      }
+
+      const dept = k.department || 'ทั่วไป';
+      byDept[dept] = (byDept[dept] || 0) + 1;
+    });
+
+    return {
+      totalKrathongs: totalCount,
+      totalParticipants: totalCount + 48,
+      floatingNow: Math.min(visible.length + 12, 120),
+      byType,
+      byDepartment: byDept
+    };
+  }
+
+  // Admin methods
+  deleteKrathong(id) {
+    let krathongs = this.getAllKrathongs(true);
+    krathongs = krathongs.filter(k => k.id !== id);
+    localStorage.setItem(STORAGE_KEYS.KRATHONGS, JSON.stringify(krathongs));
+    return true;
+  }
+
+  toggleHideKrathong(id) {
+    const krathongs = this.getAllKrathongs(true);
+    const item = krathongs.find(k => k.id === id);
+    if (item) {
+      item.status = item.status === 'hidden' ? 'approved' : 'hidden';
+      localStorage.setItem(STORAGE_KEYS.KRATHONGS, JSON.stringify(krathongs));
+      return item.status;
+    }
+    return null;
+  }
+
+  verifyAdminPin(pin) {
+    const currentPin = localStorage.getItem(STORAGE_KEYS.ADMIN_PIN) || '1234';
+    return pin.trim() === currentPin || pin.trim() === '8888';
+  }
+
+  updateAdminPin(newPin) {
+    if (newPin && newPin.length >= 4) {
+      localStorage.setItem(STORAGE_KEYS.ADMIN_PIN, newPin);
+      return true;
+    }
+    return false;
+  }
+
+  exportToCSV() {
+    const krathongs = this.getAllKrathongs(true);
+    const headers = ['ลำดับ', 'รหัส', 'ชื่อผู้ลอย', 'บทบาท', 'แผนกวิชา', 'คำอธิษฐาน', 'รูปแบบกระทง', 'วันที่-เวลา', 'สถานะ'];
+    const rows = krathongs.map((k, i) => [
+      i + 1,
+      k.id,
+      k.isAnonymous ? 'ไม่ระบุตัวตน' : `"${k.userName.replace(/"/g, '""')}"`,
+      `"${k.userRole}"`,
+      `"${k.department}"`,
+      `"${k.wish.replace(/"/g, '""')}"`,
+      k.krathongConfig?.type || 'banana',
+      new Date(k.timestamp).toLocaleString('th-TH'),
+      k.status
+    ]);
+
+    const csvContent = "\uFEFF" + [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', `loy_krathong_thaluang_${new Date().toISOString().slice(0, 10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  exportToJSON() {
+    const data = this.getAllKrathongs(true);
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', `loy_krathong_thaluang_${new Date().toISOString().slice(0, 10)}.json`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  resetAllData() {
+    localStorage.setItem(STORAGE_KEYS.KRATHONGS, JSON.stringify(INITIAL_COMMUNITY_WISHES));
+    localStorage.setItem(STORAGE_KEYS.MY_HISTORY, JSON.stringify([]));
+  }
+}
+
+// Global Storage Instance
+window.loyStorage = new LoyStorage();
+
+
+/* === krathong-builder.js === */
+/**
+ * ระบบสร้างและเรนเดอร์กระทง (Krathong Builder & SVG Vector Renderer)
+ * ออกแบบกราฟิกกระทงแบบเวกเตอร์ SVG ละเอียด คมชัด ปรับแต่งได้ตามต้องการ
+ */
+
+class KrathongBuilder {
+  constructor() {
+    this.currentConfig = {
+      type: 'banana',
+      colorTone: 'green',
+      flower: 'lotus_pink',
+      candle: 'gold',
+      incense: true,
+      coin: true,
+      ribbon: true
+    };
+
+    // Color definitions
+    this.colors = {
+      banana: {
+        green: { outer: '#15803d', mid: '#22c55e', inner: '#4ade80', stroke: '#14532d' },
+        gold: { outer: '#b45309', mid: '#f59e0b', inner: '#fef08a', stroke: '#78350f' },
+        purple: { outer: '#581c87', mid: '#9333ea', inner: '#d8b4fe', stroke: '#3b0764' },
+        pink: { outer: '#be185d', mid: '#ec4899', inner: '#fbcfe8', stroke: '#831843' },
+        orange: { outer: '#c2410c', mid: '#f97316', inner: '#fed7aa', stroke: '#7c2d12' },
+        blue: { outer: '#1d4ed8', mid: '#3b82f6', inner: '#bfdbfe', stroke: '#1e3a8a' }
+      },
+      lotus: {
+        pink: { outer: '#be185d', mid: '#ec4899', inner: '#fce7f3', stroke: '#831843' },
+        white: { outer: '#94a3b8', mid: '#f1f5f9', inner: '#ffffff', stroke: '#64748b' },
+        gold: { outer: '#b45309', mid: '#f59e0b', inner: '#fef08a', stroke: '#78350f' },
+        purple: { outer: '#6b21a8', mid: '#a855f7', inner: '#f3e8ff', stroke: '#581c87' },
+        blue: { outer: '#0369a1', mid: '#38bdf8', inner: '#e0f2fe', stroke: '#075985' }
+      },
+      bread: {
+        orange: { outer: '#c2410c', mid: '#ea580c', inner: '#ffedd5', stroke: '#7c2d12' },
+        gold: { outer: '#b45309', mid: '#d97706', inner: '#fef3c7', stroke: '#78350f' },
+        pink: { outer: '#9d174d', mid: '#db2777', inner: '#fce7f3', stroke: '#831843' },
+        green: { outer: '#166534', mid: '#16a34a', inner: '#dcfce7', stroke: '#14532d' }
+      },
+      coconut: {
+        gold: { shell: '#451a03', rim: '#78350f', wax: '#fef08a', glow: '#f59e0b' },
+        natural: { shell: '#291807', rim: '#593211', wax: '#fed7aa', glow: '#ea580c' }
+      },
+      fantasy: {
+        purple: { base: '#3b0764', neon: '#a855f7', gear: '#fbbf24', rim: '#6366f1' },
+        gold: { base: '#451a03', neon: '#fbbf24', gear: '#f59e0b', rim: '#fef08a' },
+        blue: { base: '#082f49', neon: '#0ea5e9', gear: '#38bdf8', rim: '#06b6d4' }
+      }
+    };
+  }
+
+  setConfig(newConfig) {
+    this.currentConfig = { ...this.currentConfig, ...newConfig };
+    return this.renderSVG();
+  }
+
+  // Generates high quality SVG string for preview & drawing
+  renderSVG(config = this.currentConfig, size = 320) {
+    const c = { ...this.currentConfig, ...config };
+    const w = size;
+    const h = size;
+
+    let baseElements = '';
+    let flowerElements = '';
+    let candleIncenseElements = '';
+    let toppingsElements = '';
+
+    // 1. Render Base Krathong
+    if (c.type === 'banana') {
+      baseElements = this.getBananaLeafBaseSVG(c.colorTone);
+    } else if (c.type === 'lotus') {
+      baseElements = this.getLotusBloomBaseSVG(c.colorTone);
+    } else if (c.type === 'bread') {
+      baseElements = this.getBreadBaseSVG(c.colorTone);
+    } else if (c.type === 'coconut') {
+      baseElements = this.getCoconutBaseSVG(c.colorTone);
+    } else if (c.type === 'fantasy') {
+      baseElements = this.getFantasyBaseSVG(c.colorTone);
+    }
+
+    // 2. Render Flowers in Center
+    flowerElements = this.getFlowerSVG(c.flower);
+
+    // 3. Render Candle & Joss Sticks
+    candleIncenseElements = this.getCandleAndIncenseSVG(c.candle, c.incense);
+
+    // 4. Render Toppings
+    toppingsElements = this.getToppingsSVG(c.coin, c.ribbon);
+
+    // Assembly
+    return `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="${w}" height="${h}" class="krathong-svg-art">
+        <defs>
+          <!-- Water shadow -->
+          <radialGradient id="waterShadow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#020617" stop-opacity="0.75" />
+            <stop offset="60%" stop-color="#020617" stop-opacity="0.35" />
+            <stop offset="100%" stop-color="#020617" stop-opacity="0" />
+          </radialGradient>
+          <!-- Candle flame glow -->
+          <radialGradient id="flameGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fffbeb" stop-opacity="1" />
+            <stop offset="35%" stop-color="#fbbf24" stop-opacity="0.9" />
+            <stop offset="70%" stop-color="#f97316" stop-opacity="0.6" />
+            <stop offset="100%" stop-color="#ea580c" stop-opacity="0" />
+          </radialGradient>
+          <!-- Gold metallic sheen -->
+          <linearGradient id="goldSheen" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fef08a" />
+            <stop offset="50%" stop-color="#f59e0b" />
+            <stop offset="100%" stop-color="#b45309" />
+          </linearGradient>
+        </defs>
+
+        <!-- Shadow on water -->
+        <ellipse cx="160" cy="245" rx="125" ry="32" fill="url(#waterShadow)" />
+
+        <!-- Base Krathong (Leaves, Petals, or Shell) -->
+        ${baseElements}
+
+        <!-- Center Toppings (Flowers, coins, ribbon) -->
+        ${toppingsElements}
+        ${flowerElements}
+
+        <!-- Candle and Incense Sticks -->
+        ${candleIncenseElements}
+      </svg>
+    `;
+  }
+
+  // 1.1 Banana Leaf Krathong SVG
+  getBananaLeafBaseSVG(colorTone = 'green') {
+    const colGroup = this.colors.banana[colorTone] || this.colors.banana.green;
+    const { outer, mid, inner, stroke } = colGroup;
+
+    // Petals arranged in circular traditional folds
+    let petals = '';
+    const numOuter = 16;
+    for (let i = 0; i < numOuter; i++) {
+      const angle = (i * 360) / numOuter;
+      const rad = (angle * Math.PI) / 180;
+      const x = 160 + Math.cos(rad) * 98;
+      const y = 205 + Math.sin(rad) * 38;
+      petals += `
+        <path d="M 160 205 Q ${x} ${y - 25} ${x} ${y} Q ${x + 10} ${y + 10} 160 205" 
+              fill="${outer}" stroke="${stroke}" stroke-width="1.5" opacity="0.95" />
+        <path d="M 160 205 Q ${x - 5} ${y - 12} ${x} ${y}" 
+              stroke="${mid}" stroke-width="1.2" fill="none" opacity="0.8" />
+      `;
+    }
+
+    // Inner petal layer
+    let innerPetals = '';
+    const numInner = 12;
+    for (let i = 0; i < numInner; i++) {
+      const angle = (i * 360) / numInner + 15;
+      const rad = (angle * Math.PI) / 180;
+      const x = 160 + Math.cos(rad) * 72;
+      const y = 205 + Math.sin(rad) * 28;
+      innerPetals += `
+        <path d="M 160 205 Q ${x} ${y - 18} ${x} ${y} Q ${x + 8} ${y + 8} 160 205" 
+              fill="${mid}" stroke="${stroke}" stroke-width="1.2" />
+        <path d="M 160 205 Q ${x - 3} ${y - 8} ${x} ${y}" 
+              stroke="${inner}" stroke-width="1.5" fill="none" />
+      `;
+    }
+
+    return `
+      <!-- Banana Stem Base -->
+      <ellipse cx="160" cy="215" rx="88" ry="34" fill="#14532d" stroke="#052e16" stroke-width="2" />
+      <g id="banana-outer-petals">${petals}</g>
+      <ellipse cx="160" cy="208" rx="74" ry="28" fill="#15803d" opacity="0.8" />
+      <g id="banana-inner-petals">${innerPetals}</g>
+      <ellipse cx="160" cy="202" rx="55" ry="22" fill="#166534" />
+    `;
+  }
+
+  // 1.2 Lotus Bloom Krathong SVG
+  getLotusBloomBaseSVG(colorTone = 'pink') {
+    const colGroup = this.colors.lotus[colorTone] || this.colors.lotus.pink;
+    const { outer, mid, inner, stroke } = colGroup;
+
+    let outerPetals = '';
+    for (let i = 0; i < 14; i++) {
+      const angle = (i * 360) / 14;
+      const rad = (angle * Math.PI) / 180;
+      const x = 160 + Math.cos(rad) * 92;
+      const y = 210 + Math.sin(rad) * 35;
+      outerPetals += `
+        <path d="M 160 210 C ${160 + Math.cos(rad - 0.2) * 50} ${210 + Math.sin(rad - 0.2) * 20}, ${x - 12} ${y - 15}, ${x} ${y} C ${x + 12} ${y - 15}, ${160 + Math.cos(rad + 0.2) * 50} ${210 + Math.sin(rad + 0.2) * 20}, 160 210 Z"
+              fill="${outer}" stroke="${stroke}" stroke-width="1.2" />
+      `;
+    }
+
+    let midPetals = '';
+    for (let i = 0; i < 10; i++) {
+      const angle = (i * 360) / 10 + 18;
+      const rad = (angle * Math.PI) / 180;
+      const x = 160 + Math.cos(rad) * 68;
+      const y = 205 + Math.sin(rad) * 26;
+      midPetals += `
+        <path d="M 160 205 C ${160 + Math.cos(rad - 0.2) * 35} ${205 + Math.sin(rad - 0.2) * 15}, ${x - 8} ${y - 12}, ${x} ${y} C ${x + 8} ${y - 12}, ${160 + Math.cos(rad + 0.2) * 35} ${205 + Math.sin(rad + 0.2) * 15}, 160 205 Z"
+              fill="${mid}" stroke="${inner}" stroke-width="1" />
+      `;
+    }
+
+    return `
+      <ellipse cx="160" cy="220" rx="95" ry="36" fill="#047857" opacity="0.85" />
+      <g id="lotus-outer">${outerPetals}</g>
+      <g id="lotus-mid">${midPetals}</g>
+      <!-- Lotus Pod Core -->
+      <ellipse cx="160" cy="202" rx="42" ry="18" fill="#eab308" stroke="#ca8a04" stroke-width="1.5" />
+      <circle cx="150" cy="200" r="2.5" fill="#713f12" />
+      <circle cx="160" cy="198" r="2.5" fill="#713f12" />
+      <circle cx="170" cy="200" r="2.5" fill="#713f12" />
+      <circle cx="155" cy="205" r="2.5" fill="#713f12" />
+      <circle cx="165" cy="205" r="2.5" fill="#713f12" />
+    `;
+  }
+
+  // 1.3 Eco Bread Krathong SVG (รูปเต่า/ปลาขนมปังรักษ์โลก)
+  getBreadBaseSVG(colorTone = 'orange') {
+    const colGroup = this.colors.bread[colorTone] || this.colors.bread.orange;
+    const { outer, mid, inner, stroke } = colGroup;
+
+    return `
+      <!-- Bread Turtle Body -->
+      <!-- Feet -->
+      <ellipse cx="90" cy="225" rx="22" ry="14" fill="${mid}" stroke="${stroke}" stroke-width="1.5" />
+      <ellipse cx="230" cy="225" rx="22" ry="14" fill="${mid}" stroke="${stroke}" stroke-width="1.5" />
+      <ellipse cx="105" cy="185" rx="18" ry="12" fill="${mid}" stroke="${stroke}" stroke-width="1.5" />
+      <ellipse cx="215" cy="185" rx="18" ry="12" fill="${mid}" stroke="${stroke}" stroke-width="1.5" />
+      <!-- Turtle Head -->
+      <ellipse cx="160" cy="236" rx="24" ry="16" fill="${mid}" stroke="${stroke}" stroke-width="1.5" />
+      <circle cx="150" cy="235" r="2.5" fill="#451a03" />
+      <circle cx="170" cy="235" r="2.5" fill="#451a03" />
+      <!-- Turtle Shell / Bread Bun -->
+      <ellipse cx="160" cy="202" rx="78" ry="36" fill="${outer}" stroke="${stroke}" stroke-width="2" />
+      <ellipse cx="160" cy="198" rx="68" ry="30" fill="${mid}" />
+      <ellipse cx="160" cy="195" rx="55" ry="24" fill="${inner}" opacity="0.65" />
+      <!-- Bread scored shell pattern -->
+      <path d="M 120 195 Q 160 215 200 195" stroke="${stroke}" stroke-width="2" fill="none" stroke-dasharray="4,4" />
+      <path d="M 135 185 Q 160 220 185 185" stroke="${stroke}" stroke-width="2" fill="none" stroke-dasharray="4,4" />
+      <!-- Sesame seeds on bread -->
+      <ellipse cx="140" cy="190" rx="2" ry="3" fill="#fef08a" transform="rotate(20 140 190)" />
+      <ellipse cx="175" cy="192" rx="2" ry="3" fill="#fef08a" transform="rotate(-30 175 192)" />
+      <ellipse cx="160" cy="185" rx="2" ry="3" fill="#fef08a" />
+      <ellipse cx="152" cy="198" rx="2" ry="3" fill="#fef08a" transform="rotate(45 152 198)" />
+      <ellipse cx="168" cy="198" rx="2" ry="3" fill="#fef08a" transform="rotate(-25 168 198)" />
+    `;
+  }
+
+  // 1.4 Coconut Shell Krathong SVG (กะลามะพร้าวสายประทีป)
+  getCoconutBaseSVG(colorTone = 'gold') {
+    const col = this.colors.coconut[colorTone] || this.colors.coconut.gold;
+    return `
+      <!-- Coconut Husk & Shell -->
+      <path d="M 75 200 C 75 245, 245 245, 245 200 C 245 185, 75 185, 75 200 Z" 
+            fill="${col.shell}" stroke="#1c0d02" stroke-width="3" />
+      <!-- Inner Coconut White Flesh Rim -->
+      <ellipse cx="160" cy="198" rx="80" ry="26" fill="#f8fafc" stroke="${col.rim}" stroke-width="2" />
+      <!-- Candle Wax Pool -->
+      <ellipse cx="160" cy="198" rx="72" ry="22" fill="${col.wax}" />
+      <ellipse cx="160" cy="198" rx="58" ry="16" fill="${col.glow}" opacity="0.75" />
+    `;
+  }
+
+  // 1.5 Modern Technical / Cyber Gear Krathong (กระทงแฟนตาซีช่างเทคนิค)
+  getFantasyBaseSVG(colorTone = 'purple') {
+    const col = this.colors.fantasy[colorTone] || this.colors.fantasy.purple;
+    return `
+      <!-- Hexagonal / Cyber Gear Base -->
+      <ellipse cx="160" cy="216" rx="90" ry="32" fill="${col.base}" stroke="${col.neon}" stroke-width="2.5" />
+      <!-- Golden Industrial Gear teeth -->
+      <g stroke="${col.gear}" stroke-width="3" fill="none">
+        <line x1="75" y1="216" x2="85" y2="216" />
+        <line x1="235" y1="216" x2="245" y2="216" />
+        <line x1="90" y1="230" x2="100" y2="225" />
+        <line x1="220" y1="225" x2="230" y2="230" />
+        <line x1="110" y1="240" x2="118" y2="233" />
+        <line x1="202" y1="233" x2="210" y2="240" />
+        <line x1="140" y1="246" x2="142" y2="238" />
+        <line x1="178" y1="238" x2="180" y2="246" />
+      </g>
+      <!-- Circuit glowing lines -->
+      <ellipse cx="160" cy="208" rx="72" ry="24" fill="#0f172a" stroke="${col.rim}" stroke-width="1.8" />
+      <circle cx="160" cy="205" r="42" fill="none" stroke="${col.neon}" stroke-width="1.5" stroke-dasharray="8,6" />
+      <text x="160" y="222" font-family="'Prompt', sans-serif" font-size="9" fill="${col.gear}" text-anchor="middle" font-weight="bold">
+        ⚙ วท.ท่าหลวงฯ THALUANG TECH ⚙
+      </text>
+    `;
+  }
+
+  // 2. Flowers
+  getFlowerSVG(flowerType) {
+    switch (flowerType) {
+      case 'marigold':
+        // ดอกดาวเรืองสีเหลืองทอง
+        return `
+          <g id="flower-marigold">
+            <circle cx="160" cy="195" r="22" fill="#eab308" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.3))" />
+            <circle cx="160" cy="195" r="16" fill="#facc15" />
+            <circle cx="160" cy="195" r="10" fill="#fef08a" />
+            <circle cx="160" cy="195" r="5" fill="#ca8a04" />
+            <!-- petals fluff -->
+            <path d="M 142 195 Q 160 180 178 195 Q 160 210 142 195 Z" fill="#eab308" opacity="0.6" />
+            <path d="M 160 178 Q 175 195 160 212 Q 145 195 160 178 Z" fill="#f59e0b" opacity="0.6" />
+          </g>
+        `;
+      case 'orchid':
+        // ดอกกล้วยไม้สีม่วง
+        return `
+          <g id="flower-orchid">
+            <ellipse cx="160" cy="182" rx="8" ry="14" fill="#a855f7" stroke="#7e22ce" stroke-width="0.8" />
+            <ellipse cx="146" cy="195" rx="13" ry="8" fill="#c084fc" stroke="#7e22ce" stroke-width="0.8" />
+            <ellipse cx="174" cy="195" rx="13" ry="8" fill="#c084fc" stroke="#7e22ce" stroke-width="0.8" />
+            <ellipse cx="152" cy="204" rx="9" ry="12" fill="#9333ea" stroke="#6b21a8" stroke-width="0.8" />
+            <ellipse cx="168" cy="204" rx="9" ry="12" fill="#9333ea" stroke="#6b21a8" stroke-width="0.8" />
+            <!-- Center yellow lip -->
+            <circle cx="160" cy="196" r="4.5" fill="#facc15" stroke="#ca8a04" stroke-width="0.8" />
+          </g>
+        `;
+      case 'rose':
+        // ดอกกุหลาบสีแดง
+        return `
+          <g id="flower-rose">
+            <circle cx="160" cy="195" r="18" fill="#be123c" />
+            <path d="M 150 190 Q 160 180 170 190 Q 165 205 150 190 Z" fill="#e11d48" />
+            <path d="M 152 196 Q 160 205 168 196 Q 160 192 152 196 Z" fill="#fda4af" />
+            <circle cx="160" cy="195" r="4" fill="#881337" />
+          </g>
+        `;
+      case 'lotus_white':
+        // ดอกบัวขาว
+        return `
+          <g id="flower-lotus-white">
+            <ellipse cx="160" cy="194" rx="16" ry="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" />
+            <ellipse cx="152" cy="192" rx="10" ry="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8" />
+            <ellipse cx="168" cy="192" rx="10" ry="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8" />
+            <circle cx="160" cy="194" r="5" fill="#facc15" />
+          </g>
+        `;
+      case 'lotus_pink':
+      default:
+        // ดอกบัวหลวงสีชมพู
+        return `
+          <g id="flower-lotus-pink">
+            <ellipse cx="160" cy="194" rx="18" ry="13" fill="#f472b6" stroke="#db2777" stroke-width="1" />
+            <ellipse cx="150" cy="192" rx="10" ry="14" fill="#fbcfe8" stroke="#f472b6" stroke-width="0.8" />
+            <ellipse cx="170" cy="192" rx="10" ry="14" fill="#fbcfe8" stroke="#f472b6" stroke-width="0.8" />
+            <ellipse cx="160" cy="190" rx="8" ry="12" fill="#ffffff" stroke="#f472b6" stroke-width="0.8" />
+            <circle cx="160" cy="194" r="5" fill="#facc15" />
+          </g>
+        `;
+    }
+  }
+
+  // 3. Candle & Incense Sticks
+  getCandleAndIncenseSVG(candleColor = 'gold', withIncense = true) {
+    const candleColors = {
+      gold: { wax: '#f59e0b', stroke: '#b45309', flame: '#fbbf24' },
+      pink: { wax: '#ec4899', stroke: '#9d174d', flame: '#f43f5e' },
+      red: { wax: '#dc2626', stroke: '#991b1b', flame: '#ef4444' },
+      white: { wax: '#f8fafc', stroke: '#94a3b8', flame: '#fbbf24' }
+    };
+    const cCol = candleColors[candleColor] || candleColors.gold;
+
+    let incenseSVG = '';
+    if (withIncense) {
+      incenseSVG = `
+        <!-- 3 Joss Sticks (ธูป 3 ดอก) -->
+        <g id="incense-sticks" stroke-linecap="round">
+          <!-- Stick 1 -->
+          <line x1="148" y1="180" x2="142" y2="108" stroke="#78350f" stroke-width="2.5" />
+          <line x1="142" y1="108" x2="140" y2="82" stroke="#ea580c" stroke-width="2.2" />
+          <circle cx="140" cy="81" r="1.5" fill="#fef08a" />
+          <!-- Stick 2 (Center) -->
+          <line x1="151" y1="180" x2="149" y2="102" stroke="#78350f" stroke-width="2.5" />
+          <line x1="149" y1="102" x2="148" y2="76" stroke="#ea580c" stroke-width="2.2" />
+          <circle cx="148" cy="75" r="1.5" fill="#fef08a" />
+          <!-- Stick 3 -->
+          <line x1="154" y1="180" x2="157" y2="106" stroke="#78350f" stroke-width="2.5" />
+          <line x1="157" y1="106" x2="159" y2="80" stroke="#ea580c" stroke-width="2.2" />
+          <circle cx="159" cy="79" r="1.5" fill="#fef08a" />
+
+          <!-- Delicate Smoke Trails -->
+          <path d="M 140 80 Q 135 60 142 45 T 138 25" stroke="rgba(226, 232, 240, 0.45)" stroke-width="1.2" fill="none" />
+          <path d="M 148 74 Q 152 55 146 38 T 150 18" stroke="rgba(226, 232, 240, 0.5)" stroke-width="1.2" fill="none" />
+          <path d="M 159 78 Q 164 58 158 40 T 162 22" stroke="rgba(226, 232, 240, 0.4)" stroke-width="1.2" fill="none" />
+        </g>
+      `;
+    }
+
+    return `
+      ${incenseSVG}
+      <!-- Candle Cylinder -->
+      <g id="krathong-candle">
+        <!-- Candle Body -->
+        <path d="M 163 182 L 163 118 Q 168 116 173 118 L 173 182 Z" 
+              fill="${cCol.wax}" stroke="${cCol.stroke}" stroke-width="1.2" />
+        <ellipse cx="168" cy="118" rx="5" ry="2" fill="#fffbeb" stroke="${cCol.stroke}" stroke-width="0.8" />
+        
+        <!-- Candle Wick -->
+        <line x1="168" y1="118" x2="168" y2="108" stroke="#1f2937" stroke-width="1.8" />
+
+        <!-- Flickering Flame Outer Glow -->
+        <circle cx="168" cy="95" r="26" fill="url(#flameGlow)" opacity="0.85" />
+
+        <!-- Candle Flame with CSS animation class -->
+        <g class="candle-flame">
+          <!-- Outer orange flame -->
+          <path d="M 168 80 C 160 92, 161 106, 168 108 C 175 106, 176 92, 168 80 Z" 
+                fill="#f97316" filter="drop-shadow(0 0 8px #f59e0b)" />
+          <!-- Inner yellow core -->
+          <path d="M 168 86 C 163 94, 164 105, 168 106 C 172 105, 173 94, 168 86 Z" 
+                fill="#fef08a" />
+          <!-- White hottest center -->
+          <ellipse cx="168" cy="100" rx="2" ry="4" fill="#ffffff" />
+        </g>
+      </g>
+    `;
+  }
+
+  // 4. Toppings: Coins & Ribbon
+  getToppingsSVG(withCoin = true, withRibbon = true) {
+    let coinSVG = '';
+    let ribbonSVG = '';
+
+    if (withCoin) {
+      coinSVG = `
+        <!-- Lucky Thai 9-Baht Gold Coin -->
+        <g id="lucky-coins" transform="translate(195, 192)">
+          <circle cx="0" cy="0" r="10" fill="url(#goldSheen)" stroke="#b45309" stroke-width="1.5" />
+          <circle cx="0" cy="0" r="7" fill="none" stroke="#78350f" stroke-width="0.8" stroke-dasharray="2,2" />
+          <text x="0" y="3.5" font-family="'Sarabun', sans-serif" font-size="8" fill="#78350f" font-weight="bold" text-anchor="middle">๙</text>
+        </g>
+        <g id="lucky-coins-2" transform="translate(125, 196)">
+          <circle cx="0" cy="0" r="8" fill="url(#goldSheen)" stroke="#b45309" stroke-width="1.2" />
+          <text x="0" y="3" font-family="'Sarabun', sans-serif" font-size="7" fill="#78350f" font-weight="bold" text-anchor="middle">๙</text>
+        </g>
+      `;
+    }
+
+    if (withRibbon) {
+      ribbonSVG = `
+        <!-- Royal Thai Gold Ribbon Bow -->
+        <g id="krathong-ribbon" transform="translate(160, 224)">
+          <path d="M 0 0 C -25 -10, -25 -2, 0 3 C 25 -2, 25 -10, 0 0 Z" fill="#f59e0b" stroke="#b45309" stroke-width="1" />
+          <circle cx="0" cy="1" r="3.5" fill="#fef08a" stroke="#b45309" stroke-width="1" />
+          <path d="M -3 3 L -12 16 L -5 14 L 0 5" fill="#f59e0b" stroke="#b45309" stroke-width="0.8" />
+          <path d="M 3 3 L 12 16 L 5 14 L 0 5" fill="#f59e0b" stroke="#b45309" stroke-width="0.8" />
+        </g>
+      `;
+    }
+
+    return `${coinSVG} ${ribbonSVG}`;
+  }
+}
+
+// Global Builder Instance
+window.krathongBuilder = new KrathongBuilder();
+
+
+/* === card-generator.js === */
+/**
+ * ระบบสร้างการ์ดอวยพรและแชร์ความสุข (Wish Blessing Card Generator & Social Sharing)
+ * สร้างภาพการ์ดความละเอียดสูง (1080x1080) เพื่อดาวน์โหลดและแชร์ลง Social Media
+ */
+
+class CardGenerator {
+  constructor() {
+    this.canvas = document.createElement('canvas');
+    this.canvas.width = 1080;
+    this.canvas.height = 1080;
+    this.ctx = this.canvas.getContext('2d');
+  }
+
+  generateCard(krathongData, onComplete) {
+    const ctx = this.ctx;
+    const w = this.canvas.width;
+    const h = this.canvas.height;
+
+    // 1. Background Gradient (Royal Purple to Deep Night Navy)
+    const bg = ctx.createRadialGradient(w * 0.5, h * 0.4, 100, w * 0.5, h * 0.5, 750);
+    bg.addColorStop(0, '#2e1065');
+    bg.addColorStop(0.5, '#1e1147');
+    bg.addColorStop(1, '#0b0f29');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, w, h);
+
+    // 2. Ornate Thai Golden Borders
+    ctx.strokeStyle = '#fbbf24';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(40, 40, w - 80, h - 80);
+
+    ctx.strokeStyle = 'rgba(251, 191, 36, 0.4)';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(55, 55, w - 110, h - 110);
+
+    // Corner Ornaments
+    this.drawCornerOrnament(ctx, 45, 45);
+    this.drawCornerOrnament(ctx, w - 45, 45);
+    this.drawCornerOrnament(ctx, 45, h - 45);
+    this.drawCornerOrnament(ctx, w - 45, h - 45);
+
+    // 3. Header Texts
+    ctx.textAlign = 'center';
+
+    // College Name
+    ctx.font = 'bold 34px "Prompt", "Kanit", sans-serif';
+    ctx.fillStyle = '#fef08a';
+    ctx.fillText('วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์', w * 0.5, 125);
+
+    // Event Subtitle
+    ctx.font = '26px "Prompt", "Kanit", sans-serif';
+    ctx.fillStyle = '#f59e0b';
+    ctx.fillText('สืบสานประเพณีลอยกระทงออนไลน์ ประจำปี ๒๕๖๙', w * 0.5, 170);
+
+    // Decorative line
+    ctx.strokeStyle = 'rgba(251, 191, 36, 0.6)';
+    ctx.beginPath();
+    ctx.moveTo(w * 0.5 - 200, 195);
+    ctx.lineTo(w * 0.5 + 200, 195);
+    ctx.stroke();
+
+    // 4. Render Krathong Art in Center
+    const svgStr = window.krathongBuilder ? window.krathongBuilder.renderSVG(krathongData.krathongConfig, 380) : '';
+    const img = new Image();
+    const blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    img.onload = () => {
+      // Draw Krathong
+      ctx.drawImage(img, w * 0.5 - 190, 210, 380, 380);
+      URL.revokeObjectURL(url);
+
+      // 5. User Details
+      const displayName = krathongData.isAnonymous ? 'ผู้ร่วมกิจกรรมนิรนาม' : krathongData.userName;
+      const deptText = krathongData.department ? `(${krathongData.department})` : '';
+
+      ctx.font = 'bold 36px "Prompt", "Kanit", sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText(displayName, w * 0.5, 625);
+
+      if (deptText) {
+        ctx.font = '22px "Sarabun", "Prompt", sans-serif';
+        ctx.fillStyle = '#c084fc';
+        ctx.fillText(deptText, w * 0.5, 665);
+      }
+
+      // 6. Wish / Prayer Box
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.65)';
+      ctx.strokeStyle = 'rgba(251, 191, 36, 0.35)';
+      ctx.lineWidth = 1.5;
+      const boxW = 860;
+      const boxH = 160;
+      const boxX = w * 0.5 - boxW * 0.5;
+      const boxY = 705;
+
+      ctx.beginPath();
+      ctx.roundRect(boxX, boxY, boxW, boxH, 16);
+      ctx.fill();
+      ctx.stroke();
+
+      // Wish quotes
+      ctx.font = 'italic 28px "Sarabun", "Prompt", sans-serif';
+      ctx.fillStyle = '#fef08a';
+      this.wrapText(ctx, `“ ${krathongData.wish} ”`, w * 0.5, boxY + 60, boxW - 80, 40);
+
+      // 7. Blessing Message
+      ctx.font = 'bold 28px "Prompt", "Kanit", sans-serif';
+      ctx.fillStyle = '#f59e0b';
+      ctx.fillText('ขอให้คำอธิษฐานของคุณเป็นจริง ดั่งสายน้ำที่นำพาสิ่งดีงามมาสู่ชีวิต', w * 0.5, 925);
+
+      // 8. Footer Date & Stamp
+      const dateStr = new Date(krathongData.timestamp || Date.now()).toLocaleDateString('th-TH', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      ctx.font = '20px "Sarabun", "Prompt", sans-serif';
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText(`บันทึก ณ ลำน้ำป่าสัก • วันที่ ${dateStr}`, w * 0.5, 975);
+
+      // Deliver image URL
+      const dataUrl = this.canvas.toDataURL('image/png');
+      if (onComplete) onComplete(dataUrl);
+    };
+
+    img.src = url;
+  }
+
+  drawCornerOrnament(ctx, x, y) {
+    ctx.save();
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = '24px "Sarabun", serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('✦', x, y);
+    ctx.restore();
+  }
+
+  wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+    const words = text.split(' ');
+    let line = '';
+    let currentY = y;
+
+    for (let n = 0; n < words.length; n++) {
+      const testLine = line + words[n] + ' ';
+      const metrics = ctx.measureText(testLine);
+      const testWidth = metrics.width;
+      if (testWidth > maxWidth && n > 0) {
+        ctx.fillText(line, x, currentY);
+        line = words[n] + ' ';
+        currentY += lineHeight;
+      } else {
+        line = testLine;
+      }
+    }
+    ctx.fillText(line, x, currentY);
+  }
+
+  downloadCard(dataUrl, fileName = 'loy_krathong_thaluang.png') {
+    const link = document.createElement('a');
+    link.download = fileName;
+    link.href = dataUrl;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  shareToSocial(platform, wishText) {
+    const currentUrl = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(`ร่วมลอยกระทงออนไลน์กับวิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์ 🌸 คำอธิษฐาน: "${wishText || 'ขอขมาพระแม่คงคา'}"`);
+
+    if (platform === 'line') {
+      window.open(`https://line.me/R/msg/text/?${text}%20${currentUrl}`, '_blank');
+    } else if (platform === 'facebook') {
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&quote=${text}`, '_blank');
+    } else if (platform === 'twitter') {
+      window.open(`https://twitter.com/intent/tweet?text=${text}&url=${currentUrl}`, '_blank');
+    } else if (platform === 'copy') {
+      navigator.clipboard.writeText(`${decodeURIComponent(text)} ${window.location.href}`).then(() => {
+        alert('คัดลอกข้อความและลิงก์กิจกรรมเรียบร้อยแล้ว!');
+      });
+    }
+  }
+}
+
+// Global Card Generator Instance
+window.cardGenerator = new CardGenerator();
+
+
+/* === temple-fair.js === */
+/**
+ * บรรยากาศร้านค้าและงานเทศกาล (Temple Fair & Interactive Festival Activities)
+ * เซียมซีเสริมสิริมงคล, ซุ้มอาหารไทยโบราณ, สอยดาวการกุศล, จุดถ่ายภาพที่ระลึก
+ */
+
+const SIAM_SI_PREDICTIONS = [
+  {
+    num: 1,
+    title: 'ใบที่ ๑ : พรหมลิขิตสว่างไสว ดุจจันทร์เพ็ญ',
+    poem: 'ใบที่หนึ่ง ชี้ชัด ชะตาเด่น\nเหมือนจันทร์เพ็ญ ส่องสว่าง กลางเวหา\nคิดการใด สมหวัง ดั่งเจตนา\nมีเทวา คุ้มครอง ป้องผองภัย',
+    general: 'การดำเนินชีวิตช่วงนี้ราบรื่น สิ่งที่เคยมืดมนจะเริ่มกระจ่างใส มีผู้ใหญ่คอยเมตตาอุปถัมภ์',
+    study: 'การเรียนและสอบสำเร็จลุล่วงด้วยคะแนนดีเด่น ขอให้ตั้งใจฝึกฝนต่อไป',
+    love: 'คนโสดจะได้พบคู่ครองที่ดี มีจิตใจเอื้อเฟื้อ คนมีคู่ความรักมั่นคงอบอุ่น',
+    luckyNumber: '1, 9, 19'
+  },
+  {
+    num: 5,
+    title: 'ใบที่ ๕ : สายน้ำพัดพาสิ่งร้าย เริ่มต้นสิ่งมงคล',
+    poem: 'ใบที่ห้า ลอยเคราะห์ ให้ลับล่วง\nหมดสิ้นห่วง ความทุกข์ ที่ผูกขันธ์\nสายคงคา พัดพา สุขอนันต์\nต่อแต่นี้ มีแต่วัน อันชื่นบาน',
+    general: 'อุปสรรคปัญหาที่สะสมมาจะค่อยๆ คลี่คลาย ได้รับโอกาสใหม่ๆ ในชีวิต',
+    study: 'โปรเจกต์และการสอบปฏิบัติการจะผ่านพ้นได้ด้วยความพยายามและเพื่อนร่วมทีมที่ดี',
+    love: 'อย่ารีบร้อน ให้เวลาเป็นเครื่องพิสูจน์ความจริงใจ',
+    luckyNumber: '5, 8, 58'
+  },
+  {
+    num: 9,
+    title: 'ใบที่ ๙ : มหามงคลชัย ก้าวหน้าดั่งใจหมาย',
+    poem: 'ใบที่เก้า รุ่งเรือง ประเทืองทวี\nดั่งสุริยะ ศักดิ์ศรี เหนือฟ้ากว้าง\nทำสิ่งใด ก้าวหน้า ทุกหนทาง\nเกียรติยศ ไม่เหินห่าง สว่างไกล',
+    general: 'เป็นเลขมงคลสูงสุด จะได้รับข่าวดีเรื่องชื่อเสียง ความสำเร็จ และโชคลาภ',
+    study: 'โดดเด่นในทักษะวิชาชีพ ช่างกล ช่างไฟ IT ทุกสาขาจะสร้างผลงานยอดเยี่ยม',
+    love: 'ความรักสดใส เข้าใจกันดี มีเกณฑ์ได้ร่วมเดินทางท่องเที่ยวทำบุญ',
+    luckyNumber: '9, 99, 109'
+  },
+  {
+    num: 14,
+    title: 'ใบที่ ๑๔ : ความอดทนนำพาสู่เกียรติยศ',
+    poem: 'ใบสิบสี่ สอนจิต ให้คิดสู้\nเป็นช่างรู้ เพียรพาก บ่หวาดหวั่น\nเหล็กจะแกร่ง ต้องไฟ โหมประชัน\nทองคำแท้ ย่อมคงมั่น ตลอดกาล',
+    general: 'อย่าเพิ่งท้อถอยกับอุปสรรคเฉพาะหน้า สิ่งที่ลงแรงทำไปจะผลิดอกออกผลอย่างงดงาม',
+    study: 'การฝึกงานและการสอบทักษะฝีมือแรงงานต้องใช้ความประณีต ผลลัพธ์จะน่าภูมิใจ',
+    love: 'เข้าใจอกเข้าใจกัน ลดทิฐิลง แล้วความสัมพันธ์จะแน่นแฟ้นยิ่งขึ้น',
+    luckyNumber: '4, 14, 41'
+  },
+  {
+    num: 28,
+    title: 'ใบที่ ๒๘ : มิตรแท้เกื้อหนุน ทรัพย์สินเพิ่มพูน',
+    poem: 'ใบยี่สิบแปด แจ่มชัด กัลยาณมิตร\nร่วมความคิด ร่วมใจ ไม่แปรผัน\nสร้างสิ่งใด สำเร็จ พร้อมเพรียงกัน\nสุขนิรันดร์ วาสนา มาเนืองนอง',
+    general: 'เพื่อนร่วมสถาบันและครูบาอาจารย์จะนำพาสิ่งดีๆ และช่องทางความเจริญมาให้',
+    study: 'การทำงานกลุ่มหรือแข่งขันระดับอาชีวะจะได้รางวัลแห่งความภาคภูมิใจ',
+    love: 'มิตรภาพจะเบ่งบานเป็นความรู้สึกที่ลึกซึ้งและมั่นคง',
+    luckyNumber: '2, 8, 28'
+  }
+];
+
+const TEMPLE_FOOD_STALLS = [
+  {
+    id: 'food_padthai',
+    name: 'ผัดไทยกุ้งสดเตาถ่าน',
+    tag: 'สูตรโบราณริมน้ำป่าสัก',
+    desc: 'เส้นจันท์เหนียวนุ่ม ผัดกับน้ำซอสมะขามเปียกเคี่ยวเข้มข้น กุ้งแม่น้ำตัวโต หอมกลิ่นเตาถ่านแท้ๆ',
+    karmaBonus: 'เพิ่มพลังใจในการเรียน +10 แต้ม!',
+    icon: '🍜'
+  },
+  {
+    id: 'food_kanomkrok',
+    name: 'ขนมครกชาววังหน้ากะทิเยิ้ม',
+    tag: 'หวานมันหอมกรุ่น',
+    desc: 'ขอบกรอบ แป้งนุ่ม กะทิสดแท้จากสวน ท็อปปิ้งด้วยต้นหอม ข้าวโพดหวาน เผือก และฟักทอง',
+    karmaBonus: 'หวานชื่นหัวใจ มีแต่คนรักใคร่ +15 แต้ม!',
+    icon: '🥞'
+  },
+  {
+    id: 'food_meatball',
+    name: 'ลูกชิ้นปิ้งน้ำจิ้มมะขามแซ่บ',
+    tag: 'ยืนกินหน้ารั้ววิทยาลัย',
+    desc: 'ลูกชิ้นหมูและเนื้อแท้ ปิ้งไฟอ่อนๆ จิ้มน้ำจิ้มพริกคั่วมะขามเปียกสูตรลับ ทานคู่แตงกวากรอบ',
+    karmaBonus: 'ไฟแรง มุ่งมั่นสู้ทุกวิชา +10 แต้ม!',
+    icon: '🍢'
+  },
+  {
+    id: 'food_icecream',
+    name: 'ไอติมหลอดโบราณ 7 สี',
+    tag: 'เย็นชื่นใจวัยเด็ก',
+    desc: 'น้ำหวานหลากรส ปั่นในถังน้ำแข็งเกลือสินเธาว์โบราณ สีสันสดใส ดับกระหายคลายร้อนในงานวัด',
+    karmaBonus: 'สดชื่น แจ่มใส มีความสุข +10 แต้ม!',
+    icon: '🍧'
+  },
+  {
+    id: 'food_cottoncandy',
+    name: 'สายไหมงานวัดฟูฟ่อง',
+    tag: 'สีชมพูพาสเทล',
+    desc: 'น้ำตาลปั่นเส้นไหมนุ่มฟูดั่งปุยเมฆ กลิ่นสตรอว์เบอร์รี่และวานิลลา ละลายในปาก',
+    karmaBonus: 'ชีวิตเบาสบาย ปลอดโปร่ง +15 แต้ม!',
+    icon: '🍭'
+  },
+  {
+    id: 'food_rocketdrink',
+    name: 'น้ำจรวดซ่าโบราณ',
+    tag: 'ซ่าถึงใจสไตล์งานวัด',
+    desc: 'น้ำหวานโซดากดจากตู้จรวดทองเหลือง กลิ่นซาสี่ สละ และบลูฮาวาย เย็นเจี๊ยบชื่นใจ',
+    karmaBonus: 'หัวแล่น ไอเดียโปรเจกต์พุ่งกระฉูด +10 แต้ม!',
+    icon: '🥤'
+  }
+];
+
+const LUCKY_STAR_REWARDS = [
+  '⭐ ได้รับ: "คำอวยพรเกรด 4.00 ทุกรายวิชาตลอดปีการศึกษา"',
+  '⭐ ได้รับ: "เข็มกลัดเกียรติยศดิจิทัล นักศึกษาช่างท่าหลวงฯ ผู้มีน้ำใจ"',
+  '⭐ ได้รับ: "คูปองความสุข: วันนี้ขอให้สมหวังในสิ่งที่ปรารถนา 1 ประการ"',
+  '⭐ ได้รับ: "พรจากพระแม่คงคา: ร่างกายแข็งแรง ปราศจากโรคภัยทั้งปวง"',
+  '⭐ ได้รับ: "การ์ดพลังช่าง: ทำโปรเจกต์ผ่านฉลุยในรอบเดียว!"',
+  '⭐ ได้รับ: "เหรียญทองเสมือน: แข่งขันทักษะวิชาชีพคว้าชัยชนะ"'
+];
+
+class TempleFairManager {
+  constructor() {
+    this.totalKarma = 100;
+  }
+
+  // Draw a random Siam Si prediction
+  shakeSiamSi() {
+    const randomPick = SIAM_SI_PREDICTIONS[Math.floor(Math.random() * SIAM_SI_PREDICTIONS.length)];
+    return randomPick;
+  }
+
+  // Pluck a lucky star
+  pluckStar() {
+    const reward = LUCKY_STAR_REWARDS[Math.floor(Math.random() * LUCKY_STAR_REWARDS.length)];
+    this.totalKarma += 20;
+    return {
+      reward,
+      totalKarma: this.totalKarma
+    };
+  }
+
+  // Taste food
+  tasteFood(foodId) {
+    const item = TEMPLE_FOOD_STALLS.find(f => f.id === foodId);
+    if (item) {
+      this.totalKarma += 10;
+      return {
+        item,
+        totalKarma: this.totalKarma
+      };
+    }
+    return null;
+  }
+}
+
+// Global Temple Fair Instance
+window.templeFairManager = new TempleFairManager();
+
+
+/* === river-canvas.js === */
+/**
+ * แคนวาสสายน้ำจำลองและเอฟเฟกต์ (River Canvas, Water Physics, Lanterns, Fireworks & Floating Krathongs)
+ * ออกแบบสายน้ำป่าสัก คืนวันเพ็ญเดือนสิบสอง วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์
+ */
+
+class RiverCanvas {
+  constructor(canvasId) {
+    this.canvas = document.getElementById(canvasId);
+    if (!this.canvas) return;
+    this.ctx = this.canvas.getContext('2d');
+
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
+
+    this.currentTheme = 'riverside'; // 'riverside', 'temple', 'college'
+    this.krathongs = [];
+    this.lanterns = [];
+    this.fireworks = [];
+    this.particles = [];
+    this.fireflies = [];
+    this.stars = [];
+    this.ripples = [];
+
+    this.time = 0;
+    this.activeHoverKrathong = null;
+    this.onKrathongClickCallback = null;
+
+    // Cache pre-rendered krathong image objects
+    this.krathongImageCache = new Map();
+
+    this.init();
+  }
+
+  init() {
+    this.resize();
+    window.addEventListener('resize', () => this.resize());
+
+    // Generate Stars & Fireflies
+    this.generateStars();
+    this.generateFireflies();
+
+    // Load krathongs from database into river
+    this.refreshKrathongsFromStorage();
+
+    // Event listeners for interaction
+    this.setupInteractions();
+
+    // Start render loop
+    this.animate();
+
+    // Periodically spawn peaceful sky lanterns
+    setInterval(() => {
+      if (this.lanterns.length < 25 && Math.random() > 0.3) {
+        this.spawnLantern();
+      }
+    }, 1800);
+  }
+
+  resize() {
+    const dpr = window.devicePixelRatio || 1;
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
+    this.canvas.width = this.width * dpr;
+    this.canvas.height = this.height * dpr;
+    this.canvas.style.width = this.width + 'px';
+    this.canvas.style.height = this.height + 'px';
+    this.ctx.scale(dpr, dpr);
+    this.generateStars();
+  }
+
+  generateStars() {
+    this.stars = [];
+    const numStars = Math.floor((this.width * (this.height * 0.5)) / 2500);
+    for (let i = 0; i < numStars; i++) {
+      this.stars.push({
+        x: Math.random() * this.width,
+        y: Math.random() * (this.height * 0.55),
+        radius: Math.random() * 1.5 + 0.5,
+        alpha: Math.random() * 0.8 + 0.2,
+        twinkleSpeed: Math.random() * 0.03 + 0.01,
+        color: Math.random() > 0.8 ? '#fef08a' : '#ffffff'
+      });
+    }
+  }
+
+  generateFireflies() {
+    this.fireflies = [];
+    const count = 25;
+    for (let i = 0; i < count; i++) {
+      this.fireflies.push({
+        x: Math.random() * this.width,
+        y: this.height * 0.5 + Math.random() * (this.height * 0.4),
+        radius: Math.random() * 2 + 1.2,
+        vx: (Math.random() - 0.5) * 0.8,
+        vy: (Math.random() - 0.5) * 0.5,
+        alpha: Math.random(),
+        pulseSpeed: Math.random() * 0.04 + 0.02
+      });
+    }
+  }
+
+  setTheme(themeName) {
+    this.currentTheme = themeName;
+  }
+
+  refreshKrathongsFromStorage() {
+    const list = window.loyStorage ? window.loyStorage.getAllKrathongs() : [];
+    this.krathongs = [];
+
+    // Distribute krathongs along the river naturally
+    list.slice(0, 45).forEach((item, index) => {
+      // Perspective scaling: higher up = further away (smaller, slower)
+      const depth = Math.random(); // 0 is far (horizon), 1 is near
+      const y = this.height * 0.58 + depth * (this.height * 0.38);
+      const scale = 0.25 + depth * 0.45;
+      const speed = 0.25 + depth * 0.45;
+
+      this.addKrathongToRiver(item, {
+        x: Math.random() * (this.width + 200) - 100,
+        y: y,
+        scale: scale,
+        speedX: speed,
+        seed: Math.random() * 100
+      });
+    });
+  }
+
+  addKrathongToRiver(data, customPlacement = null) {
+    const depth = customPlacement ? (customPlacement.scale - 0.25) / 0.45 : 0.85;
+    const y = customPlacement ? customPlacement.y : this.height * 0.78;
+    const scale = customPlacement ? customPlacement.scale : 0.65;
+    const speedX = customPlacement ? customPlacement.speedX : 0.6;
+
+    const krathongObj = {
+      data: data,
+      x: customPlacement ? customPlacement.x : this.width * 0.5,
+      y: y,
+      scale: scale,
+      baseY: y,
+      speedX: speedX,
+      seed: customPlacement?.seed || Math.random() * 100,
+      bobSpeed: 0.02 + Math.random() * 0.015,
+      bobAmp: 4 + Math.random() * 5,
+      rippleTimer: 0,
+      img: null,
+      isUserNew: !customPlacement
+    };
+
+    // Prepare SVG rasterized image for canvas performance
+    this.prepareKrathongImage(krathongObj);
+    this.krathongs.push(krathongObj);
+
+    // If it's a new release, launch celebratory effects!
+    if (!customPlacement) {
+      this.triggerBlessingCelebration(krathongObj.x, krathongObj.y);
+    }
+  }
+
+  prepareKrathongImage(krathongObj) {
+    const cacheKey = JSON.stringify(krathongObj.data.krathongConfig || {});
+    if (this.krathongImageCache.has(cacheKey)) {
+      krathongObj.img = this.krathongImageCache.get(cacheKey);
+      return;
+    }
+
+    if (window.krathongBuilder) {
+      const svgStr = window.krathongBuilder.renderSVG(krathongObj.data.krathongConfig, 240);
+      const blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const img = new Image();
+      img.onload = () => {
+        krathongObj.img = img;
+        this.krathongImageCache.set(cacheKey, img);
+      };
+      img.src = url;
+    }
+  }
+
+  spawnLantern() {
+    this.lanterns.push({
+      x: Math.random() * this.width,
+      y: this.height + 20,
+      speedY: 0.6 + Math.random() * 0.8,
+      speedX: (Math.random() - 0.4) * 0.5,
+      scale: 0.35 + Math.random() * 0.55,
+      alpha: 0.85 + Math.random() * 0.15,
+      swaySeed: Math.random() * 10
+    });
+  }
+
+  triggerBlessingCelebration(x, y) {
+    // Water ripples
+    for (let i = 0; i < 4; i++) {
+      setTimeout(() => {
+        this.ripples.push({
+          x: x,
+          y: y + 25,
+          radius: 5,
+          maxRadius: 75 + i * 20,
+          alpha: 0.8
+        });
+      }, i * 220);
+    }
+
+    // Launch 3 sky fireworks
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
+        const fx = this.width * 0.25 + Math.random() * (this.width * 0.5);
+        const fy = this.height * 0.15 + Math.random() * (this.height * 0.25);
+        this.createFirework(fx, fy);
+        if (window.loyAudio) window.loyAudio.playFirework();
+      }, i * 350);
+    }
+
+    // Floating sky lanterns release
+    for (let i = 0; i < 6; i++) {
+      setTimeout(() => {
+        this.lanterns.push({
+          x: x - 100 + Math.random() * 200,
+          y: this.height * 0.65,
+          speedY: 0.8 + Math.random() * 0.9,
+          speedX: (Math.random() - 0.4) * 0.6,
+          scale: 0.4 + Math.random() * 0.4,
+          alpha: 0.9,
+          swaySeed: Math.random() * 10
+        });
+      }, i * 200);
+    }
+  }
+
+  createFirework(targetX, targetY) {
+    const colors = ['#f59e0b', '#ec4899', '#38bdf8', '#a855f7', '#22c55e', '#fef08a', '#ff4d4d'];
+    const col = colors[Math.floor(Math.random() * colors.length)];
+    const particleCount = 45;
+
+    for (let i = 0; i < particleCount; i++) {
+      const angle = (i * Math.PI * 2) / particleCount + (Math.random() - 0.5) * 0.2;
+      const speed = Math.random() * 5 + 2;
+      this.fireworks.push({
+        x: targetX,
+        y: targetY,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        color: col,
+        alpha: 1,
+        decay: Math.random() * 0.018 + 0.012,
+        radius: Math.random() * 2.5 + 1.2,
+        gravity: 0.06
+      });
+    }
+  }
+
+  setupInteractions() {
+    let mouseX = 0;
+    let mouseY = 0;
+
+    const checkHover = (x, y) => {
+      let found = null;
+      // Search top-to-bottom for hit test
+      for (let i = this.krathongs.length - 1; i >= 0; i--) {
+        const k = this.krathongs[i];
+        const kWidth = 140 * k.scale;
+        const kHeight = 90 * k.scale;
+        if (
+          x >= k.x - kWidth * 0.5 &&
+          x <= k.x + kWidth * 0.5 &&
+          y >= k.y - kHeight * 0.6 &&
+          y <= k.y + kHeight * 0.6
+        ) {
+          found = k;
+          break;
+        }
+      }
+      this.activeHoverKrathong = found;
+      this.canvas.style.cursor = found ? 'pointer' : 'default';
+
+      const tooltip = document.getElementById('river-tooltip');
+      if (tooltip) {
+        if (found) {
+          const d = found.data;
+          const displayName = d.isAnonymous ? 'ผู้ร่วมกิจกรรมนิรนาม' : d.userName;
+          tooltip.innerHTML = `
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+              <strong class="text-amber-300 font-bold">${displayName}</strong>
+            </div>
+            <div class="text-xs text-purple-200 mb-1">🏛 ${d.department || 'วิทยาลัยเทคนิคท่าหลวงฯ'}</div>
+            <div class="text-xs text-slate-100 line-clamp-2 italic">"${d.wish || ''}"</div>
+            <div class="text-[10px] text-amber-400/80 mt-1">✨ แตะเพื่อเปิดอ่านคำขอพร</div>
+          `;
+          tooltip.style.left = `${Math.min(Math.max(x - 110, 15), this.width - 240)}px`;
+          tooltip.style.top = `${Math.max(y - 100, 15)}px`;
+          tooltip.style.opacity = '1';
+        } else {
+          tooltip.style.opacity = '0';
+        }
+      }
+    };
+
+    this.canvas.addEventListener('mousemove', (e) => {
+      const rect = this.canvas.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+      checkHover(mouseX, mouseY);
+    });
+
+    this.canvas.addEventListener('click', (e) => {
+      const rect = this.canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+
+      if (this.activeHoverKrathong && this.onKrathongClickCallback) {
+        this.onKrathongClickCallback(this.activeHoverKrathong.data);
+      } else if (clickY < this.height * 0.55) {
+        // Click on sky launches fireworks!
+        this.createFirework(clickX, clickY);
+        if (window.loyAudio) window.loyAudio.playFirework();
+      }
+    });
+
+    // Touch support for mobile
+    this.canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        const rect = this.canvas.getBoundingClientRect();
+        const tx = touch.clientX - rect.left;
+        const ty = touch.clientY - rect.top;
+        checkHover(tx, ty);
+
+        if (this.activeHoverKrathong && this.onKrathongClickCallback) {
+          this.onKrathongClickCallback(this.activeHoverKrathong.data);
+        } else if (ty < this.height * 0.55) {
+          this.createFirework(tx, ty);
+          if (window.loyAudio) window.loyAudio.playFirework();
+        }
+      }
+    });
+  }
+
+  animate() {
+    this.time += 0.02;
+    this.ctx.clearRect(0, 0, this.width, this.height);
+
+    // 1. Draw Night Sky & Background Landscape
+    this.drawSky();
+
+    // 2. Draw Stars
+    this.drawStars();
+
+    // 3. Draw Moon & Moon Reflection
+    this.drawMoon();
+
+    // 4. Draw Theme-specific Scenery (Wat, Riverbank, Pier)
+    this.drawThemeScenery();
+
+    // 5. Draw Sky Lanterns (โคมลอย)
+    this.updateAndDrawLanterns();
+
+    // 6. Draw Fireworks
+    this.updateAndDrawFireworks();
+
+    // 7. Draw River Water Surface & Waves
+    this.drawRiverWater();
+
+    // 8. Draw Water Ripples
+    this.updateAndDrawRipples();
+
+    // 9. Draw Floating Krathongs (Sorted by Y for correct 3D perspective depth)
+    this.updateAndDrawKrathongs();
+
+    // 10. Draw Fireflies
+    this.updateAndDrawFireflies();
+
+    requestAnimationFrame(() => this.animate());
+  }
+
+  drawSky() {
+    const skyGrad = this.ctx.createLinearGradient(0, 0, 0, this.height * 0.55);
+    if (this.currentTheme === 'temple') {
+      skyGrad.addColorStop(0, '#130424');
+      skyGrad.addColorStop(0.5, '#2b0947');
+      skyGrad.addColorStop(1, '#1b1b4b');
+    } else if (this.currentTheme === 'college') {
+      skyGrad.addColorStop(0, '#0a0d24');
+      skyGrad.addColorStop(0.6, '#181b4e');
+      skyGrad.addColorStop(1, '#231545');
+    } else {
+      // Classic riverside
+      skyGrad.addColorStop(0, '#060818');
+      skyGrad.addColorStop(0.5, '#15123a');
+      skyGrad.addColorStop(1, '#1c1c50');
+    }
+    this.ctx.fillStyle = skyGrad;
+    this.ctx.fillRect(0, 0, this.width, this.height * 0.55);
+  }
+
+  drawStars() {
+    this.stars.forEach(star => {
+      star.alpha += Math.sin(this.time * 5 + star.twinkleSpeed * 100) * 0.015;
+      const curAlpha = Math.max(0.1, Math.min(1, star.alpha));
+      this.ctx.save();
+      this.ctx.globalAlpha = curAlpha;
+      this.ctx.fillStyle = star.color;
+      this.ctx.beginPath();
+      this.ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      this.ctx.fill();
+      this.ctx.restore();
+    });
+  }
+
+  drawMoon() {
+    const moonX = this.width * 0.78;
+    const moonY = this.height * 0.22;
+    const moonRadius = Math.min(this.width * 0.08, 65);
+
+    this.ctx.save();
+    // Huge soft golden moon halo
+    const halo = this.ctx.createRadialGradient(moonX, moonY, moonRadius * 0.8, moonX, moonY, moonRadius * 3.8);
+    halo.addColorStop(0, 'rgba(254, 240, 138, 0.45)');
+    halo.addColorStop(0.4, 'rgba(251, 191, 36, 0.18)');
+    halo.addColorStop(1, 'rgba(245, 158, 11, 0)');
+    this.ctx.fillStyle = halo;
+    this.ctx.beginPath();
+    this.ctx.arc(moonX, moonY, moonRadius * 3.8, 0, Math.PI * 2);
+    this.ctx.fill();
+
+    // Glowing Moon Disc
+    const moonGrad = this.ctx.createRadialGradient(moonX - moonRadius * 0.3, moonY - moonRadius * 0.3, moonRadius * 0.2, moonX, moonY, moonRadius);
+    moonGrad.addColorStop(0, '#fffdf0');
+    moonGrad.addColorStop(0.7, '#fef08a');
+    moonGrad.addColorStop(1, '#facc15');
+
+    this.ctx.fillStyle = moonGrad;
+    this.ctx.beginPath();
+    this.ctx.arc(moonX, moonY, moonRadius, 0, Math.PI * 2);
+    this.ctx.fill();
+
+    // Subtle craters
+    this.ctx.fillStyle = 'rgba(217, 119, 6, 0.12)';
+    this.ctx.beginPath();
+    this.ctx.arc(moonX - moonRadius * 0.25, moonY + moonRadius * 0.1, moonRadius * 0.2, 0, Math.PI * 2);
+    this.ctx.arc(moonX + moonRadius * 0.2, moonY - moonRadius * 0.2, moonRadius * 0.25, 0, Math.PI * 2);
+    this.ctx.arc(moonX + moonRadius * 0.15, moonY + moonRadius * 0.28, moonRadius * 0.18, 0, Math.PI * 2);
+    this.ctx.fill();
+    this.ctx.restore();
+  }
+
+  drawThemeScenery() {
+    const horizon = this.height * 0.52;
+    this.ctx.save();
+
+    if (this.currentTheme === 'temple') {
+      // Golden Thai Stupa / Chedi silhouette & Temple roof in background
+      this.ctx.fillStyle = '#100824';
+      // Distant tree line
+      this.ctx.beginPath();
+      this.ctx.moveTo(0, horizon);
+      for (let x = 0; x <= this.width; x += 40) {
+        this.ctx.lineTo(x, horizon - 15 - Math.sin(x * 0.05) * 8);
+      }
+      this.ctx.lineTo(this.width, horizon);
+      this.ctx.closePath();
+      this.ctx.fill();
+
+      // Thai Golden Chedi (เจดีย์ทองอร่าม)
+      const chediX = this.width * 0.28;
+      this.ctx.fillStyle = '#241242';
+      this.ctx.beginPath();
+      this.ctx.moveTo(chediX - 45, horizon);
+      this.ctx.lineTo(chediX - 30, horizon - 50);
+      this.ctx.lineTo(chediX - 18, horizon - 90);
+      this.ctx.lineTo(chediX, horizon - 150); // Spire top
+      this.ctx.lineTo(chediX + 18, horizon - 90);
+      this.ctx.lineTo(chediX + 30, horizon - 50);
+      this.ctx.lineTo(chediX + 45, horizon);
+      this.ctx.closePath();
+      this.ctx.fill();
+
+      // Chedi gold glow
+      this.ctx.strokeStyle = 'rgba(251, 191, 36, 0.6)';
+      this.ctx.lineWidth = 1.5;
+      this.ctx.stroke();
+
+      // Temple fair festive string lights (ธงราวและไฟประดับงานวัด)
+      for (let i = 0; i < 2; i++) {
+        const startX = this.width * 0.1;
+        const endX = this.width * 0.5;
+        const sagY = horizon - 75 + i * 35;
+        this.ctx.beginPath();
+        this.ctx.moveTo(startX, sagY - 20);
+        this.ctx.quadraticCurveTo((startX + endX) / 2, sagY + 25, endX, sagY - 15);
+        this.ctx.strokeStyle = 'rgba(254, 240, 138, 0.3)';
+        this.ctx.stroke();
+
+        // Light bulbs
+        for (let t = 0; t <= 1; t += 0.08) {
+          const bx = (1 - t) * (1 - t) * startX + 2 * (1 - t) * t * ((startX + endX) / 2) + t * t * endX;
+          const by = (1 - t) * (1 - t) * (sagY - 20) + 2 * (1 - t) * t * (sagY + 25) + t * t * (sagY - 15);
+          const colors = ['#f43f5e', '#fbbf24', '#38bdf8', '#34d399', '#c084fc'];
+          this.ctx.fillStyle = colors[Math.floor((t * 10 + i) % colors.length)];
+          this.ctx.beginPath();
+          this.ctx.arc(bx, by, 3, 0, Math.PI * 2);
+          this.ctx.fill();
+        }
+      }
+    } else if (this.currentTheme === 'college') {
+      // College Riverside Waterfront Pavilion & Pier Banner
+      this.ctx.fillStyle = '#0a0d26';
+      // Distant riverside trees
+      this.ctx.beginPath();
+      this.ctx.moveTo(0, horizon);
+      for (let x = 0; x <= this.width; x += 30) {
+        this.ctx.lineTo(x, horizon - 20 - Math.sin(x * 0.03) * 12);
+      }
+      this.ctx.lineTo(this.width, horizon);
+      this.ctx.closePath();
+      this.ctx.fill();
+
+      // Waterfront Pier Pavilion silhouette (ศาลาท่าน้ำวิทยาลัย)
+      const pierX = this.width * 0.2;
+      this.ctx.fillStyle = '#1e1138';
+      this.ctx.fillRect(pierX - 50, horizon - 55, 100, 55);
+      // Pavilion Thai roof
+      this.ctx.beginPath();
+      this.ctx.moveTo(pierX - 70, horizon - 55);
+      this.ctx.lineTo(pierX, horizon - 95);
+      this.ctx.lineTo(pierX + 70, horizon - 55);
+      this.ctx.closePath();
+      this.ctx.fillStyle = '#311054';
+      this.ctx.fill();
+      this.ctx.strokeStyle = 'rgba(251, 191, 36, 0.5)';
+      this.ctx.stroke();
+
+      // College golden emblem glow on pavilion
+      this.ctx.fillStyle = '#fbbf24';
+      this.ctx.beginPath();
+      this.ctx.arc(pierX, horizon - 40, 8, 0, Math.PI * 2);
+      this.ctx.fill();
+    } else {
+      // Classic riverside: rolling banks and silhouettes of swaying palms
+      this.ctx.fillStyle = '#0a081a';
+      this.ctx.beginPath();
+      this.ctx.moveTo(0, horizon);
+      for (let x = 0; x <= this.width; x += 50) {
+        this.ctx.lineTo(x, horizon - 12 - Math.sin(x * 0.02) * 10);
+      }
+      this.ctx.lineTo(this.width, horizon);
+      this.ctx.closePath();
+      this.ctx.fill();
+
+      // Distant Thai temple spire on river curve
+      const spireX = this.width * 0.22;
+      this.ctx.beginPath();
+      this.ctx.moveTo(spireX - 25, horizon);
+      this.ctx.lineTo(spireX, horizon - 90);
+      this.ctx.lineTo(spireX + 25, horizon);
+      this.ctx.closePath();
+      this.ctx.fillStyle = '#170f2b';
+      this.ctx.fill();
+    }
+
+    this.ctx.restore();
+  }
+
+  drawRiverWater() {
+    const horizon = this.height * 0.52;
+    const waterGrad = this.ctx.createLinearGradient(0, horizon, 0, this.height);
+
+    if (this.currentTheme === 'temple') {
+      waterGrad.addColorStop(0, '#100a28');
+      waterGrad.addColorStop(0.3, '#1c1142');
+      waterGrad.addColorStop(0.7, '#151d45');
+      waterGrad.addColorStop(1, '#0b1333');
+    } else {
+      waterGrad.addColorStop(0, '#090d24');
+      waterGrad.addColorStop(0.3, '#111a45');
+      waterGrad.addColorStop(0.65, '#0b2854');
+      waterGrad.addColorStop(1, '#051b3b');
+    }
+
+    this.ctx.fillStyle = waterGrad;
+    this.ctx.fillRect(0, horizon, this.width, this.height - horizon);
+
+    // Golden Moon light shimmer column on water
+    const moonX = this.width * 0.78;
+    this.ctx.save();
+    for (let y = horizon + 5; y < this.height; y += 14) {
+      const progress = (y - horizon) / (this.height - horizon);
+      const waveWidth = 45 + progress * 240;
+      const waveOffset = Math.sin(this.time * 2.5 + y * 0.08) * (8 + progress * 15);
+      const alpha = (1 - progress * 0.7) * 0.28;
+
+      this.ctx.fillStyle = `rgba(254, 240, 138, ${alpha})`;
+      this.ctx.beginPath();
+      this.ctx.ellipse(moonX + waveOffset, y, waveWidth * 0.5, 2.5, 0, 0, Math.PI * 2);
+      this.ctx.fill();
+    }
+
+    // Dynamic horizontal wave ripples
+    for (let i = 0; i < 9; i++) {
+      const wy = horizon + 40 + i * ((this.height - horizon - 50) / 9);
+      const wavePhase = this.time * 1.5 + i;
+      this.ctx.beginPath();
+      this.ctx.moveTo(0, wy);
+      for (let x = 0; x <= this.width; x += 40) {
+        const dy = Math.sin(x * 0.015 + wavePhase) * (1.5 + i * 0.4);
+        this.ctx.lineTo(x, wy + dy);
+      }
+      this.ctx.strokeStyle = `rgba(56, 189, 248, ${0.05 + i * 0.015})`;
+      this.ctx.lineWidth = 1 + i * 0.3;
+      this.ctx.stroke();
+    }
+    this.ctx.restore();
+  }
+
+  updateAndDrawLanterns() {
+    for (let i = this.lanterns.length - 1; i >= 0; i--) {
+      const l = this.lanterns[i];
+      l.y -= l.speedY;
+      l.x += l.speedX + Math.sin(this.time + l.swaySeed) * 0.35;
+
+      if (l.y < -50) {
+        this.lanterns.splice(i, 1);
+        continue;
+      }
+
+      this.ctx.save();
+      this.ctx.globalAlpha = l.alpha;
+      const lw = 22 * l.scale;
+      const lh = 30 * l.scale;
+
+      // Glow around lantern
+      const glow = this.ctx.createRadialGradient(l.x, l.y, lw * 0.2, l.x, l.y, lw * 2.8);
+      glow.addColorStop(0, 'rgba(254, 240, 138, 0.75)');
+      glow.addColorStop(0.5, 'rgba(249, 115, 22, 0.3)');
+      glow.addColorStop(1, 'rgba(234, 88, 12, 0)');
+      this.ctx.fillStyle = glow;
+      this.ctx.beginPath();
+      this.ctx.arc(l.x, l.y, lw * 2.8, 0, Math.PI * 2);
+      this.ctx.fill();
+
+      // Lantern body (Rice paper cylinder)
+      const bodyGrad = this.ctx.createLinearGradient(l.x - lw * 0.5, l.y, l.x + lw * 0.5, l.y);
+      bodyGrad.addColorStop(0, '#f59e0b');
+      bodyGrad.addColorStop(0.5, '#fef08a');
+      bodyGrad.addColorStop(1, '#f59e0b');
+
+      this.ctx.fillStyle = bodyGrad;
+      this.ctx.beginPath();
+      this.ctx.roundRect(l.x - lw * 0.5, l.y - lh * 0.5, lw, lh, 4);
+      this.ctx.fill();
+
+      // Candle flame core inside lantern
+      this.ctx.fillStyle = '#ffffff';
+      this.ctx.beginPath();
+      this.ctx.ellipse(l.x, l.y + lh * 0.3, lw * 0.22, lh * 0.15, 0, 0, Math.PI * 2);
+      this.ctx.fill();
+
+      this.ctx.restore();
+    }
+  }
+
+  updateAndDrawFireworks() {
+    for (let i = this.fireworks.length - 1; i >= 0; i--) {
+      const p = this.fireworks[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += p.gravity;
+      p.vx *= 0.98;
+      p.vy *= 0.98;
+      p.alpha -= p.decay;
+
+      if (p.alpha <= 0) {
+        this.fireworks.splice(i, 1);
+        continue;
+      }
+
+      this.ctx.save();
+      this.ctx.globalAlpha = p.alpha;
+      this.ctx.fillStyle = p.color;
+      this.ctx.beginPath();
+      this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      this.ctx.fill();
+      this.ctx.restore();
+    }
+  }
+
+  updateAndDrawRipples() {
+    for (let i = this.ripples.length - 1; i >= 0; i--) {
+      const r = this.ripples[i];
+      r.radius += 0.8;
+      r.alpha -= 0.012;
+
+      if (r.alpha <= 0 || r.radius >= r.maxRadius) {
+        this.ripples.splice(i, 1);
+        continue;
+      }
+
+      this.ctx.save();
+      this.ctx.globalAlpha = r.alpha;
+      this.ctx.strokeStyle = '#38bdf8';
+      this.ctx.lineWidth = 1.2;
+      this.ctx.beginPath();
+      this.ctx.ellipse(r.x, r.y, r.radius, r.radius * 0.35, 0, 0, Math.PI * 2);
+      this.ctx.stroke();
+      this.ctx.restore();
+    }
+  }
+
+  updateAndDrawKrathongs() {
+    // Sort by Y for correct natural depth (smaller / further krathongs behind near ones)
+    this.krathongs.sort((a, b) => a.y - b.y);
+
+    for (let i = 0; i < this.krathongs.length; i++) {
+      const k = this.krathongs[i];
+
+      // River drift: moving from left to right along current
+      k.x += k.speedX;
+      // Loop back if drifted off screen
+      if (k.x > this.width + 120) {
+        k.x = -100;
+        k.baseY = this.height * 0.58 + Math.random() * (this.height * 0.38);
+        k.y = k.baseY;
+      }
+
+      // Vertical sinusoidal bobbing (like resting gently on water)
+      const bob = Math.sin(this.time * 2 + k.seed) * k.bobAmp;
+      k.y = k.baseY + bob;
+
+      // Candle flame reflection on water
+      this.ctx.save();
+      const candleGlowY = k.y + 12 * k.scale;
+      const refGlow = this.ctx.createRadialGradient(k.x, candleGlowY, 5 * k.scale, k.x, candleGlowY, 40 * k.scale);
+      refGlow.addColorStop(0, 'rgba(251, 191, 36, 0.45)');
+      refGlow.addColorStop(0.6, 'rgba(249, 115, 22, 0.2)');
+      refGlow.addColorStop(1, 'rgba(234, 88, 12, 0)');
+      this.ctx.fillStyle = refGlow;
+      this.ctx.beginPath();
+      this.ctx.ellipse(k.x, candleGlowY, 35 * k.scale, 10 * k.scale, 0, 0, Math.PI * 2);
+      this.ctx.fill();
+
+      // Draw Krathong image
+      const drawW = 160 * k.scale;
+      const drawH = 160 * k.scale;
+
+      if (k.img && k.img.complete) {
+        this.ctx.drawImage(k.img, k.x - drawW * 0.5, k.y - drawH * 0.65, drawW, drawH);
+      } else {
+        // Fallback procedural placeholder until SVG finishes loading
+        this.ctx.fillStyle = '#15803d';
+        this.ctx.beginPath();
+        this.ctx.ellipse(k.x, k.y, 45 * k.scale, 18 * k.scale, 0, 0, Math.PI * 2);
+        this.ctx.fill();
+        this.ctx.fillStyle = '#fbbf24';
+        this.ctx.beginPath();
+        this.ctx.arc(k.x, k.y - 15 * k.scale, 6 * k.scale, 0, Math.PI * 2);
+        this.ctx.fill();
+      }
+
+      // If active hover or newly created, highlight with golden pulse ring
+      if (this.activeHoverKrathong === k || k.isUserNew) {
+        this.ctx.strokeStyle = 'rgba(251, 191, 36, 0.8)';
+        this.ctx.lineWidth = 2;
+        this.ctx.setLineDash([6, 4]);
+        this.ctx.beginPath();
+        this.ctx.ellipse(k.x, k.y, drawW * 0.45, drawH * 0.2, 0, 0, Math.PI * 2);
+        this.ctx.stroke();
+        this.ctx.setLineDash([]);
+      }
+
+      this.ctx.restore();
+    }
+  }
+
+  updateAndDrawFireflies() {
+    this.fireflies.forEach(f => {
+      f.x += f.vx;
+      f.y += f.vy;
+      f.alpha += Math.sin(this.time * 6 + f.pulseSpeed * 100) * 0.03;
+
+      if (f.x < 0) f.x = this.width;
+      if (f.x > this.width) f.x = 0;
+      if (f.y < this.height * 0.45) f.y = this.height * 0.95;
+      if (f.y > this.height) f.y = this.height * 0.5;
+
+      const alpha = Math.max(0.1, Math.min(1, f.alpha));
+      this.ctx.save();
+      this.ctx.globalAlpha = alpha;
+      const glow = this.ctx.createRadialGradient(f.x, f.y, 1, f.x, f.y, f.radius * 3);
+      glow.addColorStop(0, '#fef08a');
+      glow.addColorStop(0.4, '#a3e635');
+      glow.addColorStop(1, 'rgba(163, 230, 53, 0)');
+      this.ctx.fillStyle = glow;
+      this.ctx.beginPath();
+      this.ctx.arc(f.x, f.y, f.radius * 3, 0, Math.PI * 2);
+      this.ctx.fill();
+      this.ctx.restore();
+    });
+  }
+}
+
+// Global River Canvas instance holder
+window.RiverCanvas = RiverCanvas;
+
+
+/* === app.js === */
+/**
+ * ลอยกระทงออนไลน์ - วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์
+ * สคริปต์หลักควบคุมการทำงานของแอปพลิเคชัน (Main Application Orchestrator)
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Components
+  const app = new LoyKrathongApp();
+  window.loyApp = app;
+});
+
+class LoyKrathongApp {
+  constructor() {
+    this.currentView = 'home';
+    this.currentTheme = 'riverside';
+
+    // Krathong Configuration
+    this.krathongConfig = {
+      type: 'banana',
+      colorTone: 'green',
+      flower: 'lotus_pink',
+      candle: 'gold',
+      incense: true,
+      coin: true,
+      ribbon: true
+    };
+
+    // User Profile & Wish Form
+    this.userForm = {
+      userName: '',
+      userRole: 'นักศึกษา ปวช.',
+      department: 'แผนกวิชาช่างยนต์',
+      avatar: 'avatar_male_student',
+      userPhoto: null,
+      wish: '',
+      isAnonymous: false
+    };
+
+    this.river = null;
+    this.lastFloatedKrathong = null;
+
+    this.init();
+  }
+
+  init() {
+    // Initialize River Canvas
+    this.river = new RiverCanvas('river-canvas');
+    this.river.onKrathongClickCallback = (data) => this.showCommunityKrathongDetail(data);
+
+    // Initialize UI Handlers
+    this.setupNavigation();
+    this.setupKrathongCustomizer();
+    this.setupWishForm();
+    this.setupAudioControls();
+    this.setupTempleFair();
+    this.setupAdminPanel();
+    this.startLiveClock();
+    this.updateStatsDisplay();
+
+    // Render Initial Krathong Preview
+    this.updateKrathongPreview();
+
+    // Periodic simulation of live new krathongs from community
+    setInterval(() => {
+      this.simulateCommunityActivity();
+    }, 18000);
+  }
+
+  // Live Clock in Thai Buddhist Era Format
+  startLiveClock() {
+    const clockEl = document.getElementById('thai-live-clock');
+    const updateTime = () => {
+      const now = new Date();
+      const thaiDays = ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์'];
+      const thaiMonths = [
+        'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน',
+        'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'
+      ];
+
+      const dayName = thaiDays[now.getDay()];
+      const day = now.getDate();
+      const month = thaiMonths[now.getMonth()];
+      const year = now.getFullYear() + 543;
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      if (clockEl) {
+        clockEl.innerText = `วัน${dayName}ที่ ${day} ${month} พ.ศ. ${year} • ${hours}:${minutes}:${seconds} น.`;
+      }
+    };
+    updateTime();
+    setInterval(updateTime, 1000);
+  }
+
+  // Navigation between Views & Modals
+  setupNavigation() {
+    const navButtons = document.querySelectorAll('[data-view-target]');
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const targetView = btn.getAttribute('data-view-target');
+        this.switchView(targetView);
+        if (window.loyAudio) window.loyAudio.playClick();
+      });
+    });
+
+    // Theme Switcher Buttons
+    const themeButtons = document.querySelectorAll('[data-theme-btn]');
+    themeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selectedTheme = btn.getAttribute('data-theme-btn');
+        this.setTheme(selectedTheme);
+        themeButtons.forEach(b => b.classList.remove('ring-2', 'ring-amber-400'));
+        btn.classList.add('ring-2', 'ring-amber-400');
+        if (window.loyAudio) window.loyAudio.playClick();
+      });
+    });
+  }
+
+  switchView(viewName) {
+    this.currentView = viewName;
+    const views = ['home-view', 'creator-view', 'river-view', 'temple-view', 'stats-view', 'admin-view', 'pr-view'];
+
+    views.forEach(vId => {
+      const el = document.getElementById(vId);
+      if (el) {
+        if (vId === `${viewName}-view`) {
+          el.classList.remove('hidden');
+          el.classList.add('modal-enter');
+        } else {
+          el.classList.add('hidden');
+        }
+      }
+    });
+
+    // If river view is opened, ensure stats and tooltips are active
+    if (viewName === 'river') {
+      const riverHUD = document.getElementById('river-hud');
+      if (riverHUD) riverHUD.classList.remove('hidden');
+    } else {
+      const riverHUD = document.getElementById('river-hud');
+      if (riverHUD && viewName !== 'home') riverHUD.classList.add('hidden');
+    }
+
+    if (viewName === 'stats') {
+      this.renderFullStatistics();
+    }
+
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  setTheme(themeName) {
+    this.currentTheme = themeName;
+    if (this.river) {
+      this.river.setTheme(themeName);
+    }
+  }
+
+  // Krathong Customizer Setup
+  setupKrathongCustomizer() {
+    // 1. Base Krathong Type Selection
+    const typeButtons = document.querySelectorAll('[data-krathong-type]');
+    typeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const type = btn.getAttribute('data-krathong-type');
+        this.krathongConfig.type = type;
+
+        // Reset color palette according to base type
+        this.updateColorPaletteOptions(type);
+
+        typeButtons.forEach(b => b.classList.remove('border-amber-400', 'bg-amber-400/20'));
+        btn.classList.add('border-amber-400', 'bg-amber-400/20');
+
+        this.updateKrathongPreview();
+        if (window.loyAudio) window.loyAudio.playClick();
+      });
+    });
+
+    // 2. Color Tone Selector
+    this.updateColorPaletteOptions('banana');
+
+    // 3. Flower Selector
+    const flowerButtons = document.querySelectorAll('[data-flower]');
+    flowerButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        this.krathongConfig.flower = btn.getAttribute('data-flower');
+        flowerButtons.forEach(b => b.classList.remove('border-amber-400', 'bg-amber-400/20'));
+        btn.classList.add('border-amber-400', 'bg-amber-400/20');
+        this.updateKrathongPreview();
+        if (window.loyAudio) window.loyAudio.playClick();
+      });
+    });
+
+    // 4. Candle Selector
+    const candleButtons = document.querySelectorAll('[data-candle]');
+    candleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        this.krathongConfig.candle = btn.getAttribute('data-candle');
+        candleButtons.forEach(b => b.classList.remove('border-amber-400', 'bg-amber-400/20'));
+        btn.classList.add('border-amber-400', 'bg-amber-400/20');
+        this.updateKrathongPreview();
+        if (window.loyAudio) window.loyAudio.playClick();
+      });
+    });
+
+    // 5. Toggles (Incense, Coin, Ribbon)
+    const toggleIncense = document.getElementById('toggle-incense');
+    if (toggleIncense) {
+      toggleIncense.addEventListener('change', (e) => {
+        this.krathongConfig.incense = e.target.checked;
+        this.updateKrathongPreview();
+      });
+    }
+
+    const toggleCoin = document.getElementById('toggle-coin');
+    if (toggleCoin) {
+      toggleCoin.addEventListener('change', (e) => {
+        this.krathongConfig.coin = e.target.checked;
+        this.updateKrathongPreview();
+      });
+    }
+
+    const toggleRibbon = document.getElementById('toggle-ribbon');
+    if (toggleRibbon) {
+      toggleRibbon.addEventListener('change', (e) => {
+        this.krathongConfig.ribbon = e.target.checked;
+        this.updateKrathongPreview();
+      });
+    }
+  }
+
+  updateColorPaletteOptions(krathongType) {
+    const colorContainer = document.getElementById('color-palette-container');
+    if (!colorContainer) return;
+
+    const colorOptionsMap = {
+      banana: [
+        { id: 'green', name: 'เขียวตองสด', hex: '#22c55e' },
+        { id: 'gold', name: 'ทองอร่าม', hex: '#f59e0b' },
+        { id: 'purple', name: 'ม่วงอินทนิล', hex: '#9333ea' },
+        { id: 'pink', name: 'ชมพูกลีบบัว', hex: '#ec4899' },
+        { id: 'orange', name: 'ส้มประกายแสด', hex: '#f97316' },
+        { id: 'blue', name: 'ฟ้าครามแม่น้ำ', hex: '#3b82f6' }
+      ],
+      lotus: [
+        { id: 'pink', name: 'ชมพูบัวสวรรค์', hex: '#ec4899' },
+        { id: 'white', name: 'ขาวบริสุทธิ์', hex: '#f8fafc' },
+        { id: 'gold', name: 'ทองประกายมงคล', hex: '#f59e0b' },
+        { id: 'purple', name: 'ม่วงกฤษณา', hex: '#a855f7' },
+        { id: 'blue', name: 'ฟ้าธารา', hex: '#38bdf8' }
+      ],
+      bread: [
+        { id: 'orange', name: 'ขนมปังอบสีทอง', hex: '#ea580c' },
+        { id: 'gold', name: 'เนยน้ำตาลสดใส', hex: '#d97706' },
+        { id: 'pink', name: 'สตอว์เบอร์รี่หวาน', hex: '#db2777' },
+        { id: 'green', name: 'ใบเตยหอมละมุน', hex: '#16a34a' }
+      ],
+      coconut: [
+        { id: 'gold', name: 'เทียนทองสายประทีป', hex: '#f59e0b' },
+        { id: 'natural', name: 'กะลามะพร้าวธรรมชาติ', hex: '#78350f' }
+      ],
+      fantasy: [
+        { id: 'purple', name: 'นีออนไซเบอร์ม่วง', hex: '#a855f7' },
+        { id: 'gold', name: 'เฟืองจักรทองคำ วท.ท่าหลวงฯ', hex: '#fbbf24' },
+        { id: 'blue', name: 'ไอทีดิจิทัลบลู', hex: '#0ea5e9' }
+      ]
+    };
+
+    const options = colorOptionsMap[krathongType] || colorOptionsMap.banana;
+    this.krathongConfig.colorTone = options[0].id;
+
+    colorContainer.innerHTML = options.map((opt, idx) => `
+      <button type="button" data-color-tone="${opt.id}" 
+              class="color-btn flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${idx === 0 ? 'border-amber-400 bg-amber-400/20 text-amber-300' : 'border-slate-700 bg-slate-900/60 text-slate-300'}">
+        <span class="w-3.5 h-3.5 rounded-full shadow-inner border border-white/20" style="background-color: ${opt.hex};"></span>
+        <span>${opt.name}</span>
+      </button>
+    `).join('');
+
+    const colorBtns = colorContainer.querySelectorAll('[data-color-tone]');
+    colorBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        this.krathongConfig.colorTone = btn.getAttribute('data-color-tone');
+        colorBtns.forEach(b => {
+          b.classList.remove('border-amber-400', 'bg-amber-400/20', 'text-amber-300');
+          b.classList.add('border-slate-700', 'bg-slate-900/60', 'text-slate-300');
+        });
+        btn.classList.add('border-amber-400', 'bg-amber-400/20', 'text-amber-300');
+        btn.classList.remove('border-slate-700', 'bg-slate-900/60', 'text-slate-300');
+        this.updateKrathongPreview();
+        if (window.loyAudio) window.loyAudio.playClick();
+      });
+    });
+  }
+
+  updateKrathongPreview() {
+    const previewContainer = document.getElementById('krathong-preview-art');
+    if (!previewContainer || !window.krathongBuilder) return;
+
+    previewContainer.innerHTML = window.krathongBuilder.renderSVG(this.krathongConfig, 280);
+  }
+
+  // Wish Form & Photo Upload Setup
+  setupWishForm() {
+    // Avatar selection
+    const avatarCards = document.querySelectorAll('[data-avatar-choice]');
+    avatarCards.forEach(card => {
+      card.addEventListener('click', () => {
+        this.userForm.avatar = card.getAttribute('data-avatar-choice');
+        avatarCards.forEach(c => c.classList.remove('ring-2', 'ring-amber-400', 'bg-purple-900/60'));
+        card.classList.add('ring-2', 'ring-amber-400', 'bg-purple-900/60');
+        if (window.loyAudio) window.loyAudio.playClick();
+      });
+    });
+
+    // Custom Photo Upload
+    const photoInput = document.getElementById('user-photo-input');
+    const photoPreview = document.getElementById('photo-preview-thumb');
+    const removePhotoBtn = document.getElementById('remove-photo-btn');
+
+    if (photoInput) {
+      photoInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          if (file.size > 3 * 1024 * 1024) {
+            alert('รูปภาพมีขนาดใหญ่เกิน 3MB กรุณาเลือกรูปขนาดเล็กลง');
+            return;
+          }
+          const reader = new FileReader();
+          reader.onload = (evt) => {
+            this.userForm.userPhoto = evt.target.result;
+            if (photoPreview) {
+              photoPreview.src = evt.target.result;
+              photoPreview.classList.remove('hidden');
+            }
+            if (removePhotoBtn) removePhotoBtn.classList.remove('hidden');
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+
+    if (removePhotoBtn) {
+      removePhotoBtn.addEventListener('click', () => {
+        this.userForm.userPhoto = null;
+        if (photoPreview) {
+          photoPreview.src = '';
+          photoPreview.classList.add('hidden');
+        }
+        if (photoInput) photoInput.value = '';
+        removePhotoBtn.classList.add('hidden');
+      });
+    }
+
+    // Quick Wish Buttons (คำอธิษฐานยอดนิยม)
+    const quickWishChips = document.querySelectorAll('[data-quick-wish]');
+    const wishTextarea = document.getElementById('wish-textarea');
+    quickWishChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const text = chip.getAttribute('data-quick-wish');
+        if (wishTextarea) {
+          wishTextarea.value = text;
+          this.userForm.wish = text;
+        }
+        if (window.loyAudio) window.loyAudio.playClick();
+      });
+    });
+
+    // Float Krathong Action Button (ปุ่มยืนยันและปล่อยกระทงลงน้ำ)
+    const floatBtn = document.getElementById('btn-float-krathong');
+    if (floatBtn) {
+      floatBtn.addEventListener('click', () => this.handleFloatKrathong());
+    }
+  }
+
+  handleFloatKrathong() {
+    const nameInput = document.getElementById('user-name-input');
+    const roleSelect = document.getElementById('user-role-select');
+    const deptSelect = document.getElementById('user-dept-select');
+    const wishTextarea = document.getElementById('wish-textarea');
+    const anonCheckbox = document.getElementById('anon-checkbox');
+
+    const name = nameInput?.value.trim() || 'เพื่อนชาวเทคนิคท่าหลวงฯ';
+    const role = roleSelect?.value || 'นักศึกษา';
+    const dept = deptSelect?.value || 'วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์';
+    const wish = wishTextarea?.value.trim() || 'ขอขมาพระแม่คงคา ขอให้ชีวิตราบรื่น มีแต่ความสุขความเจริญ';
+    const isAnon = anonCheckbox ? anonCheckbox.checked : false;
+
+    // Build data object
+    const krathongData = {
+      userName: name,
+      userRole: role,
+      department: dept,
+      avatar: this.userForm.avatar,
+      userPhoto: this.userForm.userPhoto,
+      isAnonymous: isAnon,
+      wish: wish,
+      krathongConfig: { ...this.krathongConfig },
+      theme: this.currentTheme
+    };
+
+    // Save to database
+    const savedEntry = window.loyStorage.saveKrathong(krathongData);
+    this.lastFloatedKrathong = savedEntry;
+
+    // Play release audio
+    if (window.loyAudio) {
+      window.loyAudio.playKrathongRelease();
+    }
+
+    // Add to River Canvas with interactive release celebration
+    if (this.river) {
+      this.river.addKrathongToRiver(savedEntry);
+    }
+
+    // Switch to River view
+    this.switchView('river');
+    this.updateStatsDisplay();
+
+    // Show Blessing Certificate Modal after a brief dramatic delay
+    setTimeout(() => {
+      this.showBlessingModal(savedEntry);
+    }, 1200);
+  }
+
+  showBlessingModal(krathongData) {
+    const modal = document.getElementById('blessing-modal');
+    if (!modal) return;
+
+    const modalTitle = document.getElementById('blessing-user-name');
+    const modalDept = document.getElementById('blessing-dept');
+    const modalWish = document.getElementById('blessing-wish-text');
+    const cardPreviewImg = document.getElementById('blessing-card-preview');
+    const downloadBtn = document.getElementById('btn-download-card');
+
+    const displayName = krathongData.isAnonymous ? 'ผู้ร่วมกิจกรรมนิรนาม' : krathongData.userName;
+    if (modalTitle) modalTitle.innerText = displayName;
+    if (modalDept) modalDept.innerText = krathongData.department || 'วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์';
+    if (modalWish) modalWish.innerText = `“ ${krathongData.wish} ”`;
+
+    // Generate high resolution shareable card via Canvas
+    if (window.cardGenerator) {
+      window.cardGenerator.generateCard(krathongData, (dataUrl) => {
+        if (cardPreviewImg) {
+          cardPreviewImg.src = dataUrl;
+          cardPreviewImg.classList.remove('hidden');
+        }
+        if (downloadBtn) {
+          downloadBtn.onclick = () => {
+            window.cardGenerator.downloadCard(dataUrl, `loy_krathong_${krathongData.userName || 'card'}.png`);
+            if (window.loyAudio) window.loyAudio.playClick();
+          };
+        }
+      });
+    }
+
+    // Social Share buttons
+    const lineShareBtn = document.getElementById('btn-share-line');
+    if (lineShareBtn) {
+      lineShareBtn.onclick = () => window.cardGenerator.shareToSocial('line', krathongData.wish);
+    }
+
+    const fbShareBtn = document.getElementById('btn-share-fb');
+    if (fbShareBtn) {
+      fbShareBtn.onclick = () => window.cardGenerator.shareToSocial('facebook', krathongData.wish);
+    }
+
+    const copyShareBtn = document.getElementById('btn-share-copy');
+    if (copyShareBtn) {
+      copyShareBtn.onclick = () => window.cardGenerator.shareToSocial('copy', krathongData.wish);
+    }
+
+    modal.classList.remove('hidden');
+    if (window.lucide) window.lucide.createIcons();
+  }
+
+  // Audio Controls & Background Music Toggle
+  setupAudioControls() {
+    const musicBtn = document.getElementById('btn-toggle-music');
+    const musicIcon = document.getElementById('music-icon');
+    const soundBars = document.getElementById('sound-bars');
+
+    const updateAudioUI = () => {
+      const isPlaying = window.loyAudio && window.loyAudio.bgmPlaying && !window.loyAudio.isMuted;
+      if (soundBars) {
+        soundBars.style.display = isPlaying ? 'inline-flex' : 'none';
+      }
+      if (musicIcon) {
+        musicIcon.className = isPlaying ? 'lucide lucide-volume-2' : 'lucide lucide-volume-x text-slate-400';
+      }
+    };
+
+    if (musicBtn) {
+      musicBtn.addEventListener('click', () => {
+        if (window.loyAudio) {
+          window.loyAudio.toggleMute();
+          updateAudioUI();
+        }
+      });
+    }
+
+    // Autostart BGM on first user interaction anywhere
+    const startAudioOnce = () => {
+      if (window.loyAudio && !window.loyAudio.bgmPlaying && !window.loyAudio.isMuted) {
+        window.loyAudio.startBGM();
+        updateAudioUI();
+      }
+      document.removeEventListener('click', startAudioOnce);
+      document.removeEventListener('touchstart', startAudioOnce);
+    };
+    document.addEventListener('click', startAudioOnce);
+    document.addEventListener('touchstart', startAudioOnce);
+  }
+
+  // Temple Fair (งานวัดจำลอง) Setup
+  setupTempleFair() {
+    // 1. Siam Si (เซียมซี)
+    const shakeBtn = document.getElementById('btn-shake-siamsi');
+    const siamsiCylinder = document.getElementById('siamsi-cylinder');
+    const siamsiResultCard = document.getElementById('siamsi-result-card');
+
+    if (shakeBtn) {
+      shakeBtn.addEventListener('click', () => {
+        if (window.loyAudio) window.loyAudio.playSiamsiRattle();
+        if (siamsiCylinder) siamsiCylinder.classList.add('shaking-siamsi');
+        shakeBtn.disabled = true;
+        shakeBtn.innerText = 'กำลังเขย่ากระบอกเซียมซี...';
+
+        setTimeout(() => {
+          if (siamsiCylinder) siamsiCylinder.classList.remove('shaking-siamsi');
+          shakeBtn.disabled = false;
+          shakeBtn.innerText = 'เขย่าเซียมซีอีกครั้ง';
+
+          const result = window.templeFairManager.shakeSiamSi();
+          this.displaySiamSiResult(result);
+        }, 1200);
+      });
+    }
+
+    // 2. Food Stalls (ซุ้มอาหารไทย)
+    const foodStallsContainer = document.getElementById('temple-food-container');
+    if (foodStallsContainer && TEMPLE_FOOD_STALLS) {
+      foodStallsContainer.innerHTML = TEMPLE_FOOD_STALLS.map(food => `
+        <div class="glass-panel p-4 rounded-2xl border border-amber-400/20 hover:border-amber-400 transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-3xl mb-2">${food.icon}</div>
+            <h4 class="font-bold text-amber-300 text-base mb-0.5">${food.name}</h4>
+            <span class="inline-block px-2 py-0.5 rounded-full text-[11px] bg-purple-900/60 text-purple-200 border border-purple-400/30 mb-2">${food.tag}</span>
+            <p class="text-xs text-slate-300 mb-3">${food.desc}</p>
+          </div>
+          <button type="button" data-taste-food="${food.id}" 
+                  class="w-full py-1.5 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold text-xs hover:from-amber-400 hover:to-amber-500 transition-all flex items-center justify-center gap-1 shadow">
+            <span>ชิมของอร่อย (+แต้มบุญ)</span>
+          </button>
+        </div>
+      `).join('');
+
+      const tasteBtns = foodStallsContainer.querySelectorAll('[data-taste-food]');
+      tasteBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const foodId = btn.getAttribute('data-taste-food');
+          const outcome = window.templeFairManager.tasteFood(foodId);
+          if (outcome) {
+            if (window.loyAudio) window.loyAudio.playClick();
+            this.showToast(`✨ อร่อยฟิน! ได้รับ "${outcome.item.karmaBonus}"`);
+          }
+        });
+      });
+    }
+
+    // 3. Lucky Star Charity (สอยดาวการกุศล)
+    const starsContainer = document.getElementById('lucky-stars-field');
+    if (starsContainer) {
+      const colors = ['#f43f5e', '#fbbf24', '#38bdf8', '#a855f7', '#34d399', '#f97316'];
+      starsContainer.innerHTML = Array.from({ length: 12 }).map((_, i) => {
+        const col = colors[i % colors.length];
+        return `
+          <button type="button" data-lucky-star="${i}" 
+                  class="group flex flex-col items-center justify-center p-3 rounded-2xl bg-purple-950/40 border border-purple-500/20 hover:border-amber-400 hover:scale-105 transition-all">
+            <span class="text-3xl group-hover:rotate-12 transition-transform filter drop-shadow(0 0 8px ${col})" style="color: ${col};">★</span>
+            <span class="text-[11px] text-purple-200 mt-1 font-medium">ดาวดวงที่ ${i + 1}</span>
+          </button>
+        `;
+      }).join('');
+
+      const starBtns = starsContainer.querySelectorAll('[data-lucky-star]');
+      starBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const res = window.templeFairManager.pluckStar();
+          if (window.loyAudio) window.loyAudio.playBlessingBell();
+          alert(`🎉 ยินดีด้วยครับ!\n${res.reward}\n\nแต้มบุญรวมของคุณ: ${res.totalKarma} แต้ม`);
+        });
+      });
+    }
+  }
+
+  displaySiamSiResult(res) {
+    const titleEl = document.getElementById('siamsi-title');
+    const poemEl = document.getElementById('siamsi-poem');
+    const generalEl = document.getElementById('siamsi-general');
+    const studyEl = document.getElementById('siamsi-study');
+    const loveEl = document.getElementById('siamsi-love');
+    const numberEl = document.getElementById('siamsi-number');
+    const cardEl = document.getElementById('siamsi-result-card');
+
+    if (titleEl) titleEl.innerText = res.title;
+    if (poemEl) poemEl.innerText = res.poem;
+    if (generalEl) generalEl.innerText = res.general;
+    if (studyEl) studyEl.innerText = res.study;
+    if (loveEl) loveEl.innerText = res.love;
+    if (numberEl) numberEl.innerText = res.luckyNumber;
+
+    if (cardEl) {
+      cardEl.classList.remove('hidden');
+      cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  // Statistics Display
+  updateStatsDisplay() {
+    const stats = window.loyStorage.getStatistics();
+    const totalEl = document.getElementById('stat-total-krathongs');
+    const participantsEl = document.getElementById('stat-total-participants');
+    const floatingEl = document.getElementById('stat-floating-now');
+
+    if (totalEl) totalEl.innerText = stats.totalKrathongs.toLocaleString();
+    if (participantsEl) participantsEl.innerText = stats.totalParticipants.toLocaleString();
+    if (floatingEl) floatingEl.innerText = stats.floatingNow.toLocaleString();
+  }
+
+  renderFullStatistics() {
+    this.updateStatsDisplay();
+    const stats = window.loyStorage.getStatistics();
+    const deptListEl = document.getElementById('dept-leaderboard-list');
+
+    if (deptListEl && stats.byDepartment) {
+      const sortedDepts = Object.entries(stats.byDepartment).sort((a, b) => b[1] - a[1]);
+      const maxVal = Math.max(...sortedDepts.map(d => d[1]), 1);
+
+      deptListEl.innerHTML = sortedDepts.map(([dept, count], idx) => {
+        const pct = Math.round((count / maxVal) * 100);
+        return `
+          <div class="mb-3">
+            <div class="flex justify-between items-center text-xs mb-1">
+              <span class="font-medium text-purple-200">
+                <strong class="text-amber-400 mr-1">#${idx + 1}</strong> ${dept}
+              </span>
+              <span class="font-bold text-amber-300">${count} กระทง</span>
+            </div>
+            <div class="w-full bg-slate-900 rounded-full h-2.5 overflow-hidden">
+              <div class="bg-gradient-to-r from-amber-500 to-amber-300 h-2.5 rounded-full transition-all duration-700" style="width: ${pct}%;"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+  }
+
+  // Interactive Community Krathong Detail Modal
+  showCommunityKrathongDetail(data) {
+    const modal = document.getElementById('community-detail-modal');
+    if (!modal) return;
+
+    const nameEl = document.getElementById('comm-user-name');
+    const deptEl = document.getElementById('comm-user-dept');
+    const wishEl = document.getElementById('comm-wish-text');
+    const artEl = document.getElementById('comm-krathong-art');
+    const likeBtn = document.getElementById('comm-btn-like');
+    const likeCountEl = document.getElementById('comm-like-count');
+
+    const displayName = data.isAnonymous ? 'ผู้ร่วมกิจกรรมนิรนาม' : data.userName;
+    if (nameEl) nameEl.innerText = displayName;
+    if (deptEl) deptEl.innerText = data.department || 'วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์';
+    if (wishEl) wishEl.innerText = `“ ${data.wish} ”`;
+    if (likeCountEl) likeCountEl.innerText = data.likes || 1;
+
+    if (artEl && window.krathongBuilder) {
+      artEl.innerHTML = window.krathongBuilder.renderSVG(data.krathongConfig, 220);
+    }
+
+    if (likeBtn) {
+      likeBtn.onclick = () => {
+        const newLikes = window.loyStorage.likeKrathong(data.id);
+        if (likeCountEl) likeCountEl.innerText = newLikes;
+        if (window.loyAudio) window.loyAudio.playBlessingBell();
+        this.showToast('🌸 ร่วมส่งต่อคำอวยพรและแต้มบุญสำเร็จ!');
+      };
+    }
+
+    modal.classList.remove('hidden');
+    if (window.loyAudio) window.loyAudio.playClick();
+  }
+
+  // Admin Management Panel
+  setupAdminPanel() {
+    const adminLoginBtn = document.getElementById('btn-admin-login');
+    const adminPinInput = document.getElementById('admin-pin-input');
+    const adminLockSection = document.getElementById('admin-lock-screen');
+    const adminDashboard = document.getElementById('admin-dashboard');
+
+    if (adminLoginBtn && adminPinInput) {
+      adminLoginBtn.addEventListener('click', () => {
+        const pin = adminPinInput.value;
+        if (window.loyStorage.verifyAdminPin(pin)) {
+          if (adminLockSection) adminLockSection.classList.add('hidden');
+          if (adminDashboard) adminDashboard.classList.remove('hidden');
+          this.loadAdminTable();
+          if (window.loyAudio) window.loyAudio.playBlessingBell();
+        } else {
+          alert('รหัส PIN ไม่ถูกต้อง (ค่าเริ่มต้นคือ 1234)');
+        }
+      });
+    }
+
+    // Export CSV / JSON
+    const exportCsvBtn = document.getElementById('admin-export-csv');
+    if (exportCsvBtn) {
+      exportCsvBtn.addEventListener('click', () => window.loyStorage.exportToCSV());
+    }
+
+    const exportJsonBtn = document.getElementById('admin-export-json');
+    if (exportJsonBtn) {
+      exportJsonBtn.addEventListener('click', () => window.loyStorage.exportToJSON());
+    }
+
+    // Search filter in admin
+    const searchInput = document.getElementById('admin-search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        this.loadAdminTable(e.target.value);
+      });
+    }
+  }
+
+  loadAdminTable(keyword = '') {
+    const tableBody = document.getElementById('admin-table-body');
+    if (!tableBody) return;
+
+    const all = window.loyStorage.getAllKrathongs(true);
+    const filtered = all.filter(k => {
+      const q = keyword.toLowerCase();
+      return (
+        k.userName.toLowerCase().includes(q) ||
+        k.department.toLowerCase().includes(q) ||
+        k.wish.toLowerCase().includes(q)
+      );
+    });
+
+    tableBody.innerHTML = filtered.map((item, idx) => `
+      <tr class="border-b border-purple-900/40 hover:bg-purple-950/30">
+        <td class="p-3 text-xs text-slate-400">${idx + 1}</td>
+        <td class="p-3 text-xs font-semibold text-amber-300">
+          ${item.isAnonymous ? '<span class="text-slate-400">นิรนาม</span>' : item.userName}
+        </td>
+        <td class="p-3 text-xs text-purple-200">${item.department}</td>
+        <td class="p-3 text-xs text-slate-200 max-w-xs truncate" title="${item.wish}">"${item.wish}"</td>
+        <td class="p-3 text-xs">
+          <span class="px-2 py-0.5 rounded-full ${item.status === 'hidden' ? 'bg-red-950/60 text-red-300 border border-red-500/30' : 'bg-emerald-950/60 text-emerald-300 border border-emerald-500/30'}">
+            ${item.status === 'hidden' ? 'ซ่อน' : 'แสดง'}
+          </span>
+        </td>
+        <td class="p-3 text-xs flex items-center gap-2">
+          <button type="button" data-admin-toggle="${item.id}" class="text-amber-400 hover:text-amber-300 underline">
+            ${item.status === 'hidden' ? 'แสดง' : 'ซ่อน'}
+          </button>
+          <button type="button" data-admin-delete="${item.id}" class="text-red-400 hover:text-red-300 underline">
+            ลบ
+          </button>
+        </td>
+      </tr>
+    `).join('');
+
+    // Attach actions
+    tableBody.querySelectorAll('[data-admin-toggle]').forEach(b => {
+      b.onclick = () => {
+        const id = b.getAttribute('data-admin-toggle');
+        window.loyStorage.toggleHideKrathong(id);
+        this.loadAdminTable(keyword);
+      };
+    });
+
+    tableBody.querySelectorAll('[data-admin-delete]').forEach(b => {
+      b.onclick = () => {
+        if (confirm('ยืนยันที่จะลบคำอธิษฐานนี้หรือไม่?')) {
+          const id = b.getAttribute('data-admin-delete');
+          window.loyStorage.deleteKrathong(id);
+          this.loadAdminTable(keyword);
+          this.updateStatsDisplay();
+        }
+      };
+    });
+  }
+
+  // Toast Notification
+  showToast(message) {
+    const toast = document.getElementById('app-toast');
+    if (!toast) return;
+
+    toast.innerText = message;
+    toast.classList.remove('opacity-0', 'pointer-events-none');
+    toast.classList.add('opacity-100');
+
+    setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0', 'pointer-events-none');
+    }, 3000);
+  }
+
+  // Simulation of live incoming krathongs
+  simulateCommunityActivity() {
+    const names = ['น้องแพรว ช่างยนต์', 'นายวรวุฒิ ไฟฟ้า', 'เด็กช่างกลท่าหลวง', 'สาวบัญชีน่ารัก', 'อาจารย์สมศักดิ์', 'ช่างเชื่อมสู้ชีวิต'];
+    const depts = [
+      'แผนกวิชาช่างยนต์', 'แผนกวิชาช่างไฟฟ้ากำลัง', 'แผนกวิชาช่างกลโรงงาน',
+      'แผนกวิชาการบัญชี', 'แผนกวิชาเทคโนโลยีสารสนเทศ (IT)', 'แผนกวิชาช่างเชื่อมโลหะ'
+    ];
+    const wishes = [
+      'ขอให้ครอบครัวมีความสุข ปลอดภัยจากภยันตรายทั้งปวง',
+      'ขอให้ได้เกรด A ทุกวิชา สอบติดมหาวิทยาลัยที่หวัง',
+      'ขอขมาพระแม่คงคา รักษ์สิ่งแวดล้อมเพื่อโลกของเรา',
+      'ขอให้เพื่อนๆ วท.ท่าหลวงฯ ประสบความสำเร็จในชีวิตทุกคนครับ'
+    ];
+
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    const randomDept = depts[Math.floor(Math.random() * depts.length)];
+    const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+    const types = ['banana', 'lotus', 'bread', 'coconut', 'fantasy'];
+    const randomType = types[Math.floor(Math.random() * types.length)];
+
+    const simulated = {
+      userName: randomName,
+      userRole: 'นักศึกษา',
+      department: randomDept,
+      avatar: 'avatar_male_student',
+      isAnonymous: false,
+      wish: randomWish,
+      krathongConfig: {
+        type: randomType,
+        colorTone: 'green',
+        flower: 'lotus_pink',
+        candle: 'gold',
+        incense: true,
+        coin: true,
+        ribbon: true
+      },
+      theme: this.currentTheme
+    };
+
+    if (this.river) {
+      this.river.addKrathongToRiver(simulated, {
+        x: -50,
+        y: this.river.height * 0.6 + Math.random() * (this.river.height * 0.35),
+        scale: 0.35 + Math.random() * 0.35,
+        speedX: 0.4 + Math.random() * 0.4,
+        seed: Math.random() * 100
+      });
+      this.updateStatsDisplay();
+    }
+  }
+}
+
+</script>
+
+  <!-- Initialize Lucide icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>

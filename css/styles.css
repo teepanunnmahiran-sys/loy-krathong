@@ -1,0 +1,300 @@
+/* ==========================================================================
+   เทศกาลลอยกระทงออนไลน์ - วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์
+   ธีมสี: ม่วง น้ำเงิน ทอง และส้ม (อบอุ่น สง่างาม สมเกียรติความเป็นไทย)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Charm:wght@400;700&display=swap');
+
+:root {
+  --color-primary-purple: #2e0854;
+  --color-deep-night: #0b0f2a;
+  --color-river-blue: #092047;
+  --color-royal-gold: #fbbf24;
+  --color-gold-glow: #f59e0b;
+  --color-flame-orange: #f97316;
+  --color-candle-core: #fffbeb;
+  --font-heading: 'Prompt', 'Kanit', sans-serif;
+  --font-traditional: 'Charm', cursive;
+  --font-body: 'Sarabun', 'Prompt', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-deep-night);
+  color: #f8fafc;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-thai-traditional {
+  font-family: var(--font-traditional);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.8);
+}
+
+/* Glassmorphism & Gold Borders */
+.glass-panel {
+  background: rgba(23, 11, 46, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+}
+
+.glass-panel-gold {
+  background: linear-gradient(135deg, rgba(38, 16, 74, 0.85) 0%, rgba(15, 23, 42, 0.85) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  box-shadow: 0 10px 40px rgba(245, 158, 11, 0.15), inset 0 1px 0 rgba(254, 240, 138, 0.3);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #fef08a 0%, #fbbf24 40%, #f59e0b 70%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.35));
+}
+
+.gold-border {
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.12);
+}
+
+.gold-glow-btn {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #1a0836;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(254, 240, 138, 0.6);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gold-glow-btn:hover {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(245, 158, 11, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.purple-glow-btn {
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35);
+  transition: all 0.25s ease;
+}
+
+.purple-glow-btn:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+}
+
+/* Animations */
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    filter: drop-shadow(0 0 8px #f97316) drop-shadow(0 0 18px #fbbf24);
+    opacity: 0.95;
+  }
+  25% {
+    transform: scale(1.08, 0.95) rotate(1deg);
+    filter: drop-shadow(0 0 12px #f97316) drop-shadow(0 0 24px #f59e0b);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.96, 1.05) rotate(-2deg);
+    filter: drop-shadow(0 0 7px #ea580c) drop-shadow(0 0 15px #f59e0b);
+    opacity: 0.9;
+  }
+  75% {
+    transform: scale(1.04, 1.02) rotate(2deg);
+    filter: drop-shadow(0 0 10px #f97316) drop-shadow(0 0 22px #fbbf24);
+    opacity: 0.98;
+  }
+}
+
+.candle-flame {
+  animation: flameFlicker 1.8s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
+@keyframes waterFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.2deg);
+  }
+}
+
+.water-floating {
+  animation: waterFloat 4s infinite ease-in-out;
+}
+
+@keyframes moonPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 35px rgba(254, 240, 138, 0.5)) drop-shadow(0 0 75px rgba(251, 191, 36, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 50px rgba(254, 240, 138, 0.75)) drop-shadow(0 0 100px rgba(251, 191, 36, 0.45));
+  }
+}
+
+.moon-glow {
+  animation: moonPulse 6s infinite ease-in-out;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+.pulse-soft {
+  animation: gentlePulse 3s infinite ease-in-out;
+}
+
+/* Modal Transitions */
+.modal-backdrop {
+  background: rgba(8, 5, 20, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-enter {
+  animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Thai Ornament Borders */
+.thai-border-corner {
+  position: relative;
+}
+.thai-border-corner::before,
+.thai-border-corner::after {
+  content: "✤";
+  position: absolute;
+  color: #fbbf24;
+  font-size: 14px;
+  line-height: 1;
+}
+.thai-border-corner::before {
+  top: 6px;
+  left: 6px;
+}
+.thai-border-corner::after {
+  bottom: 6px;
+  right: 6px;
+}
+
+/* Floating Krathong Tag in River Canvas */
+.krathong-tooltip {
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Krathong Customizer Preview Container */
+#krathong-preview-box {
+  background: radial-gradient(circle at 50% 60%, rgba(26, 16, 60, 0.9) 0%, rgba(8, 12, 32, 0.95) 100%);
+  border-radius: 1.25rem;
+  box-shadow: inset 0 0 30px rgba(245, 158, 11, 0.15), 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+#krathong-preview-box::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(14, 116, 144, 0.35), transparent);
+  pointer-events: none;
+}
+
+/* Shimmer ripple under water */
+.water-ripple-line {
+  stroke-dasharray: 6 12;
+  animation: rippleMove 8s linear infinite;
+}
+
+@keyframes rippleMove {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 100; }
+}
+
+/* Audio Visualizer Waves */
+.sound-bar {
+  display: inline-block;
+  width: 3px;
+  background-color: #fbbf24;
+  border-radius: 3px;
+  margin: 0 1px;
+  animation: soundBounce 1.2s ease-in-out infinite alternate;
+}
+.sound-bar:nth-child(1) { height: 10px; animation-delay: 0.1s; }
+.sound-bar:nth-child(2) { height: 16px; animation-delay: 0.3s; }
+.sound-bar:nth-child(3) { height: 8px;  animation-delay: 0.5s; }
+.sound-bar:nth-child(4) { height: 14px; animation-delay: 0.2s; }
+
+@keyframes soundBounce {
+  from { transform: scaleY(0.4); }
+  to { transform: scaleY(1.2); }
+}
+
+/* Siamese Fortune Shaking */
+@keyframes shakeBox {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-2deg); }
+  20% { transform: translate(-3px, 0px) rotate(2deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(2deg); }
+  50% { transform: translate(-1px, 2px) rotate(-2deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-2deg); }
+  80% { transform: translate(-1px, -1px) rotate(2deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shaking-siamsi {
+  animation: shakeBox 0.6s infinite;
+}

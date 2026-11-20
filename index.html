@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="th" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ลอยกระทงออนไลน์ ๒๕๖๙ | วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์</title>
+  <meta name="description" content="ร่วมสืบสานประเพณีลอยกระทงออนไลน์ ขอขมาพระแม่คงคา แบบรักษ์โลก ไร้มลพิษ วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            thaluang: {
+              purple: '#2e0854',
+              night: '#0b0f2a',
+              river: '#092047',
+              gold: '#fbbf24',
+              orange: '#f97316'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen relative overflow-x-hidden selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- Background Canvas for River, Night Sky & Water Waves (Always present in background) -->
+  <canvas id="river-canvas" class="fixed inset-0 w-full h-full -z-10"></canvas>
+
+  <!-- Interactive Floating Tooltip for River Krathongs -->
+  <div id="river-tooltip" class="krathong-tooltip fixed z-40 opacity-0 pointer-events-none glass-panel px-4 py-2.5 rounded-2xl border border-amber-400/50 shadow-2xl max-w-xs transition-opacity duration-200">
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="app-toast" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 opacity-0 pointer-events-none transition-all duration-300 glass-panel-gold px-6 py-3 rounded-full text-sm font-semibold text-amber-200 shadow-2xl flex items-center gap-2">
+    <span>✨ ยินดีต้อนรับสู่งานลอยกระทงออนไลน์</span>
+  </div>
+
+  <!-- =========================================================================
+       HEADER / NAVBAR
+       ========================================================================= -->
+  <header class="sticky top-0 z-40 w-full glass-panel border-b border-amber-400/25 px-4 lg:px-8 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      
+      <!-- Logo & Brand -->
+      <div class="flex items-center gap-3 cursor-pointer" data-view-target="home">
+        <!-- Thai Technical Gear Emblem -->
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 ring-2 ring-amber-300/60">
+          <span class="text-slate-950 font-black text-xl">⚙</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base sm:text-lg font-bold text-amber-300 tracking-wide font-heading leading-tight">
+              ลอยกระทงออนไลน์ ๒๕๖๙
+            </h1>
+            <span class="hidden md:inline-block px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-900/80 text-purple-200 border border-purple-400/30">
+              รักษ์โลก ๑๐๐%
+            </span>
+          </div>
+          <p class="text-xs text-purple-200/80 leading-tight">วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์</p>
+        </div>
+      </div>
+
+      <!-- Live Clock Display (Thai Buddhist Era) -->
+      <div class="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-950/50 border border-purple-500/20 text-xs text-amber-200/90">
+        <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span id="thai-live-clock">กำลังโหลดเวลา...</span>
+      </div>
+
+      <!-- Navigation Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Desktop Nav Links -->
+        <nav class="hidden lg:flex items-center gap-1.5">
+          <button type="button" data-view-target="home" class="px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 hover:text-amber-300 hover:bg-purple-900/40 transition-all flex items-center gap-1.5">
+            <i data-lucide="home" class="w-4 h-4"></i>
+            <span>หน้าแรก</span>
+          </button>
+          <button type="button" data-view-target="creator" class="px-3 py-1.5 rounded-xl text-xs font-semibold text-amber-300 bg-amber-400/10 border border-amber-400/40 hover:bg-amber-400/20 transition-all flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+            <span>ทำกระทง</span>
+          </button>
+          <button type="button" data-view-target="river" class="px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 hover:text-amber-300 hover:bg-purple-900/40 transition-all flex items-center gap-1.5">
+            <i data-lucide="waves" class="w-4 h-4"></i>
+            <span>ชมสายน้ำ</span>
+          </button>
+          <button type="button" data-view-target="temple" class="px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 hover:text-amber-300 hover:bg-purple-900/40 transition-all flex items-center gap-1.5">
+            <i data-lucide="store" class="w-4 h-4"></i>
+            <span>งานวัดจำลอง</span>
+          </button>
+          <button type="button" data-view-target="stats" class="px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 hover:text-amber-300 hover:bg-purple-900/40 transition-all flex items-center gap-1.5">
+            <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
+            <span>สถิติ</span>
+          </button>
+          <button type="button" data-view-target="pr" class="px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 hover:text-amber-300 hover:bg-purple-900/40 transition-all flex items-center gap-1.5">
+            <i data-lucide="megaphone" class="w-4 h-4"></i>
+            <span>ประชาสัมพันธ์</span>
+          </button>
+        </nav>
+
+        <!-- Sound / Music Toggle Button -->
+        <button id="btn-toggle-music" type="button" title="เปิด/ปิดเสียงดนตรีไทยและบรรยากาศ" 
+                class="px-3 py-1.5 rounded-xl glass-panel border border-amber-400/30 text-amber-300 hover:bg-purple-900/50 transition-all flex items-center gap-2 text-xs">
+          <i id="music-icon" data-lucide="volume-2" class="w-4 h-4 text-amber-400"></i>
+          <span class="hidden sm:inline">ดนตรีไทย</span>
+          <span id="sound-bars" class="items-center" style="display: none;">
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+            <span class="sound-bar"></span>
+          </span>
+        </button>
+
+        <!-- Admin Portal Icon Button -->
+        <button type="button" data-view-target="admin" title="ระบบจัดการผู้ดูแลระบบ" 
+                class="p-2 rounded-xl glass-panel border border-purple-500/30 text-slate-300 hover:text-amber-300 hover:border-amber-400/50 transition-all">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       VIEW 1: หน้าแรก (HOME VIEW)
+       ========================================================================= -->
+  <main id="home-view" class="max-w-7xl mx-auto px-4 lg:px-8 py-8 sm:py-14">
+    
+    <!-- Hero Center Banner -->
+    <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+      
+      <!-- Top Decorative Thai Emblem Pill -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel-gold border border-amber-400/40 mb-6 shadow-xl animate-bounce">
+        <span class="text-amber-300 text-sm">🌕</span>
+        <span class="text-xs sm:text-sm font-semibold text-amber-200 tracking-wider">
+          วันเพ็ญเดือนสิบสอง • คืนจันทร์เต็มดวงริมแม่น้ำป่าสัก
+        </span>
+      </div>
+
+      <!-- Main Headline -->
+      <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black mb-4 tracking-tight leading-tight">
+        <span class="gold-gradient-text">ลอยกระทงออนไลน์</span>
+        <br>
+        <span class="text-slate-100 text-2xl sm:text-4xl font-bold">วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์</span>
+      </h2>
+
+      <!-- Description / Invitation -->
+      <p class="text-base sm:text-lg text-purple-200/90 leading-relaxed font-normal mb-8 max-w-2xl mx-auto">
+        ขอเชิญชวนผู้บริหาร คณะครู บุคลากรทางการศึกษา ศิษย์เก่า และนักเรียน นักศึกษาทุกแผนกวิชา
+        ร่วมสืบสานประเพณีไทย ขอขมาพระแม่คงคา เสริมสิริมงคลให้ชีวิต และรักษาสิ่งแวดล้อมอย่างยั่งยืน
+      </p>
+
+      <!-- Primary Call to Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-10">
+        
+        <!-- Button: Start Krathong -->
+        <button type="button" data-view-target="creator" 
+                class="gold-glow-btn px-6 sm:px-8 py-3.5 rounded-2xl text-base sm:text-lg font-bold flex items-center gap-3">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+          <span>🌸 เริ่มประดิษฐ์และลอยกระทง</span>
+        </button>
+
+        <!-- Button: View River -->
+        <button type="button" data-view-target="river" 
+                class="glass-panel px-5 sm:px-7 py-3.5 rounded-2xl text-base font-semibold text-slate-100 border border-amber-400/30 hover:border-amber-400 hover:bg-purple-950/60 transition-all flex items-center gap-2.5">
+          <i data-lucide="waves" class="w-5 h-5 text-sky-400"></i>
+          <span>ชมสายน้ำและกระทงเพื่อนๆ</span>
+        </button>
+
+        <!-- Button: Temple Fair -->
+        <button type="button" data-view-target="temple" 
+                class="glass-panel px-5 sm:px-7 py-3.5 rounded-2xl text-base font-semibold text-amber-300 border border-amber-400/30 hover:border-amber-400 hover:bg-purple-950/60 transition-all flex items-center gap-2.5">
+          <i data-lucide="store" class="w-5 h-5 text-amber-400"></i>
+          <span>🏮 เที่ยวงานวัด & เซียมซี</span>
+        </button>
+
+      </div>
+
+      <!-- Quick Guidance & Prayer Badge -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-3 text-xs text-purple-300/80">
+        <button type="button" onclick="document.getElementById('how-to-modal').classList.remove('hidden')" class="hover:text-amber-300 underline flex items-center gap-1">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
+          <span>วิธีการร่วมกิจกรรม</span>
+        </button>
+        <span>•</span>
+        <button type="button" onclick="document.getElementById('prayer-history-modal').classList.remove('hidden')" class="hover:text-amber-300 underline flex items-center gap-1">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          <span>บทขอขมาพระแม่คงคา & ประวัติวันลอยกระทง</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Quick Real-Time Statistics Strip -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto mb-12">
+      
+      <div class="glass-panel-gold p-4 sm:p-5 rounded-2xl text-center border border-amber-400/30">
+        <div class="text-xs font-medium text-amber-300/90 mb-1 flex items-center justify-center gap-1.5">
+          <i data-lucide="flame" class="w-4 h-4 text-amber-400"></i>
+          <span>กระทงที่ถูกลอยทั้งหมด</span>
+        </div>
+        <div id="stat-total-krathongs" class="text-2xl sm:text-3xl font-extrabold gold-gradient-text">645</div>
+        <div class="text-[11px] text-purple-200/70 mt-0.5">รวมพลังสายน้ำดิจิทัล</div>
+      </div>
+
+      <div class="glass-panel-gold p-4 sm:p-5 rounded-2xl text-center border border-amber-400/30">
+        <div class="text-xs font-medium text-amber-300/90 mb-1 flex items-center justify-center gap-1.5">
+          <i data-lucide="users" class="w-4 h-4 text-sky-400"></i>
+          <span>ผู้เข้าร่วมกิจกรรม</span>
+        </div>
+        <div id="stat-total-participants" class="text-2xl sm:text-3xl font-extrabold text-sky-300">693</div>
+        <div class="text-[11px] text-purple-200/70 mt-0.5">คณะครู บุคลากร และนักศึกษา</div>
+      </div>
+
+      <div class="glass-panel-gold p-4 sm:p-5 rounded-2xl text-center border border-amber-400/30">
+        <div class="text-xs font-medium text-amber-300/90 mb-1 flex items-center justify-center gap-1.5">
+          <i data-lucide="waves" class="w-4 h-4 text-emerald-400"></i>
+          <span>กระทงลอยในน้ำขณะนี้</span>
+        </div>
+        <div id="stat-floating-now" class="text-2xl sm:text-3xl font-extrabold text-emerald-300">38</div>
+        <div class="text-[11px] text-purple-200/70 mt-0.5">ส่องประกายแสงเทียนเรียลไทม์</div>
+      </div>
+
+    </div>
+
+    <!-- Feature Highlights Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      
+      <div class="glass-panel p-6 rounded-2xl border border-amber-400/20 hover:border-amber-400/60 transition-all flex flex-col items-center text-center">
+        <div class="w-14 h-14 rounded-2xl bg-purple-900/60 border border-purple-400/30 flex items-center justify-center text-2xl mb-4">
+          🌸
+        </div>
+        <h3 class="text-lg font-bold text-amber-300 mb-2">ประดิษฐ์กระทงตามใจชอบ</h3>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          เลือกกระทงใบตอง ดอกบัว ขนมปัง กะลา หรือกระทงแฟนตาซีช่างเทคนิค พร้อมเลือกดอกไม้ ธูปเทียน และเหรียญมงคลได้ตามใจ
+        </p>
+      </div>
+
+      <div class="glass-panel p-6 rounded-2xl border border-amber-400/20 hover:border-amber-400/60 transition-all flex flex-col items-center text-center">
+        <div class="w-14 h-14 rounded-2xl bg-purple-900/60 border border-purple-400/30 flex items-center justify-center text-2xl mb-4">
+          📜
+        </div>
+        <h3 class="text-lg font-bold text-amber-300 mb-2">เขียนคำอธิษฐาน & รับการ์ด</h3>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          ระบุชื่อ แผนกวิชา และคำขอพร พร้อมรับการ์ดอวยพรออนไลน์ภาพคมชัดสูง สามารถดาวน์โหลดและแชร์ลง Social Media ได้ทันที
+        </p>
+      </div>
+
+      <div class="glass-panel p-6 rounded-2xl border border-amber-400/20 hover:border-amber-400/60 transition-all flex flex-col items-center text-center">
+        <div class="w-14 h-14 rounded-2xl bg-purple-900/60 border border-purple-400/30 flex items-center justify-center text-2xl mb-4">
+          🏮
+        </div>
+        <h3 class="text-lg font-bold text-amber-300 mb-2">งานวัดจำลอง & เซียมซี</h3>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          สัมผัสบรรยากาศงานวัดไทยริมน้ำป่าสัก เขย่าเซียมซีทำนายดวงชะตา ชิมของอร่อยรับแต้มบุญ และร่วมสอยดาวการกุศล
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- =========================================================================
+       VIEW 2: ระบบสร้างกระทง (KRATHONG CREATOR VIEW)
+       ========================================================================= -->
+  <section id="creator-view" class="hidden max-w-7xl mx-auto px-4 lg:px-8 py-6 sm:py-10">
+    
+    <!-- View Header -->
+    <div class="flex items-center justify-between gap-4 mb-8">
+      <div>
+        <button type="button" data-view-target="home" class="text-xs text-amber-300/80 hover:text-amber-300 flex items-center gap-1 mb-1">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>กลับหน้าแรก</span>
+        </button>
+        <h2 class="text-2xl sm:text-3xl font-black text-amber-300 font-heading">
+          ระบบประดิษฐ์กระทงและเขียนคำอธิษฐาน
+        </h2>
+        <p class="text-xs sm:text-sm text-purple-200/80">ออกแบบกระทงในสไตล์ของคุณ แล้วปล่อยลงสู่สายน้ำป่าสัก</p>
+      </div>
+
+      <button type="button" data-view-target="river" class="glass-panel px-4 py-2 rounded-xl text-xs font-semibold text-slate-200 border border-amber-400/30 hover:border-amber-400 flex items-center gap-2">
+        <i data-lucide="waves" class="w-4 h-4 text-sky-400"></i>
+        <span>ดูสายน้ำ</span>
+      </button>
+    </div>
+
+    <!-- 2-Column Responsive Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column: Sticky Krathong Live Preview Box -->
+      <div class="lg:col-span-5 sticky top-24">
+        
+        <div class="glass-panel-gold p-6 rounded-3xl border border-amber-400/40 text-center relative overflow-hidden shadow-2xl">
+          
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              ตัวอย่างกระทงสด (Live Preview)
+            </span>
+            <span class="text-[11px] text-purple-200/70">หมุนวนลอยน้ำ</span>
+          </div>
+
+          <!-- Preview Frame with Animation -->
+          <div id="krathong-preview-box" class="w-full h-72 sm:h-80 flex items-center justify-center p-4">
+            <div id="krathong-preview-art" class="water-floating transition-transform duration-300">
+              <!-- Rendered Krathong SVG injected here -->
+            </div>
+          </div>
+
+          <div class="mt-4 flex items-center justify-center gap-2 text-xs text-amber-200/80">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>กระทงจะส่องสว่างสะท้อนผิวน้ำเมื่อลอยสู่แม่น้ำจริง</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Right Column: Customizer Controls & Prayer Form -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- STEP 1: Krathong Appearance Customizer -->
+        <div class="glass-panel p-6 rounded-3xl border border-amber-400/25">
+          
+          <h3 class="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 text-xs font-bold flex items-center justify-center">๑</span>
+            <span>เลือกและตกแต่งรูปแบบกระทง</span>
+          </h3>
+
+          <!-- 1.1 Base Type Selection -->
+          <div class="mb-5">
+            <label class="block text-xs font-semibold text-purple-200 mb-2">ชนิดของกระทง:</label>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              
+              <button type="button" data-krathong-type="banana" 
+                      class="krathong-type-btn p-3 rounded-2xl border border-amber-400 bg-amber-400/20 text-left transition-all hover:border-amber-400">
+                <div class="text-xl mb-1">🌿</div>
+                <div class="font-bold text-xs text-amber-300">กระทงใบตองวิจิตร</div>
+                <div class="text-[10px] text-slate-300">ประณีต ศิลปะไทยดั้งเดิม</div>
+              </button>
+
+              <button type="button" data-krathong-type="lotus" 
+                      class="krathong-type-btn p-3 rounded-2xl border border-slate-700 bg-slate-900/60 text-left transition-all hover:border-amber-400">
+                <div class="text-xl mb-1">🪷</div>
+                <div class="font-bold text-xs text-amber-300">กระทงดอกบัวสวรรค์</div>
+                <div class="text-[10px] text-slate-300">บัวหลวงผลิบานบริสุทธิ์</div>
+              </button>
+
+              <button type="button" data-krathong-type="bread" 
+                      class="krathong-type-btn p-3 rounded-2xl border border-slate-700 bg-slate-900/60 text-left transition-all hover:border-amber-400">
+                <div class="text-xl mb-1">🍞</div>
+                <div class="font-bold text-xs text-amber-300">กระทงขนมปังรักษ์โลก</div>
+                <div class="text-[10px] text-slate-300">รูปเต่า/ปลา เป็นอาหารสัตว์น้ำ</div>
+              </button>
+
+              <button type="button" data-krathong-type="coconut" 
+                      class="krathong-type-btn p-3 rounded-2xl border border-slate-700 bg-slate-900/60 text-left transition-all hover:border-amber-400">
+                <div class="text-xl mb-1">🥥</div>
+                <div class="font-bold text-xs text-amber-300">กะลาสายประทีป</div>
+                <div class="text-[10px] text-slate-300">กะลามะพร้าวเทียนชัยสุโขทัย</div>
+              </button>
+
+              <button type="button" data-krathong-type="fantasy" 
+                      class="krathong-type-btn p-3 rounded-2xl border border-slate-700 bg-slate-900/60 text-left transition-all hover:border-amber-400 col-span-2 sm:col-span-2">
+                <div class="text-xl mb-1">⚙️✨</div>
+                <div class="font-bold text-xs text-amber-300">แฟนตาซีช่างเทคนิคท่าหลวงฯ</div>
+                <div class="text-[10px] text-slate-300">เฟืองจักรสีทองและแสงไฟ LED สไตล์ชาวช่าง</div>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- 1.2 Color Tone Selector -->
+          <div class="mb-5">
+            <label class="block text-xs font-semibold text-purple-200 mb-2">เฉดสีและกลีบกระทง:</label>
+            <div id="color-palette-container" class="flex flex-wrap gap-2">
+              <!-- Color options rendered by JS -->
+            </div>
+          </div>
+
+          <!-- 1.3 Center Flower Selector -->
+          <div class="mb-5">
+            <label class="block text-xs font-semibold text-purple-200 mb-2">ดอกไม้ประดับใจกลางกระทง:</label>
+            <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+              
+              <button type="button" data-flower="lotus_pink" 
+                      class="flower-btn p-2 rounded-xl border border-amber-400 bg-amber-400/20 text-center transition-all">
+                <div class="text-lg">🪷</div>
+                <div class="text-[11px] font-semibold text-amber-200">บัวชมพู</div>
+              </button>
+
+              <button type="button" data-flower="lotus_white" 
+                      class="flower-btn p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-center transition-all">
+                <div class="text-lg">🤍</div>
+                <div class="text-[11px] font-semibold text-slate-200">บัวขาว</div>
+              </button>
+
+              <button type="button" data-flower="marigold" 
+                      class="flower-btn p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-center transition-all">
+                <div class="text-lg">🌼</div>
+                <div class="text-[11px] font-semibold text-slate-200">ดาวเรือง</div>
+              </button>
+
+              <button type="button" data-flower="orchid" 
+                      class="flower-btn p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-center transition-all">
+                <div class="text-lg">🌸</div>
+                <div class="text-[11px] font-semibold text-slate-200">กล้วยไม้</div>
+              </button>
+
+              <button type="button" data-flower="rose" 
+                      class="flower-btn p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-center transition-all">
+                <div class="text-lg">🌹</div>
+                <div class="text-[11px] font-semibold text-slate-200">กุหลาบ</div>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- 1.4 Candle & Joss Sticks -->
+          <div class="mb-5">
+            <label class="block text-xs font-semibold text-purple-200 mb-2">สีเทียนส่องสว่าง:</label>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" data-candle="gold" class="candle-btn px-3 py-1 rounded-full text-xs font-semibold border border-amber-400 bg-amber-400/20 text-amber-300">
+                🕯️ เทียนทองมงคล
+              </button>
+              <button type="button" data-candle="pink" class="candle-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-700 bg-slate-900/60 text-slate-300">
+                🕯️ เทียนชมพูผูกรัก
+              </button>
+              <button type="button" data-candle="red" class="candle-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-700 bg-slate-900/60 text-slate-300">
+                🕯️ เทียนแดงโชคลาภ
+              </button>
+              <button type="button" data-candle="white" class="candle-btn px-3 py-1 rounded-full text-xs font-semibold border border-slate-700 bg-slate-900/60 text-slate-300">
+                🕯️ เทียนขาวบริสุทธิ์
+              </button>
+            </div>
+          </div>
+
+          <!-- 1.5 Accessories Toggles (ธูป, เหรียญ 9 บาท, ริบบิ้น) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-purple-900/40">
+            <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-200">
+              <input type="checkbox" id="toggle-incense" checked class="w-4 h-4 accent-amber-400 rounded">
+              <span>จุดธูป ๓ ดอก (ขอขมา)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-200">
+              <input type="checkbox" id="toggle-coin" checked class="w-4 h-4 accent-amber-400 rounded">
+              <span>เหรียญมงคล ๙ บาท</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-200">
+              <input type="checkbox" id="toggle-ribbon" checked class="w-4 h-4 accent-amber-400 rounded">
+              <span>โบว์ริบบิ้นทองคำ</span>
+            </label>
+          </div>
+
+        </div>
+
+        <!-- STEP 2: User Profile & Prayer Details -->
+        <div class="glass-panel p-6 rounded-3xl border border-amber-400/25">
+          
+          <h3 class="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 text-xs font-bold flex items-center justify-center">๒</span>
+            <span>ข้อมูลผู้ร่วมกิจกรรมและเขียนคำอธิษฐาน</span>
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            
+            <!-- Name Input -->
+            <div>
+              <label for="user-name-input" class="block text-xs font-semibold text-purple-200 mb-1.5">
+                ชื่อหรือชื่อเล่น:
+              </label>
+              <input type="text" id="user-name-input" placeholder="เช่น นายวรวุฒิ หรือ น้องพลอย" 
+                     class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-purple-500/30 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400">
+            </div>
+
+            <!-- Role Selector -->
+            <div>
+              <label for="user-role-select" class="block text-xs font-semibold text-purple-200 mb-1.5">
+                สถานะ / บทบาท:
+              </label>
+              <select id="user-role-select" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-purple-500/30 text-sm text-slate-100 focus:outline-none focus:border-amber-400">
+                <option value="นักเรียน ปวช.">นักเรียน ปวช.</option>
+                <option value="นักศึกษา ปวส.">นักศึกษา ปวส.</option>
+                <option value="ครู / อาจารย์">ครู / อาจารย์</option>
+                <option value="บุคลากรทางการศึกษา">บุคลากรทางการศึกษา</option>
+                <option value="ศิษย์เก่า">ศิษย์เก่า วท.ท่าหลวงฯ</option>
+                <option value="ผู้ปกครอง / บุคคลทั่วไป">ผู้ปกครอง / บุคคลทั่วไป</option>
+              </select>
+            </div>
+
+            <!-- Department Selector (All 11 departments of Thaluang Tech) -->
+            <div class="sm:col-span-2">
+              <label for="user-dept-select" class="block text-xs font-semibold text-purple-200 mb-1.5">
+                แผนกวิชา / หน่วยงานสังกัด:
+              </label>
+              <select id="user-dept-select" class="w-full px-4 py-2.5 rounded-xl bg-slate-900/80 border border-purple-500/30 text-sm text-slate-100 focus:outline-none focus:border-amber-400">
+                <option value="แผนกวิชาช่างยนต์">แผนกวิชาช่างยนต์</option>
+                <option value="แผนกวิชาช่างกลโรงงาน">แผนกวิชาช่างกลโรงงาน</option>
+                <option value="แผนกวิชาช่างเชื่อมโลหะ">แผนกวิชาช่างเชื่อมโลหะ</option>
+                <option value="แผนกวิชาช่างไฟฟ้ากำลัง">แผนกวิชาช่างไฟฟ้ากำลัง</option>
+                <option value="แผนกวิชาช่างอิเล็กทรอนิกส์">แผนกวิชาช่างอิเล็กทรอนิกส์</option>
+                <option value="แผนกวิชาเทคโนโลยีสารสนเทศ (IT)">แผนกวิชาเทคโนโลยีสารสนเทศ (IT)</option>
+                <option value="แผนกวิชาช่างก่อสร้างและโยธา">แผนกวิชาช่างก่อสร้างและโยธา</option>
+                <option value="แผนกวิชาการบัญชี">แผนกวิชาการบัญชี</option>
+                <option value="แผนกวิชาการตลาด">แผนกวิชาการตลาด</option>
+                <option value="แผนกวิชาคอมพิวเตอร์ธุรกิจ">แผนกวิชาคอมพิวเตอร์ธุรกิจ</option>
+                <option value="แผนกวิชาช่างเทคนิคอุตสาหกรรม">แผนกวิชาช่างเทคนิคอุตสาหกรรม</option>
+                <option value="ฝ่ายบริหารและสนับสนุน">ฝ่ายบริหารและสนับสนุน</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Avatar Selector & Photo Upload -->
+          <div class="mb-5">
+            <label class="block text-xs font-semibold text-purple-200 mb-2">เลือกตัวละครอวาตาร์ หรือ แนบรูปถ่าย:</label>
+            
+            <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-3">
+              
+              <button type="button" data-avatar-choice="avatar_male_student" 
+                      class="avatar-card p-2 rounded-2xl border border-amber-400 ring-2 ring-amber-400 bg-purple-900/60 text-center transition-all flex flex-col items-center">
+                <span class="text-2xl">👨‍🎓</span>
+                <span class="text-[10px] text-purple-200 mt-1">ช่างหนุ่ม</span>
+              </button>
+
+              <button type="button" data-avatar-choice="avatar_female_student" 
+                      class="avatar-card p-2 rounded-2xl border border-slate-700 bg-slate-900/60 text-center transition-all flex flex-col items-center">
+                <span class="text-2xl">👩‍🎓</span>
+                <span class="text-[10px] text-purple-200 mt-1">ช่างสาว</span>
+              </button>
+
+              <button type="button" data-avatar-choice="avatar_teacher" 
+                      class="avatar-card p-2 rounded-2xl border border-slate-700 bg-slate-900/60 text-center transition-all flex flex-col items-center">
+                <span class="text-2xl">👨‍🏫</span>
+                <span class="text-[10px] text-purple-200 mt-1">คุณครู</span>
+              </button>
+
+              <button type="button" data-avatar-choice="avatar_thai_male" 
+                      class="avatar-card p-2 rounded-2xl border border-slate-700 bg-slate-900/60 text-center transition-all flex flex-col items-center">
+                <span class="text-2xl">🤴</span>
+                <span class="text-[10px] text-purple-200 mt-1">ชุดไทยชาย</span>
+              </button>
+
+              <button type="button" data-avatar-choice="avatar_thai_female" 
+                      class="avatar-card p-2 rounded-2xl border border-slate-700 bg-slate-900/60 text-center transition-all flex flex-col items-center">
+                <span class="text-2xl">👸</span>
+                <span class="text-[10px] text-purple-200 mt-1">ชุดไทยหญิง</span>
+              </button>
+
+              <button type="button" data-avatar-choice="avatar_fantasy_mascot" 
+                      class="avatar-card p-2 rounded-2xl border border-slate-700 bg-slate-900/60 text-center transition-all flex flex-col items-center">
+                <span class="text-2xl">🤖</span>
+                <span class="text-[10px] text-purple-200 mt-1">น้องเฟืองทอง</span>
+              </button>
+
+            </div>
+
+            <!-- Optional Custom Photo Upload -->
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-purple-950/40 border border-purple-500/20">
+              <input type="file" id="user-photo-input" accept="image/*" class="hidden">
+              <button type="button" onclick="document.getElementById('user-photo-input').click()" 
+                      class="px-3 py-1.5 rounded-xl bg-purple-900/80 hover:bg-purple-800 text-purple-200 border border-purple-400/40 text-xs font-medium flex items-center gap-1.5">
+                <i data-lucide="image-plus" class="w-4 h-4"></i>
+                <span>อัปโหลดรูปของฉัน (ไม่บังคับ)</span>
+              </button>
+              <img id="photo-preview-thumb" src="" alt="User photo preview" class="w-8 h-8 rounded-full object-cover border border-amber-400 hidden">
+              <button type="button" id="remove-photo-btn" class="text-xs text-red-400 hover:text-red-300 hidden">ลบรูป</button>
+            </div>
+
+          </div>
+
+          <!-- Wish / Prayer Textarea -->
+          <div class="mb-4">
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="wish-textarea" class="text-xs font-semibold text-purple-200">
+                คำอธิษฐานและคำขอพร:
+              </label>
+              <span class="text-[11px] text-amber-300/80">เขียนความในใจขอขมาพระแม่คงคา</span>
+            </div>
+            <textarea id="wish-textarea" rows="3" placeholder="เขียนคำขอพรของคุณลงบนกระทง เช่น ขอให้การเรียนราบรื่น ครอบครัวมีความสุข ปราศจากโรคภัย..." 
+                      class="w-full px-4 py-3 rounded-2xl bg-slate-900/80 border border-purple-500/30 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400"></textarea>
+          </div>
+
+          <!-- Quick Wish Chips (คำอวยพรมงคลกดแล้วพิมพ์ให้อัตโนมัติ) -->
+          <div class="mb-5">
+            <span class="block text-[11px] font-medium text-slate-400 mb-1.5">✨ คำอธิษฐานยอดนิยม (แตะเพื่อเลือก):</span>
+            <div class="flex flex-wrap gap-1.5">
+              <button type="button" data-quick-wish="ขอขมาพระแม่คงคา ขอให้เรียนเกรดเฉลี่ย 4.00 ทุกวิชา สอบติดสิ่งที่หวัง" class="px-2.5 py-1 rounded-full text-[11px] bg-purple-950/60 hover:bg-purple-900 text-purple-200 border border-purple-500/20">
+                🎓 ขอให้เกรดดี 4.00
+              </button>
+              <button type="button" data-quick-wish="ขอให้ครอบครัวมีสุขภาพแข็งแรง ปราศจากโรคภัย มีแต่ความสุขความเจริญ" class="px-2.5 py-1 rounded-full text-[11px] bg-purple-950/60 hover:bg-purple-900 text-purple-200 border border-purple-500/20">
+                🏡 ครอบครัวอบอุ่นแข็งแรง
+              </button>
+              <button type="button" data-quick-wish="ขอให้โปรเจกต์จบสำเร็จฉลุย ได้งานทำที่มั่นคง มีอนาคตสดใส" class="px-2.5 py-1 rounded-full text-[11px] bg-purple-950/60 hover:bg-purple-900 text-purple-200 border border-purple-500/20">
+                💼 การงานมั่นคงก้าวหน้า
+              </button>
+              <button type="button" data-quick-wish="ขอขมาต่อสายน้ำที่ได้ใช้อุปโภคบริโภค ขอส่งเคราะห์ภัยร้ายลอยไปกับสายน้ำ" class="px-2.5 py-1 rounded-full text-[11px] bg-purple-950/60 hover:bg-purple-900 text-purple-200 border border-purple-500/20">
+                🌊 ขอขมาและลอยเคราะห์
+              </button>
+            </div>
+          </div>
+
+          <!-- Anonymous Option Checkbox -->
+          <div class="mb-6">
+            <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-300">
+              <input type="checkbox" id="anon-checkbox" class="w-4 h-4 accent-amber-400 rounded">
+              <span>ไม่ระบุตัวตน (แสดงคำอธิษฐานโดยไม่เปิดเผยชื่อจริงในสายน้ำ)</span>
+            </label>
+          </div>
+
+          <!-- Action: Float Krathong Button -->
+          <button type="button" id="btn-float-krathong" 
+                  class="gold-glow-btn w-full py-4 rounded-2xl text-base sm:text-lg font-bold flex items-center justify-center gap-3 shadow-xl">
+            <i data-lucide="waves" class="w-5 h-5"></i>
+            <span>ปล่อยกระทงลงสู่แม่น้ำป่าสัก</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       VIEW 3: ชมสายน้ำและกระทงในแม่น้ำ (RIVER VIEW & INTERACTIVE CANVAS)
+       ========================================================================= -->
+  <section id="river-view" class="hidden min-h-[calc(100vh-80px)] relative">
+    
+    <!-- Floating River HUD & Controls -->
+    <div id="river-hud" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 sm:gap-3 glass-panel-gold px-4 py-2.5 rounded-2xl border border-amber-400/40 shadow-2xl">
+      
+      <!-- Button: Launch Krathong -->
+      <button type="button" data-view-target="creator" 
+              class="gold-glow-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+        <span>ลอยกระทงของฉัน</span>
+      </button>
+
+      <!-- Button: Trigger Firework -->
+      <button type="button" onclick="if(window.loyApp && window.loyApp.river) { window.loyApp.river.createFirework(window.innerWidth*0.5, window.innerHeight*0.2); if(window.loyAudio) window.loyAudio.playFirework(); }" 
+              class="px-3 py-2 rounded-xl bg-purple-900/70 hover:bg-purple-800 text-amber-300 border border-purple-400/40 text-xs font-semibold flex items-center gap-1.5">
+        <i data-lucide="sun" class="w-4 h-4 text-amber-400"></i>
+        <span class="hidden sm:inline">จุดพลุ</span>
+      </button>
+
+      <!-- Theme Switcher Dropdown / Buttons -->
+      <div class="flex items-center gap-1 border-l border-amber-400/30 pl-2">
+        <button type="button" data-theme-btn="riverside" title="ฉากริมน้ำป่าสักคืนจันทร์เพ็ญ" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-purple-950/80 text-amber-300 ring-2 ring-amber-400">
+          ริมน้ำ
+        </button>
+        <button type="button" data-theme-btn="temple" title="ฉากหน้าวัดไทยงานสมโภช" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-purple-950/80 text-purple-200 hover:text-amber-300">
+          งานวัด
+        </button>
+        <button type="button" data-theme-btn="college" title="ฉากท่าน้ำวิทยาลัยเทคนิคท่าหลวงฯ" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-purple-950/80 text-purple-200 hover:text-amber-300">
+          ท่าน้ำ วท.
+        </button>
+      </div>
+
+      <!-- Return Home -->
+      <button type="button" data-view-target="home" class="p-2 rounded-xl bg-slate-900/60 hover:bg-slate-800 text-slate-300">
+        <i data-lucide="home" class="w-4 h-4"></i>
+      </button>
+
+    </div>
+
+    <!-- Onscreen floating instructions -->
+    <div class="absolute top-6 left-6 z-20 glass-panel px-4 py-2 rounded-2xl border border-amber-400/20 text-xs text-purple-200 pointer-events-none">
+      💡 แตะหรือคลิกที่กระทงเพื่ออ่านคำอธิษฐาน • แตะท้องฟ้าเพื่อจุดพลุดอกไม้ไฟ
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       VIEW 4: งานวัดจำลองและกิจกรรม (TEMPLE FAIR VIEW)
+       ========================================================================= -->
+  <section id="temple-view" class="hidden max-w-7xl mx-auto px-4 lg:px-8 py-8 sm:py-12">
+    
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-semibold mb-3">
+        <span>🏮 งานสมโภชเทศกาลลอยกระทง</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-amber-300 font-heading mb-2">
+        เที่ยวชมงานวัดจำลองริมน้ำป่าสัก
+      </h2>
+      <p class="text-xs sm:text-sm text-purple-200/80">
+        เพลิดเพลินกับกิจกรรมงานวัดไทย เสี่ยงเซียมซีทำนายดวง ชิมอาหารไทยโบราณ และสอยดาวลุ้นรับของขวัญ
+      </p>
+    </div>
+
+    <!-- 3 Activity Zones -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+      
+      <!-- Zone 1: Siam Si (เซียมซีแม่นๆ เจ้าพ่อท่าหลวง) -->
+      <div class="lg:col-span-5 glass-panel-gold p-6 rounded-3xl border border-amber-400/35 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+              <span>🎋</span>
+              <span>เซียมซีหลวงพ่อมงคล</span>
+            </span>
+            <span class="text-[11px] text-purple-200/80">เขย่าทำนายดวงชะตา</span>
+          </div>
+
+          <!-- Animated Siam Si Cylinder -->
+          <div class="flex flex-col items-center justify-center py-6 text-center">
+            <div id="siamsi-cylinder" class="w-24 h-36 bg-gradient-to-b from-amber-700 via-amber-800 to-amber-950 rounded-2xl border-2 border-amber-400 shadow-2xl relative flex items-center justify-center mb-4">
+              <span class="text-2xl">🎋</span>
+              <span class="absolute bottom-2 text-[10px] text-amber-200 font-bold">ท่าหลวง</span>
+            </div>
+            <p class="text-xs text-slate-300 mb-4 max-w-xs">
+              ตั้งจิตอธิษฐานถึงพระแม่คงคาและสิ่งศักดิ์สิทธิ์ แล้วกดปุ่มเพื่อเขย่ารับใบเซียมซี
+            </p>
+            <button type="button" id="btn-shake-siamsi" 
+                    class="gold-glow-btn px-6 py-2.5 rounded-xl text-sm font-bold shadow-lg">
+              เขย่ากระบอกเซียมซี
+            </button>
+          </div>
+
+          <!-- Siam Si Result Sheet (Hidden until shaken) -->
+          <div id="siamsi-result-card" class="hidden mt-6 p-5 rounded-2xl bg-purple-950/70 border border-amber-400/40 text-left">
+            <h4 id="siamsi-title" class="font-bold text-amber-300 text-sm mb-2">ใบที่ ๑</h4>
+            <div id="siamsi-poem" class="text-xs italic text-amber-200/90 whitespace-pre-line mb-3 font-serif bg-slate-950/50 p-3 rounded-xl border border-amber-400/20">
+              บทกลอน...
+            </div>
+            <div class="space-y-1.5 text-xs text-slate-200">
+              <p><strong>ความหมายทั่วไป:</strong> <span id="siamsi-general"></span></p>
+              <p><strong>การเรียน/การงาน:</strong> <span id="siamsi-study"></span></p>
+              <p><strong>ความรัก:</strong> <span id="siamsi-love"></span></p>
+              <p class="text-amber-300 font-bold">เลขมงคลนำโชค: <span id="siamsi-number"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zone 2: Charity Lucky Star (สอยดาวการกุศล) -->
+      <div class="lg:col-span-7 glass-panel p-6 rounded-3xl border border-amber-400/25">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+            <span>⭐</span>
+            <span>ซุ้มสอยดาวการกุศล วท.ท่าหลวงฯ</span>
+          </span>
+          <span class="text-[11px] text-purple-200/80">แตะดวงดาวเพื่อปลดล็อกคำอวยพร</span>
+        </div>
+
+        <p class="text-xs text-slate-300 mb-4">
+          ดวงดาวแต่ละดวงบรรจุคำอวยพรและแต้มบุญพิเศษ แตะดวงดาวที่คุณชื่นชอบเพื่อเปิดรางวัล:
+        </p>
+
+        <div id="lucky-stars-field" class="grid grid-cols-3 sm:grid-cols-4 gap-3">
+          <!-- Star buttons injected by JS -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Zone 3: Traditional Food Stalls (ซุ้มอาหารไทยโบราณ) -->
+    <div class="glass-panel p-6 rounded-3xl border border-amber-400/25 mb-12">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h3 class="text-lg font-bold text-amber-300">ซุ้มของกินและขนมไทยโบราณ</h3>
+          <p class="text-xs text-purple-200/80">เลือกชิมของอร่อยริมน้ำป่าสักเพื่อรับแต้มบุญและความสดชื่น</p>
+        </div>
+        <span class="text-2xl">🍜🥞🍡</span>
+      </div>
+
+      <div id="temple-food-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Food stalls injected by JS -->
+      </div>
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       VIEW 5: ระบบสถิติแบบเรียลไทม์ (STATISTICS VIEW)
+       ========================================================================= -->
+  <section id="stats-view" class="hidden max-w-7xl mx-auto px-4 lg:px-8 py-8 sm:py-12">
+    
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="text-3xl sm:text-4xl font-black text-amber-300 font-heading mb-2">
+        สถิติการร่วมกิจกรรมแบบเรียลไทม์
+      </h2>
+      <p class="text-xs sm:text-sm text-purple-200/80">
+        การมีส่วนร่วมของนักเรียน นักศึกษา และบุคลากร วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Department Participation Leaderboard -->
+      <div class="lg:col-span-7 glass-panel-gold p-6 rounded-3xl border border-amber-400/35">
+        <h3 class="text-base font-bold text-amber-300 mb-4 flex items-center gap-2">
+          <i data-lucide="trophy" class="w-5 h-5 text-amber-400"></i>
+          <span>อันดับการร่วมกิจกรรมแยกตามแผนกวิชา</span>
+        </h3>
+        <div id="dept-leaderboard-list">
+          <!-- Department bars injected by JS -->
+        </div>
+      </div>
+
+      <!-- Krathong Types Breakdown -->
+      <div class="lg:col-span-5 glass-panel p-6 rounded-3xl border border-amber-400/25 flex flex-col justify-between">
+        <div>
+          <h3 class="text-base font-bold text-amber-300 mb-4 flex items-center gap-2">
+            <i data-lucide="pie-chart" class="w-5 h-5 text-sky-400"></i>
+            <span>สัดส่วนรูปแบบกระทงยอดนิยม</span>
+          </h3>
+          <div class="space-y-3 text-xs">
+            <div class="flex justify-between items-center p-3 rounded-xl bg-purple-950/40 border border-purple-500/20">
+              <span class="flex items-center gap-2">🌿 กระทงใบตองวิจิตร</span>
+              <strong class="text-amber-300">42%</strong>
+            </div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-purple-950/40 border border-purple-500/20">
+              <span class="flex items-center gap-2">🪷 กระทงดอกบัวสวรรค์</span>
+              <strong class="text-amber-300">28%</strong>
+            </div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-purple-950/40 border border-purple-500/20">
+              <span class="flex items-center gap-2">🍞 กระทงขนมปังรักษ์โลก</span>
+              <strong class="text-amber-300">16%</strong>
+            </div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-purple-950/40 border border-purple-500/20">
+              <span class="flex items-center gap-2">⚙️ แฟนตาซีช่างเทคนิค</span>
+              <strong class="text-amber-300">14%</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-purple-900/40 text-center">
+          <button type="button" data-view-target="creator" class="gold-glow-btn w-full py-3 rounded-xl text-xs font-bold">
+            ร่วมส่งกระทงเพิ่มคะแนนให้แผนกของคุณ
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       VIEW 6: ประชาสัมพันธ์และคู่มือกิจกรรม (PR VIEW)
+       ========================================================================= -->
+  <section id="pr-view" class="hidden max-w-5xl mx-auto px-4 lg:px-8 py-8 sm:py-12">
+    
+    <div class="glass-panel-gold p-6 sm:p-10 rounded-3xl border border-amber-400/40 shadow-2xl relative overflow-hidden">
+      
+      <!-- Watermark emblem -->
+      <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl pointer-events-none">
+        ⚙
+      </div>
+
+      <div class="text-center mb-8">
+        <span class="inline-block px-3 py-1 rounded-full bg-purple-900/80 text-amber-300 border border-purple-400/40 text-xs font-bold mb-3">
+          ประชาสัมพันธ์กิจกรรมทางการ
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black text-amber-300 font-heading mb-2">
+          เทศกาลลอยกระทงออนไลน์ ประจำปี ๒๕๖๙
+        </h2>
+        <p class="text-sm sm:text-base text-purple-200 font-medium">
+          วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์ สำนักงานคณะกรรมการการอาชีวศึกษา
+        </p>
+      </div>
+
+      <!-- Poster Body -->
+      <div class="space-y-6 text-sm text-slate-200 leading-relaxed bg-slate-950/50 p-6 rounded-2xl border border-amber-400/20 mb-8">
+        
+        <div>
+          <h3 class="font-bold text-amber-300 text-base mb-2">🎯 วัตถุประสงค์ของการจัดกิจกรรม:</h3>
+          <ul class="list-disc list-inside space-y-1 text-slate-300 text-xs sm:text-sm">
+            <li>เพื่อส่งเสริมและอนุรักษ์ประเพณีลอยกระทงอันทรงคุณค่าของชาติไทย</li>
+            <li>เพื่อปลูกจิตสำนึกในการอนุรักษ์สิ่งแวดล้อม ลดขยะในแม่น้ำป่าสักด้วยกระทงดิจิทัล ๑๐๐%</li>
+            <li>เพื่อสร้างความสามัคคีและการมีส่วนร่วมของคณะครู บุคลากร และนักเรียน นักศึกษาทุกแผนกวิชา</li>
+            <li>เพื่อประยุกต์ใช้นวัตกรรมเทคโนโลยีดิจิทัลในการส่งเสริมวัฒนธรรมองค์กร</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-amber-300 text-base mb-2">📅 ระยะเวลาการจัดกิจกรรม:</h3>
+          <p class="text-xs sm:text-sm text-slate-300">
+            ตั้งแต่วันนี้ ถึง คืนวันเพ็ญเดือนสิบสอง สามารถร่วมลอยกระทงและส่งคำอธิษฐานได้ตลอด ๒๔ ชั่วโมง
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-amber-300 text-base mb-2">🎁 สิทธิพิเศษสำหรับผู้เข้าร่วม:</h3>
+          <p class="text-xs sm:text-sm text-slate-300">
+            ผู้ร่วมกิจกรรมทุกคนจะได้รับ <strong>"บัตรอวยพรออนไลน์และเกียรติบัตรดิจิทัล"</strong> สามารถบันทึกเป็นที่ระลึกและแชร์เพื่อรับแต้มกิจกรรมของวิทยาลัย
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Share Buttons -->
+      <div class="text-center">
+        <h4 class="text-xs font-bold text-purple-200 uppercase tracking-wider mb-3">แชร์กิจกรรมนี้ไปยังเพื่อนๆ:</h4>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <button type="button" onclick="window.cardGenerator.shareToSocial('line', 'ร่วมลอยกระทงออนไลน์กับวิทยาลัยเทคนิคท่าหลวงฯ')" 
+                  class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs flex items-center gap-2 shadow">
+            <span>แชร์ลง LINE</span>
+          </button>
+          <button type="button" onclick="window.cardGenerator.shareToSocial('facebook', 'ร่วมลอยกระทงออนไลน์กับวิทยาลัยเทคนิคท่าหลวงฯ')" 
+                  class="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs flex items-center gap-2 shadow">
+            <span>แชร์ลง Facebook</span>
+          </button>
+          <button type="button" onclick="window.cardGenerator.shareToSocial('copy')" 
+                  class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 font-semibold text-xs flex items-center gap-2 border border-slate-600">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+            <span>คัดลอกลิงก์</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       VIEW 7: ระบบหลังบ้านสำหรับแอดมิน (ADMIN PANEL VIEW)
+       ========================================================================= -->
+  <section id="admin-view" class="hidden max-w-7xl mx-auto px-4 lg:px-8 py-8 sm:py-12">
+    
+    <!-- Lock Screen (PIN verification) -->
+    <div id="admin-lock-screen" class="max-w-md mx-auto glass-panel-gold p-8 rounded-3xl border border-amber-400/40 text-center">
+      <div class="w-14 h-14 rounded-2xl bg-amber-400/20 border border-amber-400/40 text-amber-300 text-2xl flex items-center justify-center mx-auto mb-4">
+        🔒
+      </div>
+      <h3 class="text-xl font-bold text-amber-300 mb-1">ระบบจัดการสำหรับผู้ดูแลเว็บไซต์</h3>
+      <p class="text-xs text-purple-200 mb-6">กรุณาระบุรหัส PIN เพื่อเข้าสู่ระบบ (PIN เริ่มต้น: 1234)</p>
+      
+      <div class="mb-4">
+        <input type="password" id="admin-pin-input" placeholder="ใส่รหัส PIN 4 หลัก" maxlength="6" 
+               class="w-full text-center tracking-widest text-lg font-bold px-4 py-3 rounded-xl bg-slate-900 border border-amber-400/40 text-amber-300 focus:outline-none">
+      </div>
+
+      <button type="button" id="btn-admin-login" class="gold-glow-btn w-full py-2.5 rounded-xl font-bold text-sm">
+        เข้าสู่ระบบหลังบ้าน
+      </button>
+    </div>
+
+    <!-- Admin Dashboard (Visible after login) -->
+    <div id="admin-dashboard" class="hidden glass-panel p-6 sm:p-8 rounded-3xl border border-amber-400/30">
+      
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div>
+          <h3 class="text-xl font-bold text-amber-300 flex items-center gap-2">
+            <i data-lucide="shield" class="w-5 h-5 text-amber-400"></i>
+            <span>แดชบอร์ดจัดการข้อมูลผู้ใช้งานและคำอธิษฐาน</span>
+          </h3>
+          <p class="text-xs text-purple-200/80">ตรวจสอบ กรอง ซ่อน หรือลบข้อความที่ไม่เหมาะสม</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button type="button" id="admin-export-csv" class="px-3 py-1.5 rounded-xl bg-purple-900/80 hover:bg-purple-800 text-purple-200 border border-purple-400/30 text-xs font-semibold flex items-center gap-1.5">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>ส่งออกเป็น CSV</span>
+          </button>
+          <button type="button" id="admin-export-json" class="px-3 py-1.5 rounded-xl bg-purple-900/80 hover:bg-purple-800 text-purple-200 border border-purple-400/30 text-xs font-semibold flex items-center gap-1.5">
+            <i data-lucide="file-json" class="w-3.5 h-3.5"></i>
+            <span>ส่งออกเป็น JSON</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search Filter -->
+      <div class="mb-4">
+        <input type="text" id="admin-search-input" placeholder="ค้นหาตามชื่อ แผนกวิชา หรือข้อความคำอธิษฐาน..." 
+               class="w-full sm:w-80 px-4 py-2 rounded-xl bg-slate-900 border border-purple-500/30 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400">
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto rounded-2xl border border-purple-900/40">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-purple-950/80 text-amber-300 text-xs border-b border-purple-900/50">
+              <th class="p-3">#</th>
+              <th class="p-3">ชื่อผู้ลอย</th>
+              <th class="p-3">แผนกวิชา</th>
+              <th class="p-3">คำอธิษฐาน</th>
+              <th class="p-3">สถานะ</th>
+              <th class="p-3">การจัดการ</th>
+            </tr>
+          </thead>
+          <tbody id="admin-table-body">
+            <!-- Rows injected by JS -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       MODAL 1: บัตรอวยพรและคำอธิษฐาน (BLESSING MODAL)
+       ========================================================================= -->
+  <div id="blessing-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="glass-panel-gold max-w-md w-full p-6 sm:p-8 rounded-3xl border border-amber-400/50 text-center modal-enter relative shadow-2xl">
+      
+      <!-- Close button -->
+      <button type="button" onclick="document.getElementById('blessing-modal').classList.add('hidden')" 
+              class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="text-3xl mb-2">🌸✨</div>
+      <h3 class="text-xl font-black text-amber-300 font-heading mb-1">
+        ขอให้คำอธิษฐานของคุณเป็นจริง!
+      </h3>
+      <p class="text-xs text-purple-200 mb-4">
+        กระทงของคุณได้ลอยสู่แม่น้ำป่าสัก ขอให้ความทุกข์โศกลอยไปกับสายน้ำ
+      </p>
+
+      <!-- Rendered Card Image Preview -->
+      <div class="w-full rounded-2xl overflow-hidden border border-amber-400/40 shadow-xl mb-4 bg-slate-950">
+        <img id="blessing-card-preview" src="" alt="การ์ดอวยพรลอยกระทง" class="w-full h-auto hidden">
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col gap-2">
+        <button type="button" id="btn-download-card" class="gold-glow-btn w-full py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span>บันทึกการ์ดอวยพร (รูปภาพ)</span>
+        </button>
+
+        <div class="grid grid-cols-3 gap-2">
+          <button type="button" id="btn-share-line" class="py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs">
+            LINE
+          </button>
+          <button type="button" id="btn-share-fb" class="py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs">
+            Facebook
+          </button>
+          <button type="button" id="btn-share-copy" class="py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs">
+            คัดลอกลิงก์
+          </button>
+        </div>
+
+        <button type="button" onclick="document.getElementById('blessing-modal').classList.add('hidden'); window.loyApp.switchView('creator');" 
+                class="text-xs text-amber-300/80 hover:text-amber-300 underline mt-2">
+          🌸 ประดิษฐ์กระทงอีกใบ
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: อ่านคำอธิษฐานของเพื่อน (COMMUNITY KRATHONG MODAL)
+       ========================================================================= -->
+  <div id="community-detail-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="glass-panel-gold max-w-sm w-full p-6 rounded-3xl border border-amber-400/50 text-center modal-enter relative shadow-2xl">
+      
+      <button type="button" onclick="document.getElementById('community-detail-modal').classList.add('hidden')" 
+              class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div id="comm-krathong-art" class="w-36 h-36 mx-auto mb-2 flex items-center justify-center">
+        <!-- Krathong SVG -->
+      </div>
+
+      <h3 id="comm-user-name" class="text-lg font-bold text-amber-300 font-heading">
+        ชื่อผู้ร่วมกิจกรรม
+      </h3>
+      <p id="comm-user-dept" class="text-xs text-purple-200 mb-3">
+        แผนกวิชา
+      </p>
+
+      <div class="p-4 rounded-2xl bg-slate-950/60 border border-amber-400/30 mb-4">
+        <p id="comm-wish-text" class="text-sm italic text-amber-100 font-serif">
+          “ คำอธิษฐาน ”
+        </p>
+      </div>
+
+      <button type="button" id="comm-btn-like" 
+              class="gold-glow-btn w-full py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow">
+        <span>❤️ ร่วมส่งแต้มบุญ & อนุโมทนา (<span id="comm-like-count">1</span>)</span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 3: วิธีการร่วมกิจกรรม (HOW TO MODAL)
+       ========================================================================= -->
+  <div id="how-to-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="glass-panel-gold max-w-md w-full p-6 sm:p-8 rounded-3xl border border-amber-400/50 modal-enter relative shadow-2xl">
+      
+      <button type="button" onclick="document.getElementById('how-to-modal').classList.add('hidden')" 
+              class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <h3 class="text-xl font-bold text-amber-300 font-heading mb-4 flex items-center gap-2">
+        <i data-lucide="book-open" class="w-5 h-5 text-amber-400"></i>
+        <span>วิธีการร่วมกิจกรรมลอยกระทงออนไลน์</span>
+      </h3>
+
+      <div class="space-y-4 text-xs text-slate-200 leading-relaxed mb-6">
+        <div class="flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold flex items-center justify-center shrink-0">1</span>
+          <p><strong>เลือกและประดิษฐ์กระทง:</strong> เลือกรูปแบบกระทง ดอกไม้ ธูปเทียน และสีสันที่คุณชอบ พร้อมดูตัวอย่างแบบสดๆ</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold flex items-center justify-center shrink-0">2</span>
+          <p><strong>เขียนคำอธิษฐาน:</strong> ระบุชื่อ แผนกวิชา และความในใจที่ต้องการขอขมาพระแม่คงคา หรือขอพรในสิ่งที่ปรารถนา</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-bold flex items-center justify-center shrink-0">3</span>
+          <p><strong>ลอยกระทงและรับการ์ด:</strong> กดปุ่มปล่อยกระทงลงแม่น้ำป่าสัก รับการ์ดอวยพรสุดพิเศษ พร้อมแตะชมกระทงของเพื่อนๆ ได้ตลอดเวลา</p>
+        </div>
+      </div>
+
+      <button type="button" onclick="document.getElementById('how-to-modal').classList.add('hidden'); window.loyApp.switchView('creator');" 
+              class="gold-glow-btn w-full py-2.5 rounded-xl text-xs font-bold">
+        เข้าใจแล้ว • เริ่มทำกระทงเลย
+      </button>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 4: บทขอขมาพระแม่คงคา & ประวัติวันลอยกระทง
+       ========================================================================= -->
+  <div id="prayer-history-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="glass-panel-gold max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-amber-400/50 modal-enter relative shadow-2xl max-h-[85vh] overflow-y-auto">
+      
+      <button type="button" onclick="document.getElementById('prayer-history-modal').classList.add('hidden')" 
+              class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <h3 class="text-xl font-bold text-amber-300 font-heading mb-3 flex items-center gap-2">
+        <span>📜 บทสวดขอขมาพระแม่คงคา</span>
+      </h3>
+
+      <div class="p-4 rounded-2xl bg-slate-950/70 border border-amber-400/30 text-xs text-amber-100 font-serif leading-relaxed mb-4">
+        <p class="font-bold text-center text-amber-300 mb-2">(ตั้งนะโม ๓ จบ)</p>
+        <p class="text-center italic">
+          สัพพัง อะปะราธัง ขะมะถะ เม ภันเต อายะสะมา คังคา มะหาเทวี<br>
+          <span class="block mt-2 text-[11px] text-slate-300">
+            "ข้าพเจ้าทั้งหลาย ขอน้อมบูชาและกราบขอขมาพระแม่คงคา ที่ได้ใช้น้ำอุปโภคบริโภคและทิ้งสิ่งปฏิกูลลงในแม่น้ำ ขอพระแม่คงคาโปรดประทานอภัย และอำนวยพรให้ข้าพเจ้ามีแต่ความสุขความเจริญเทอญ"
+          </span>
+        </p>
+      </div>
+
+      <h4 class="font-bold text-amber-300 text-sm mb-1.5">ประเพณีลอยกระทง:</h4>
+      <p class="text-xs text-slate-300 leading-relaxed mb-6">
+        ประเพณีลอยกระทงตรงกับวันขึ้น ๑๕ ค่ำ เดือน ๑๒ มีมาแต่โบราณเพื่อบูชารอยพระพุทธบาท และแสดงความกตัญญูกตเวทิตาต่อแม่น้ำลำคลอง การจัดกิจกรรมลอยกระทงออนไลน์ช่วยให้เราร่วมสืบสานคุณค่าทางวัฒนธรรมได้อย่างงดงามโดยไม่ก่อให้เกิดมลภาวะต่อแหล่งน้ำ
+      </p>
+
+      <button type="button" onclick="document.getElementById('prayer-history-modal').classList.add('hidden')" 
+              class="gold-glow-btn w-full py-2.5 rounded-xl text-xs font-bold">
+        ปิดหน้าต่าง
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-16 border-t border-purple-900/40 glass-panel py-6 px-4 text-center text-xs text-purple-300/70">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© ๒๕๖๙ วิทยาลัยเทคนิคท่าหลวงซีเมนต์ไทยอนุสรณ์ • สำนักงานคณะกรรมการการอาชีวศึกษา</p>
+      <div class="flex items-center gap-3 text-[11px]">
+        <span>รักษ์แม่น้ำป่าสัก</span>
+        <span>•</span>
+        <span>สืบสานศิลปวัฒนธรรมไทย</span>
+        <span>•</span>
+        <span>นวัตกรรมอาชีวศึกษา</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/krathong-builder.js"></script>
+  <script src="js/card-generator.js"></script>
+  <script src="js/temple-fair.js"></script>
+  <script src="js/river-canvas.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- Initialize Lucide icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
